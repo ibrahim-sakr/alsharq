@@ -1,5 +1,6 @@
 // global var for setting the env
 window.env = "development"; // production
+// window.env = "production";  // development
 
 
 var App = {
