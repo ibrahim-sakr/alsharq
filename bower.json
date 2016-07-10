@@ -1,0 +1,11 @@
+{
+  "name": "al-sharq",
+  "private": "true",
+  "devDependencies": {},
+  "dependencies": {
+    "angular": "1.*",
+    "angular-route": "1.*",
+    "angular-resource": "1.*",
+    "angular-material": "1.*"
+  }
+}

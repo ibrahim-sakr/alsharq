@@ -1,0 +1,32 @@
+AlSharq App
+
+- Pre Requirements
+    -- install nodejs latest version
+    -- run -> `npm install -g cordova`
+    -- run -> `cordova --version` to make sure it's installed.
+    -- make sure you have the right env for android
+
+- Before Building
+    -- cd into angular/www/js
+    -- open App.js
+    -- change the first line development -> production .. save and close
+
+- Add Platforms
+    -- cd into angular then ...
+    -- run -> `cordova platforms add android`
+    -- run -> `cordova platforms add ios`
+
+- Run on emulator
+    -- run -> `cordova run android --target=targetName`
+    -- run -> `cordova run ios --target=iPhone-5s`
+
+- Run on Browsers
+    -- run -> `cordova prepare`
+    -- run -> `cordova serve`
+    -- by defualt the app will be in localhost:8000
+
+- Building
+    -- run -> `cordova prepare`
+    -- run -> `cordova build --debug android`
+    -- run -> `cordova build --debug ios`
+
