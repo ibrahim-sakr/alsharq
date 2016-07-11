@@ -1,6 +1,10 @@
 alsharq.controller('OwnArticlesController', [
     '$scope',
-    function($scope){
+    '$rootScope',
+    '$routeParams',
+    function($scope, $rootScope, $routeParams){
+        $scope.type = $routeParams.prefrence;
         
+        $rootScope.pageTitle = 'My ' + $scope.type + ' Articles';
     }
 ]);

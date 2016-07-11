@@ -3,12 +3,15 @@
  * { "ControllerName": "page title" }
  */
 alsharq.value('Title', {
-    "HomeController": "home page",
-    "ContactController": "Contact us",
-    "AboutController": "about us",
-    "AuthController" : "login/register",
-    "ProfileController" : "My Profile",
-    "FranchiseController": "become Franchise",
-    "ChaptersController": "All Chapters",
-    "FormsController": "All Forms",
+    "HomeController":         "home page",
+    "AuthController":         "Login\\Register",
+    "CatsWritersController":  "Categories - Writers",
+    "OwnArticlesController":  "My Articles",
+    "OwnCountriesController": "My Countries",
+    "OwnInterestsController": "My Interests",
+    "OwnKeywordsController":  "My Keywords",
+    "OwnWebsitesController":  "My websites",
+    "ProfileController":      "My Profile",
+    "RootController":         "Root",
+    "WebsitesController":     "All Websites",
 });

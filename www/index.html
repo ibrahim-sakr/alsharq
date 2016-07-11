@@ -14,7 +14,6 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body app-ready="appReady()" ng-controller="RootController" md-swipe-right="openSidebar('mainSidebar')" md-swipe-left="openSidebar('shortcutSidebar')">
-    <!-- loading page -> removed after app loaded -->
 
     <div id="appContainer">
         <!-- header -->
@@ -46,26 +45,37 @@
                         <md-icon md-menu-origin class="alsharq-person"></md-icon><p> My Profile </p>
                     </md-list-item>
                     <md-list-item class="secondary-button-padding" ng-click="goTo('home')">
-                        <md-icon md-menu-origin class="alsharq-home"></md-icon> <p> Home </p>
+                        <md-icon md-menu-origin class="alsharq-home"></md-icon> <p> Home (Latest News) </p>
                     </md-list-item>
                     <md-list-item class="secondary-button-padding" ng-click="goTo('auth')">
-                        <md-icon md-menu-origin class="alsharq-accessibility"></md-icon> <p> Login </p>
+                        <md-icon md-menu-origin class="alsharq-accessibility"></md-icon> <p> Login/Register </p>
                     </md-list-item>
-                    <md-list-item class="secondary-button-padding" ng-click="goTo('chapters')">
-                        <md-icon md-menu-origin class="alsharq-picture_as_pdf"></md-icon><p> Chapters </p>
+                    <md-list-item class="secondary-button-padding" ng-click="goTo('websites')">
+                        <md-icon md-menu-origin class="alsharq-accessibility"></md-icon> <p> All Websites </p>
                     </md-list-item>
-                    <md-list-item class="secondary-button-padding" ng-click="goTo('forms')">
-                        <md-icon md-menu-origin class="alsharq-print"></md-icon><p> Forms </p>
+                    <md-list-item class="secondary-button-padding" ng-click="goTo('categories-writers')">
+                        <md-icon md-menu-origin class="alsharq-accessibility"></md-icon> <p> Categories and Writers </p>
                     </md-list-item>
-                    <md-list-item class="secondary-button-padding" ng-click="goTo('about')">
-                        <md-icon md-menu-origin class="alsharq-info"></md-icon><p> About us </p>
+                    <md-list-item class="secondary-button-padding" ng-click="goTo('my-websites')">
+                        <md-icon md-menu-origin class="alsharq-accessibility"></md-icon> <p> My Sites </p>
                     </md-list-item>
-                    <md-list-item class="secondary-button-padding" ng-click="goTo('contact')">
-                        <md-icon md-menu-origin class="alsharq-mail_outline"></md-icon> <p> Contact Us </p>
+                    <md-list-item class="secondary-button-padding" ng-click="goTo('my-keywords')">
+                        <md-icon md-menu-origin class="alsharq-accessibility"></md-icon> <p> My Keywords </p>
                     </md-list-item>
-                    <md-list-item class="secondary-button-padding" ng-click="goTo('become_franchise')">
-                        <md-icon md-menu-origin class="alsharq-send"></md-icon> <p> Become Franchise </p>
+                    <md-list-item class="secondary-button-padding" ng-click="goTo('my-articles/favorite')">
+                        <md-icon md-menu-origin class="alsharq-accessibility"></md-icon> <p> My Favorite Articles </p>
                     </md-list-item>
+                    <md-list-item class="secondary-button-padding" ng-click="goTo('my-articles/later')">
+                        <md-icon md-menu-origin class="alsharq-accessibility"></md-icon> <p> My Later Articles </p>
+                    </md-list-item>
+                    <md-list-item class="secondary-button-padding" ng-click="goTo('my-countries')">
+                        <md-icon md-menu-origin class="alsharq-accessibility"></md-icon> <p> My Countries </p>
+                    </md-list-item>
+                    <md-list-item class="secondary-button-padding" ng-click="goTo('my-interests')">
+                        <md-icon md-menu-origin class="alsharq-accessibility"></md-icon> <p> My Interests </p>
+                    </md-list-item>
+
+
                     <md-list-item class="secondary-button-padding" ng-click="logout()">
                         <md-icon md-menu-origin class="alsharq-exit_to_app"></md-icon><p> Logout </p>
                     </md-list-item>
@@ -109,30 +119,32 @@
     <script src="js/utils/Routes.js"></script>
 
     <!-- controllers -->
-    <script scr="js/controllers/RootController.js"></script>
-    <script scr="js/controllers/AuthController.js"></script>
-    <script scr="js/controllers/CatsWritersController.js"></script>
-    <script scr="js/controllers/HomeController.js"></script>
-    <script scr="js/controllers/OwnArticlesController.js"></script>
-    <script scr="js/controllers/OwnCountriesController.js"></script>
-    <script scr="js/controllers/OwnInterestsController.js"></script>
-    <script scr="js/controllers/OwnKeywordsController.js"></script>
-    <script scr="js/controllers/OwnWebsitesController.js"></script>
-    <script scr="js/controllers/ProfileController.js"></script>
+    <script src="js/controllers/AuthController.js"></script>
+    <script src="js/controllers/CatsWritersController.js"></script>
+    <script src="js/controllers/HomeController.js"></script>
+    <script src="js/controllers/OwnArticlesController.js"></script>
+    <script src="js/controllers/OwnCountriesController.js"></script>
+    <script src="js/controllers/OwnInterestsController.js"></script>
+    <script src="js/controllers/OwnKeywordsController.js"></script>
+    <script src="js/controllers/OwnWebsitesController.js"></script>
+    <script src="js/controllers/ProfileController.js"></script>
+    <script src="js/controllers/RootController.js"></script>
+    <script src="js/controllers/WebsitesController.js"></script>
 
     <!-- factories -->
-    <script scr="js/factories/ArticleFactory.js"></script>
-    <script scr="js/factories/AuthFactory.js"></script>
-    <script scr="js/factories/CommentFactory.js"></script>
-    <script scr="js/factories/ContactFactory.js"></script>
-    <script scr="js/factories/CountryFacroty.js"></script>
-    <script scr="js/factories/FeedFactory.js"></script>
-    <script scr="js/factories/InterestFactory.js"></script>
-    <script scr="js/factories/KeywordFactory.js"></script>
-    <script scr="js/factories/SubscriptionFactory.js"></script>
-    <script scr="js/factories/WebsiteFactory.js"></script>
+    <script src="js/factories/ArticleFactory.js"></script>
+    <script src="js/factories/AuthFactory.js"></script>
+    <script src="js/factories/CommentFactory.js"></script>
+    <script src="js/factories/ContactFactory.js"></script>
+    <script src="js/factories/CountryFacroty.js"></script>
+    <script src="js/factories/FeedFactory.js"></script>
+    <script src="js/factories/InterestFactory.js"></script>
+    <script src="js/factories/KeywordFactory.js"></script>
+    <script src="js/factories/SubscriptionFactory.js"></script>
+    <script src="js/factories/WebsiteFactory.js"></script>
 
     <!-- services -->
+    <script src="js/services/QueueService.js"></script>
 
     <!-- directives -->
 

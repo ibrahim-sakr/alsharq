@@ -76,11 +76,11 @@ alsharq.config([
     }
 ]);
 
-// alsharq.run(function($rootScope, $route, Title) {
-//     $rootScope.$on('$routeChangeSuccess', function () {
-//         if ($route.current.$$route) {
-//             $rootScope.pageTitle = Title[$route.current.$$route.controller];
-//             $rootScope.isHome    = $route.current.$$route.controller == 'HomeController';
-//         }
-//     })
-// });
+alsharq.run(function($rootScope, $route, Title) {
+    $rootScope.$on('$routeChangeSuccess', function () {
+        if ($route.current.$$route) {
+            $rootScope.pageTitle = Title[$route.current.$$route.controller];
+            $rootScope.isHome    = $route.current.$$route.controller == 'HomeController';
+        }
+    })
+});

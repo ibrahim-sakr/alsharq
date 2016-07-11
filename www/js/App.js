@@ -2,6 +2,10 @@
 window.env = "development"; // production
 // window.env = "production";  // development
 
+var alsharq = angular.module('AlSharq', [
+    'ngRoute',
+    'ngMaterial'
+]);
 
 var App = {
     init: function(){
@@ -51,11 +55,12 @@ var App = {
      * Device Ready Handler
      */
     onDeviceReady: function(){
-        window.alsharq = angular.module('AlSharq', [
-            'ngRoute',
-            'ngMaterial',
-        ]);
-        window.angular.bootstrap(document, ['AlSharq']);
+        if (env == 'development') {
+            angular.element(document).ready(function() {
+                angular.bootstrap(document, ['AlSharq']);
+            });
+        }
+        if (env == 'production') angular.bootstrap(document, ['AlSharq']);
     }
 };
 
