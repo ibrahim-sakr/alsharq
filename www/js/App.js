@@ -51,16 +51,13 @@ var App = {
      * Device Ready Handler
      */
     onDeviceReady: function(){
-        var alsharq = angular.module('AlSharq', [
-            'ngResource',
+        window.alsharq = angular.module('AlSharq', [
             'ngRoute',
             'ngMaterial',
         ]);
-        angular.bootstrap(document, ['AlSharq']);
+        window.angular.bootstrap(document, ['AlSharq']);
     }
 };
 
 // Let's Rock nRole !!??!!
 App.init();
-
-

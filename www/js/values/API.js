@@ -1,4 +1,4 @@
-franchise.constant('API', (function(){
+alsharq.constant('API', (function(){
 
     var URL = "http://www.franchise.com/api/";
 
@@ -65,7 +65,7 @@ franchise.constant('API', (function(){
          *     }
          * }
          */
-        "POST_LOGIN": URL + "user/register_social",
+        "POST_SOCIAL_LOGIN": URL + "user/register_social",
 
         /**
          * @method POST
@@ -86,7 +86,7 @@ franchise.constant('API', (function(){
          *     }
          * }
          */
-        "POST_LOGIN": URL + "user/guest",
+        "POST_GUEST_LOGIN": URL + "user/guest",
 
         /**
          * @method POST
@@ -95,7 +95,7 @@ franchise.constant('API', (function(){
          *     "message": "successfully logged out"
          * }
          */
-        "POST_LOGIN": URL + "user/logout",
+        "POST_LOGOUT": URL + "user/logout",
 
         /**
          * @method GET
@@ -252,7 +252,7 @@ franchise.constant('API', (function(){
          *     Status 200 on sucess
          *     Status 400 on fails
          */
-        "POST_INTEREST": URL + "interest/add",
+        "POST_ADD_INTEREST": URL + "interest/add",
 
         /**
          * @method POST
@@ -272,36 +272,11 @@ franchise.constant('API', (function(){
          * }
          * @return
          *     "count": 1,
-         *     "next": null,
-         *     "previous": null,
-         *     "results": [
-         *         {
-         *             "id": 1,
-         *             "name": "Jordan"
-         *             "image": {
-         *                 "caption": "asdas",
-         *                 "file": "http://192.168.0.10:8080/media/images/2016/06/18/image.gif",
-         *                 "height": 300,
-         *                 "width": 200
-         *              },
-         *          }
-         *      ]
-         * }
-         */
-        "GET_WEBSITES": URL + "website/list",
-
-        /**
-         * @method GET
-         * @send {
-         *     page: 2,
-         * }
-         * @return
-         *     "count": 1,
          *     "results": [
          *         {
          *             "id": 1,
          *             "is_subscribed": null,
-         *             "title": "نبض الشارع",
+         *             "title": "نبض  الشارع",
          *             "type": "category",
          *             "name": "Khaberni"
          *             "website": {
@@ -442,6 +417,296 @@ franchise.constant('API', (function(){
          * }
          */
         "GET_ARTICLES": URL + "article/list",
+
+        /**
+         * @method POST
+         * @send {
+         *     article_id: 1,
+         * }
+         * @return
+         *     Status 200 on sucess
+         *     Status 400 on fails
+         */
+        "POST_ARTICLE_READ_COUNT": URL + "article/mark_read",
+
+        /**
+         * @method POST
+         * @send {
+         *     article_id: 1,
+         * }
+         * @return
+         *     Status 200 on sucess
+         *     Status 400 on fails
+         */
+        "POST_ARTICLE_SHARE_COUNT": URL + "article/mark_share",
+
+        /**
+         * @method GET
+         * @send {
+         *     page: 2,
+         * }
+         * @return {
+         *     "count": 1,
+         *     "next": "",
+         *     "previous": "",
+         *     "results": [
+         *         {
+         *             "body": " ",
+         *             "channel_id": 1,
+         *             "channel_name": "نبض الشارع",
+         *             "channel_type": "category",
+         *             "country_id": [ 1 ],
+         *             "country_name": [
+         *                 "Jordan"
+         *             ],
+         *             "date_published": "2016-03-13T21:36:00",
+         *             "interest_id": [ 1 ],
+         *             "interest_name": [ "Local" ],
+         *             "is_favorite": false,
+         *             "is_readlater": false,
+         *             "item_id": "336",
+         *             "photos": [
+         *                 "http://192.168.0.10:8080/media/images/2016/03/14/1457908553_JyY9BxE.jpg",
+         *             ],
+         *             "status": 1,
+         *             "summary": "article content",
+         *             "thumbnail": null,
+         *             "title": "الطراونة: نفس حزبي بشعارات المعتصمين - فيديو",
+         *             "url": "http://192.168.0.10:8080/article/336",
+         *             "videos": null,
+         *             "website_id": 1,
+         *             "website_image": null,
+         *             "website_name": "Khaberni"
+         *         }
+         *     ]
+         * }
+         */
+        "FAVORITE_ARTICLES": URL + "article/favorite/list",
+
+        /**
+         * @method POST
+         * @send {
+         *     article_id: 1,
+         * }
+         * @return
+         *     Status 200 on sucess
+         *     Status 400 on fails
+         */
+        "ADD_FAVORITE_ARTICLE": URL + "article/favorite/add",
+
+        /**
+         * @method POST
+         * @send {
+         *     article_id: 1,
+         * }
+         * @return
+         *     Status 200 on sucess
+         *     Status 400 on fails
+         */
+        "REMOVE_FAVORITE_ARTICLE": URL + "article/favorite/remove",
+
+        /**
+         * @method GET
+         * @send {
+         *     page: 1,
+         * }
+         * @return {
+         *     "count": 1,
+         *     "next": null,
+         *     "previous": null,
+         *     "results": [
+         *         {
+         *             "id": 1,
+         *             "title": "Jordan"
+         *             "is_subscribed": "jo",
+         *             "type": "jo",
+         *             "website": {
+         *                 "id": 1,
+         *                 "name": "Khaberni",
+         *                 "image": {
+         *                     "caption": "asdas",
+         *                     "file": "http://192.168.0.10:8080/media/images/2016/06/18/image.gif",
+         *                     "height": 300,
+         *                     "width": 200
+         *                 }
+         *             }
+         *         }
+         *      ]
+         * }
+         */
+        "GET_SUBSCRIPERS": URL + "subscriptions/list",
+
+        /**
+         * @method GET
+         * @send {}
+         * @return {
+         *     "countries": [
+         *         {
+         *             "count": 0,
+         *             "id": 1,
+         *             "name": "Jordan"
+         *         }
+         *     ],
+         *     "keywords": [
+         *         {
+         *             "count": 0,
+         *             "id": 3,
+         *             "name": "test"
+         *         }
+         *     ],
+         *     "websites": [
+         *         {
+         *             "categories": [
+         *                 {
+         *                     "count": 0,
+         *                     "id": 2,
+         *                     "name": "اسواق"
+         *                 }
+         *             ],
+         *             "count": 0,
+         *             "id": 1,
+         *             "name": "Khaberni"
+         *         }
+         *     ]
+         * }
+         */
+        "GET_SUBSCRIPTION_FILTER": URL + "subscriptions/filter",
+
+        /**
+         * @method GET
+         * @send {
+         *     page: 1,
+         * }
+         * @return {
+         *     "count": 1,
+         *     "next": "",
+         *     "previous": "",
+         *     "results": [
+         *         {
+         *             "content": "test",
+         *             "id": 3
+         *         }
+         *     ]
+         * }
+         */
+        "KEYWORDS": URL + "keyword/list",
+
+        /**
+         * @method POST
+         * @send {
+         *     content: 1,
+         * }
+         * @return
+         *     Status 200 on sucess
+         *     Status 400 on fails
+         */
+        "ADD_KEYWORD": URL + "keyword/add",
+
+        /**
+         * @method POST
+         * @send {
+         *     content: 1,
+         * }
+         * @return
+         *     Status 200 on sucess
+         *     Status 400 on fails
+         */
+        "REMOVE_KEYWORD": URL + "keyword/remove",
+
+        /**
+         * @method GET
+         * @send {
+         *     id: 1, // article id
+         * }
+         * @return {
+         *     "message": 40,
+         *     "status": true
+         * }
+         */
+        "COMMENTS_COUNT": URL + "comments/count",
+
+        /**
+         * @method GET
+         * @send {
+         *     id: 1, // article id
+         * }
+         * @return {
+         *     "count": 1,
+         *     "next": "",
+         *     "previous": "",
+         *     "results": [
+         *         {
+         *             "comment": "Hello",
+         *             "id": 4,
+         *             "submit_date": "2016-06-28T09:28:17Z",
+         *             "user": {
+         *                 "email": "rakan.alhneiti123@gmail.com",
+         *                 "facebook_connected": false,
+         *                 "first_name": "Rakan",
+         *                 "google_connected": false,
+         *                 "id": 6,
+         *                 "is_registered": true,
+         *                 "last_name": "Alhneiti",
+         *                 "profile_pic": null
+         *             }
+         *         }
+         *     ]
+         * }
+         */
+        "COMMENTS": URL + "comments",
+
+        /**
+         * @method POST
+         * @send {
+         *     article_id: 1,
+         *     comment: ""
+         * }
+         * @return {
+         *     Status 200 on sucess
+         *     Status 400 on fails
+         * }
+         */
+        "ADD_COMMENTS": URL + "comments/add",
+
+        /**
+         * @method GET
+         * @send {
+         *     page: 2,
+         * }
+         * @return
+         *     "count": 1,
+         *     "next": null,
+         *     "previous": null,
+         *     "results": [
+         *         {
+         *             "id": 1,
+         *             "name": "Jordan"
+         *             "image": {
+         *                 "caption": "asdas",
+         *                 "file": "http://192.168.0.10:8080/media/images/2016/06/18/image.gif",
+         *                 "height": 300,
+         *                 "width": 200
+         *              },
+         *          }
+         *      ]
+         * }
+         */
+        "GET_WEBSITES": URL + "website/list",
+
+        /**
+         * @method POST
+         * @send {
+         *     name: 1,
+         *     email: ""
+         *     subject: ""
+         *     message: ""
+         * }
+         * @return {
+         *     Status 200 on sucess
+         *     Status 400 on fails
+         * }
+         */
+        "POST_CONTACT": URL + "contact",
     }
 })());
 

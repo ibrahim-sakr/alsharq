@@ -2,7 +2,7 @@
  * contain every page title mapped with it's controller
  * { "ControllerName": "page title" }
  */
-franchise.value('Title', {
+alsharq.value('Title', {
     "HomeController": "home page",
     "ContactController": "Contact us",
     "AboutController": "about us",

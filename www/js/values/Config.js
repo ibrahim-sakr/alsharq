@@ -1,3 +1,3 @@
-franchise.value('Config', {
+alsharq.value('Config', {
     "pagination": 10,
 });
