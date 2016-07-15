@@ -16,7 +16,7 @@ alsharq.factory('Interest', [
                     });
                 }
             },
-            myInterests: function(page){
+            own: function(page){
                 var page = page || 1;
                 if (env == 'production') return $http.get(API.GET_MY_INTERESTS, { 'page' :page });
                 if (env == 'development') {

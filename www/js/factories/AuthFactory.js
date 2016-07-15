@@ -36,7 +36,7 @@ alsharq.factory('Auth', [
                 }
             },
             loginGuest: function(device_id){
-                if (env == 'production') return $http.post(API.POST_GUEST_LOGIN, { 'device_id' :device_id });
+                if (env == 'production') return $http.post(API.POST_GUEST_LOGIN, { 'device_id': device_id });
                 if (env == 'development') {
                     return $q(function(resolve, reject) {
                         var data = { "data": testData.POST_GUEST_LOGIN };
@@ -55,8 +55,8 @@ alsharq.factory('Auth', [
                 }
             },
 
-            resetPassword: function(){
-                if (env == 'production') return $http.post(API.POST_RESET_PASSWORD);
+            resetPassword: function(email){
+                if (env == 'production') return $http.post(API.POST_RESET_PASSWORD, email);
                 if (env == 'development') {
                     return $q(function(resolve, reject) {
                         var data = { "data": testData.POST_RESET_PASSWORD };
@@ -65,25 +65,23 @@ alsharq.factory('Auth', [
                 }
             },
 
-            profile:{
-                get: function(){
-                    if (env == 'production') return $http.get(API.GET_PROFILE);
-                    if (env == 'development') {
-                        return $q(function(resolve, reject) {
-                            var data = { "data": testData.GET_PROFILE };
-                            resolve(data);
-                        });
-                    }
-                },
+            getProfile: function(){
+                if (env == 'production') return $http.get(API.GET_PROFILE);
+                if (env == 'development') {
+                    return $q(function(resolve, reject) {
+                        var data = { "data": testData.GET_PROFILE };
+                        resolve(data);
+                    });
+                }
+            },
 
-                update: function(data){
-                    if (env == 'production') return $http.post(API.POST_PROFILE, data);
-                    if (env == 'development') {
-                        return $q(function(resolve, reject) {
-                            var data = { "data": testData.POST_PROFILE };
-                            resolve(data);
-                        });
-                    }
+            updateProfile: function(data){
+                if (env == 'production') return $http.post(API.POST_PROFILE, data);
+                if (env == 'development') {
+                    return $q(function(resolve, reject) {
+                        var data = { "data": testData.POST_PROFILE };
+                        resolve(data);
+                    });
                 }
             }
         }

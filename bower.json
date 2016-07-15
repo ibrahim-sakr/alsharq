@@ -5,6 +5,7 @@
   "dependencies": {
     "angular": "1.*",
     "angular-route": "1.*",
-    "angular-material": "1.*"
+    "angular-material": "1.*",
+    "ng-cordova-oauth": "^0.2.9"
   }
 }
