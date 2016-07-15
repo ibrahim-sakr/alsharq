@@ -16,7 +16,7 @@ alsharq.factory('Country', [
                     });
                 }
             },
-            myCountries: function(page){
+            own: function(page){
                 var page = page || 1;
                 if (env == 'production') return $http.get(API.GET_MY_COUNTRIES, { 'page' :page });
                 if (env == 'development') {

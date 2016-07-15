@@ -2,8 +2,12 @@ alsharq.controller('RootController', [
     '$scope',
     '$location',
     '$mdSidenav',
+    'Subscription',
     'Queue',
-    function($scope, $location, $mdSidenav, Queue){
+    'Popup',
+    function($scope, $location, $mdSidenav, Subscription, Queue, Popup){
+        $scope.shortcutSidebarContent = {};
+
         /**
          * for testing Only
         /*******************************************************************************************************/
@@ -42,11 +46,13 @@ alsharq.controller('RootController', [
                 'method': 'logout',
                 'data': '',
                 'success': function(){
+                    Storage.remove(['token', 'user']);
                     // redirect to login page
                     $location.path('/auth');
                 },
                 'error': function(e){
                     // show error message
+                    Popup.showError('there is an error, please try again.');
                 }
             };
             // start dequeuing
@@ -58,5 +64,11 @@ alsharq.controller('RootController', [
             if (env == "production") navigator.app.exitApp();
             if (env == "development") console.log('closing app');
         };
+
+        Subscription.filter().then(function(data){
+            $scope.shortcutSidebarContent = data;
+        }, function(e){
+            Popup.showError('there is an error, please try again.');
+        });
     }
 ]);

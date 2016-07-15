@@ -30,7 +30,6 @@ alsharq.service('Queue', [function(){
         if ( !this.isEmpty() ) {
             this.working = true;
             var item = items[items.length - 1], model;
-            
             if (item.type == 'restfull') {
                 model = injector.get(item['model'])[item['method']](item.data).$promise;
             } else {

@@ -42,35 +42,33 @@ alsharq.factory('Article', [
                     });
                 }
             },
-            favorite: {
-                all: function(page){
-                    var page = page || 1;
-                    if (env == 'production') return $http.get(API.FAVORITE_ARTICLES, { 'page' :page });
-                    if (env == 'development') {
-                        return $q(function(resolve, reject) {
-                            var data = { "data": testData.FAVORITE_ARTICLES };
-                            resolve(data);
-                        });
-                    }
-                },
-                add: function(article_id){
-                    if (env == 'production') return $http.post(API.ADD_FAVORITE_ARTICLE, { 'article_id' :article_id });
-                    if (env == 'development') {
-                        return $q(function(resolve, reject) {
-                            var data = { "data": testData.ADD_FAVORITE_ARTICLE };
-                            resolve(data);
-                        });
-                    }
-                },
-                remove: function(article_id){
-                    if (env == 'production') return $http.get(API.REMOVE_FAVORITE_ARTICLE, { 'article_id' :article_id });
-                    if (env == 'development') {
-                        return $q(function(resolve, reject) {
-                            var data = { "data": testData.REMOVE_FAVORITE_ARTICLE };
-                            resolve(data);
-                        });
-                    }
-                },
+            favoriteAll: function(page){
+                var page = page || 1;
+                if (env == 'production') return $http.get(API.FAVORITE_ARTICLES, { 'page' :page });
+                if (env == 'development') {
+                    return $q(function(resolve, reject) {
+                        var data = { "data": testData.FAVORITE_ARTICLES };
+                        resolve(data);
+                    });
+                }
+            },
+            favoriteAdd: function(article_id){
+                if (env == 'production') return $http.post(API.ADD_FAVORITE_ARTICLE, { 'article_id' :article_id });
+                if (env == 'development') {
+                    return $q(function(resolve, reject) {
+                        var data = { "data": testData.ADD_FAVORITE_ARTICLE };
+                        resolve(data);
+                    });
+                }
+            },
+            favoriteRemove: function(article_id){
+                if (env == 'production') return $http.get(API.REMOVE_FAVORITE_ARTICLE, { 'article_id' :article_id });
+                if (env == 'development') {
+                    return $q(function(resolve, reject) {
+                        var data = { "data": testData.REMOVE_FAVORITE_ARTICLE };
+                        resolve(data);
+                    });
+                }
             }
         }
     }

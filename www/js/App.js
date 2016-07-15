@@ -4,11 +4,13 @@ window.env = "development"; // production
 
 var alsharq = angular.module('AlSharq', [
     'ngRoute',
-    'ngMaterial'
+    'ngMaterial',
+    'ngCordovaOauth',
 ]);
 
 var App = {
     init: function(){
+        if ( this.isFirstRun() ) this.firstRun();
         if (env == 'production') this.bindEvents();
         if (env == 'development') {
             this.onDeviceReady();
@@ -61,6 +63,27 @@ var App = {
             });
         }
         if (env == 'production') angular.bootstrap(document, ['AlSharq']);
+    },
+
+    /**
+     * check if the app first run
+     * 
+     * @return Boolean
+     */
+    isFirstRun: function(){
+        // check if there is a value in LocalStorage with the key uuid
+        var uuid = window.localStorage.getItem("uuid");
+        return uuid != '';
+    },
+
+    firstRun: function(){
+        // get the UUID
+        var uuid;
+        if( env == 'production' ) uuid = device.uuid;
+        if( env == 'development' ) uuid = 'adsfvdgbfnfhnhnnhn';
+
+        // save it into localStorage
+        window.localStorage.setItem("uuid", uuid);
     }
 };
 

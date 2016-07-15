@@ -117,7 +117,7 @@ alsharq.constant('API', (function(){
          * @method POST
          * @send {
          *     full_name: "",
-         *     password: "".
+         *     password: "",
          *     profile_pic: "" (File upload) (Content-Type: Multipart/form-data)
          * }
          * @return {
@@ -531,7 +531,7 @@ alsharq.constant('API', (function(){
          *                 }
          *             }
          *         }
-         *      ]
+         *     ]
          * }
          */
         "GET_SUBSCRIPERS": URL + "subscriptions/list",
