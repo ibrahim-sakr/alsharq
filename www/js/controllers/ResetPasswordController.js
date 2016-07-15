@@ -1,4 +1,4 @@
-alsharq.controller('AuthController', [
+alsharq.controller('ResetPasswordController', [
     '$scope',
     'Queue',
     'Popup',

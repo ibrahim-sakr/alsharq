@@ -1,4 +1,4 @@
-alsharq.controller('AuthController', [
+alsharq.controller('LoginController', [
     '$scope',
     '$location',
     '$mdToast',

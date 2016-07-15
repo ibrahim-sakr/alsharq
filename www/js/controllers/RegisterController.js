@@ -4,7 +4,7 @@ alsharq.controller('RegisterController', [
     '$mdToast',
     'Queue',
     'Storage',
-    'Popup'
+    'Popup',
     function($scope, $location, $mdToast, Queue, Storage, Popup){
         $scope.user = {
             // email: "",

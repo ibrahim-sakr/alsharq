@@ -1,6 +1,6 @@
 alsharq.constant('API', (function(){
 
-    var URL = "http://www.franchise.com/api/";
+    var URL = "http://sahifa-app.com/api/v1/";
 
     // Update User Device -> don't forget it
 
