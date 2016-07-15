@@ -41,7 +41,16 @@
         <!-- main sidebar -->
         <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="mainSidebar">
             <md-content layout-padding>
-                <md-list>
+                <md-list dir="rtl">
+                    <md-list-item class="secondary-button-padding">
+                        <p> تصفح </p>
+                    </md-list-item>
+                    <md-list-item class="secondary-button-padding" ng-click="goTo('home')">
+                        <p class="pull-right"> تصفح المواقع اﻷخبارية </p>
+                    </md-list-item>
+        
+
+
                     <md-list-item class="secondary-button-padding" ng-click="goTo('profile')">
                         <md-icon md-menu-origin class="alsharq-person"></md-icon><p> My Profile </p>
                     </md-list-item>
@@ -84,7 +93,7 @@
             </md-content>
         </md-sidenav>
 
-        <div id="page">
+        <div id="page" dir="rtl">
             <div ng-view></div>
         </div>
 
