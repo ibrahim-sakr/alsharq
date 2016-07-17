@@ -25,16 +25,7 @@ alsharq.factory('Auth', [
                     });
                 }
             },
-            
-            login: function(data){
-                if (env == 'production') return $http.post(API.POST_LOGIN, data);
-                if (env == 'development') {
-                    return $q(function(resolve, reject) {
-                        var data = { "data": testData.POST_LOGIN };
-                        resolve(data);
-                    });
-                }
-            },
+            login: function(data){ return $http.post(API.POST_LOGIN, data); },
             loginGuest: function(device_id){
                 if (env == 'production') return $http.post(API.POST_GUEST_LOGIN, { 'device_id': device_id });
                 if (env == 'development') {

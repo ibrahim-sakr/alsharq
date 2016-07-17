@@ -1,11 +1,13 @@
 alsharq.controller('RootController', [
+    '$rootScope',
     '$scope',
     '$location',
     '$mdSidenav',
     'Subscription',
+    'Storage',
     'Queue',
     'Popup',
-    function($scope, $location, $mdSidenav, Subscription, Queue, Popup){
+    function($rootScope, $scope, $location, $mdSidenav, Subscription, Storage, Queue, Popup){
         $scope.shortcutSidebarContent = {};
 
         /**
@@ -28,7 +30,7 @@ alsharq.controller('RootController', [
         };
 
         $scope.openSidebar = function(id){
-            if ($scope.currentPage != 'auth') {
+            if (!$rootScope.isAuth) {
                 var sidebars = ['mainSidebar', 'shortcutSidebar'];
                 sidebars.splice( sidebars.indexOf(id) , 1);
                 $mdSidenav(sidebars[0]).close();
@@ -37,7 +39,7 @@ alsharq.controller('RootController', [
         };
 
         $scope.closeSidebar = function(id){
-            if ($scope.currentPage != 'auth') $mdSidenav(id).close();
+            $mdSidenav(id).close();
         };
 
         $scope.logout = function(){
