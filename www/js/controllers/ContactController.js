@@ -1,7 +1,7 @@
 alsharq.controller('ContactController', [
     '$scope',
     'Contact',
-    'Popup'
+    'Popup',
     function($scope, Contact, Popup){
         $scope.contact = {};
         // name: 1,

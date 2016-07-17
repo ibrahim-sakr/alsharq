@@ -13,15 +13,11 @@ alsharq.config([
         $httpProvider.interceptors.push([
             '$q',
             '$location',
-            function ($q, $location) {
+            'Storage',
+            function ($q, $location, Storage) {
                 return {
                     'request': function(config) {
-                        // window.localStorage.setItem("key", "value");
-                        // window.localStorage.getItem("key");
-                        // window.localStorage.removeItem("key");
-                        // window.localStorage.clear();
-                        // var keyName = window.localStorage.key(0);
-                        var token = window.localStorage.getItem("token");
+                        var token = Storage.get("token");
                         config.headers = config.headers || {};
                         if (token) config.headers.Authorization = "Token " + token;
 
@@ -76,11 +72,21 @@ alsharq.config([
     }
 ]);
 
-alsharq.run(function($rootScope, $route, Title) {
-    $rootScope.$on('$routeChangeSuccess', function () {
+alsharq.run(function($rootScope, $route, $location, Title) {
+    // $rootScope.$on('$routeChangeStart', function (){});
+
+    $rootScope.$on('$routeChangeSuccess', function (){
         if ($route.current.$$route) {
+            var paths = ["/auth", "/auth/register", "/auth/login", "/auth/reset"];
+            if (paths.indexOf( $route.current.$$route.originalPath ) == -1) {
+                // check if user signin
+                var token = window.localStorage.getItem('token');
+                if (!token) {
+                    $location.path('/auth');
+                }
+            }
             $rootScope.pageTitle = Title[$route.current.$$route.controller];
             $rootScope.isHome    = $route.current.$$route.controller == 'HomeController';
         }
-    })
+    });
 });

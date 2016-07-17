@@ -1,15 +1,15 @@
 alsharq.value('testData', {
     "POST_REGISTER": {
-        "token": "75eb9e7afaedd82653b4b5eed00a9ecfdb26d835",
+        "token": "1a0bceb65cda526e2e8e9ce3e2339034c8c698a9",
         "user": {
-            "email": "rakan.alhneiti123@gmail.com",
-            "facebook_connected": false,
-            "first_name": "Rakan",
-            "google_connected": false,
-            "id": 6,
+            "id": 62,
+            "email": "ebrahimes2@gmail.com",
+            "first_name": "Ibrahim Esmat",
+            "last_name": "Saqr",
             "is_registered": true,
-            "last_name": "Alhneiti",
-            "profile_pic": null
+            "profile_pic": null,
+            "facebook_connected": false,
+            "google_connected": false
         }
     },
 

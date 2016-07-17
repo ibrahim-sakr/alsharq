@@ -12,17 +12,17 @@ alsharq.config([
             controller: "AuthController"
         })
 
-        .when('auth/register', {
+        .when('/auth/register', {
             templateUrl: "views/auth/register.html",
             controller: "RegisterController"
         })
 
-        .when('auth/login', {
+        .when('/auth/login', {
             templateUrl: "views/auth/login.html",
             controller: "LoginController"
         })
 
-        .when('auth/reset', {
+        .when('/auth/reset', {
             templateUrl: "views/auth/reset.html",
             controller: "ResetPasswordController"
         })
