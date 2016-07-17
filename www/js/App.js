@@ -10,7 +10,6 @@ var alsharq = angular.module('AlSharq', [
 
 var App = {
     init: function(){
-        if ( this.isFirstRun() ) this.firstRun();
         if (env == 'production') this.bindEvents();
         if (env == 'development') {
             this.onDeviceReady();
@@ -57,6 +56,7 @@ var App = {
      * Device Ready Handler
      */
     onDeviceReady: function(){
+        if ( this.isFirstRun() ) this.firstRun();
         if (env == 'development') {
             angular.element(document).ready(function() {
                 angular.bootstrap(document, ['AlSharq']);
@@ -73,14 +73,17 @@ var App = {
     isFirstRun: function(){
         // check if there is a value in LocalStorage with the key uuid
         var uuid = window.localStorage.getItem("uuid");
-        return uuid != '';
+
+        if (uuid == true) return true;
+        else return false;
     },
 
     firstRun: function(){
         // get the UUID
         var uuid;
-        if( env == 'production' ) uuid = device.uuid;
-        if( env == 'development' ) uuid = 'adsfvdgbfnfhnhnnhn';
+
+        if (device.uuid) uuid = device.uuid;
+        else uuid = "random string";
 
         // save it into localStorage
         window.localStorage.setItem("uuid", uuid);

@@ -1,10 +1,22 @@
-<h1>Login</h1>
-<div layout="column" layout-align="center">
-    <md-button class="md-raised md-primary" flex href="#/auth/register">register new account</md-button>
-    <md-button class="md-raised md-primary" flex href="#/auth/login">login</md-button>
+<div id="page" class="fullscreen auth">
+    <img class="logo" src="img/logo_landscape.png" alt="logo_landscape">
+    
+    <div layout="column" layout-align="center">
+        <a>register now and see latest news</a>
 
-    <md-button class="md-raised md-primary" flex ng-click="googleplus()">login with Google +</md-button>
-    <md-button class="md-raised md-primary" flex ng-click="facebook()">login with Facebook</md-button>
+        <a class="md-raised md-primary button new" flex href="#/auth/register">register new account</a>
+        <a class="md-raised md-primary button login" flex href="#/auth/login">login</a>
 
-    <md-button class="md-raised md-primary" flex href="#/auth/reset">reset your password</md-button>
+        <a>OR</a>
+
+        <button class="md-raised md-primary googleplus" ng-click="googleplus()">
+            <img src="img/google_login.png" alt="google_login">
+        </button>
+
+        <button class="md-raised md-primary facebook" ng-click="facebook()">
+            <img src="img/facebook_login.png" alt="facebook_login">
+        </button>
+
+        <a class="" flex href="#/auth/reset">reset your password</a>
+    </div>
 </div>

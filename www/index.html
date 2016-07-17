@@ -89,13 +89,15 @@
                     <md-list-item class="secondary-button-padding" ng-click="logout()">
                         <md-icon md-menu-origin class="alsharq-exit_to_app"></md-icon><p> Logout </p>
                     </md-list-item>
+                    <md-list-item class="secondary-button-padding" ng-click="exit()">
+                        <md-icon md-menu-origin class="alsharq-exit_to_app"></md-icon><p> Exit </p>
+                    </md-list-item>
                 </md-list>
             </md-content>
         </md-sidenav>
 
-        <div id="page" dir="rtl">
-            <div ng-view></div>
-        </div>
+
+        <div ng-view></div>
 
         <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="shortcutSidebar">
             <md-content>

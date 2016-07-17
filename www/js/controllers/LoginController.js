@@ -6,10 +6,7 @@ alsharq.controller('LoginController', [
     'Storage',
     'Popup',
     function($scope, $location, $mdToast, Queue, Storage, Popup){
-        $scope.user = {
-            // email: "",
-            // password: ""
-        };
+        $scope.user = {};
 
         $scope.login = function(){
             // validate inputs
@@ -26,14 +23,15 @@ alsharq.controller('LoginController', [
                 'method': 'login',
                 'data': $scope.user,
                 'success': function(data){
+                    console.log(data);
                     Storage.set({
                         'token': data.token,
-                        'user': data.user
+                        'user': JSON.stringify(data.user)
                     });
                     $location.path('/home');
 
                     // pure javascript reload app to display any new data
-                    location.reload();
+                    // location.reload();
                 },
                 'error': function(e){
                     Popup.showError('there is an error, please try again.');
@@ -52,12 +50,12 @@ alsharq.controller('LoginController', [
                 'success': function(data){
                     Storage.set({
                         'token': data.token,
-                        'user': data.user
+                        'user': JSON.stringify(data.user)
                     });
                     $location.path('/home');
 
                     // pure javascript reload app to display any new data
-                    location.reload();
+                    // location.reload();
                 },
                 'error': function(e){
                     Popup.showError('there is an error, please try again.');

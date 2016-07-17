@@ -35,9 +35,9 @@ alsharq.controller('RegisterController', [
                 'success': function(data){
                     Storage.set({
                         'token': data.token,
-                        'user': data.user
+                        'user': JSON.stringify(data.user)
                     });
-                    $location.path('/countries');
+                    $location.path('/home');
                 },
                 'error': function(e){
                     Popup.showError('there is an error, please try again.');
