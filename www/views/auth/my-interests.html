@@ -1,5 +1,17 @@
-<h1>My Interests</h1>
+<md-content>
 
-<p>
-    list of all interests with mark on my interests
-</p>
+	<div>
+	  <div class="title" layout="row" layout-align="center">
+	    <div flex>إهتماماتك تتيح لك هذه الميزة التنبيهات عند إضافة مصادر أخبارية تندرج تحت هذه الإهتمامات</div>
+	  </div>
+	</div>
+
+	<div flex-xs flex="50">
+	    <div ng-repeat="interest in interests">
+	        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb5" class="md-primary">
+            {{ interest }}
+          </md-checkbox>
+	    </div>  
+    </div>  
+
+</md-content>

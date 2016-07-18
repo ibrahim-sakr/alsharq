@@ -7,6 +7,7 @@ alsharq.controller('InterestsController', [
 
         Interest.all().then(function(data){
             $scope.interests = data.results;
+            console.log($scope.interests);
         }, function(e){
             Popup.showError('there is an error, please try again.');
         });
