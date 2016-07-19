@@ -1,58 +1,35 @@
 alsharq.controller('WebsitesController', [
     '$scope',
+    '$window',
     '$location',
     'Website',
     'Popup',
-    function($scope, $location, Website, Popup){
-        $scope.websites = [
-            {
-                "id": 1,
-                "name": "Jordan",
-                "image": {
-                    "caption": "asdas",
-                    "file": "http://192.168.0.10:8080/media/images/2016/06/18/image.gif",
-                    "height": 300,
-                    "width": 200
-                }
-            },
-            {
-                "id": 2,
-                "name": "Jordan",
-                "image": {
-                    "caption": "asdas",
-                    "file": "http://192.168.0.10:8080/media/images/2016/06/18/image.gif",
-                    "height": 300,
-                    "width": 200
-                }
-            },
-            {
-                "id": 3,
-                "name": "Jordan",
-                "image": {
-                    "caption": "asdas",
-                    "file": "http://192.168.0.10:8080/media/images/2016/06/18/image.gif",
-                    "height": 300,
-                    "width": 200
-                }
-            },
-            {
-                "id": 4,
-                "name": "Jordan",
-                "image": {
-                    "caption": "asdas",
-                    "file": "http://192.168.0.10:8080/media/images/2016/06/18/image.gif",
-                    "height": 300,
-                    "width": 200
-                }
-            },
-        ];
+    '$mdToast',
+    function($scope, $window, $location, Website, Popup, $mdToast){
+        $scope.websites = [];
+        $scope.count = 1;
 
-        // Website.all().then(function(data){
-        //     $scope.websites = data.results;
-        // }, function(e){
-        //     Popup.showError('there is an error, please try again.');
-        // });
+        function load(){
+            Website.all($scope.count).then(function(data){
+                if (data.data.results) {
+                    $scope.websites = $scope.websites.concat(data.data.results);
+                } else {
+                    $mdToast.show(
+                        $mdToast.simple()
+                        .textContent('there is no more!!.')
+                        .hideDelay(3000)
+                    );
+                }
+            }, function(e){
+                Popup.showError('there is an error, please try again.');
+            });
+        }
+        load();
 
+        $scope.more = function(){
+            $scope.count++;
+            load();
+        }
 
         $scope.next = function(id){
             $location.path('/categories-writers/' + id);

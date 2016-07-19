@@ -4,12 +4,21 @@ alsharq.controller('CountriesController', [
     'Popup',
     function($scope, Country, Popup){
         $scope.countries = [];
+        $scope.count = 1;
 
-        Country.all().then(function(data){
-            $scope.countries = data.results;
-        }, function(e){
-            Popup.showError('there is an error, please try again.');
-        });
+        function load() {
+            Country.all($scope.count).then(function(data){
+                $scope.countries = $scope.countries.concat(data.results);
+            }, function(e){
+                Popup.showError('there is an error, please try again.');
+            });
+        }
+        load();
+
+        $scope.more = function(){
+            $scope.count++;
+            load();
+        };
 
         $scope.add = function(id, index){
             Country.add(id).then(function(data){

@@ -3,9 +3,9 @@
         هذه القاءمة تتيح لك تخديد الدول التي تود متابعة الاخبار منها. عند اختيار مجموعة دول معينة ، ستقوم بعرض المواقع الاخبارية في هذه الدول فقط.
     </div>    
     <md-list>
-        <md-list-item ng-repeat="country in countries" ng-click="toggle(country.id)">
+        <md-list-item ng-repeat="country in countries" ng-click="toggle($index, country.id)">
             <p> {{ country.name }} </p>
-            <md-checkbox class="md-secondary" ng-model="myCountries[country.id]"></md-checkbox>
+            <md-checkbox class="md-secondary" ng-model="country.subscribed"></md-checkbox>
         </md-list-item>
     </md-list>
 </div>

@@ -6,6 +6,7 @@ alsharq.constant('API', (function(){
 
     return {
         /**
+         * @status { Done }
          * @method POST
          * @send {
          *     email: "",
@@ -20,6 +21,7 @@ alsharq.constant('API', (function(){
         "POST_REGISTER": URL + "user/register",
 
         /**
+         * @status { Done }
          * @method POST
          * @send {
          *     email: "",
@@ -68,6 +70,7 @@ alsharq.constant('API', (function(){
         "POST_SOCIAL_LOGIN": URL + "user/register_social",
 
         /**
+         * @status { Done }
          * @method POST
          * @send {
          *     device_id: "",
@@ -89,6 +92,7 @@ alsharq.constant('API', (function(){
         "POST_GUEST_LOGIN": URL + "user/guest",
 
         /**
+         * @status { Done }
          * @method POST
          * @send {}
          * @return {
@@ -98,6 +102,7 @@ alsharq.constant('API', (function(){
         "POST_LOGOUT": URL + "user/logout",
 
         /**
+         * @status { Done }
          * @method GET
          * @send {}
          * @return {
@@ -143,6 +148,7 @@ alsharq.constant('API', (function(){
         "POST_RESET_PASSWORD": URL + "user/forgot_password",
 
         /**
+         * @status { Done }
          * @method GET
          * @send {
          *     page: 2,
@@ -163,6 +169,7 @@ alsharq.constant('API', (function(){
         "GET_COUNTRIES": URL + "country/list",
 
         /**
+         * @status { Done }
          * @method GET
          * @send {
          *     page: 2,
@@ -185,7 +192,7 @@ alsharq.constant('API', (function(){
         /**
          * @method POST
          * @send {
-         *     ids: "2,5,6,7,8",
+         *     ids: [2,5,6,7,8],
          * }
          * @return
          *     Status 200 on sucess
@@ -669,6 +676,7 @@ alsharq.constant('API', (function(){
         "ADD_COMMENTS": URL + "comments/add",
 
         /**
+         * @status { Done }
          * @method GET
          * @send {
          *     page: 2,

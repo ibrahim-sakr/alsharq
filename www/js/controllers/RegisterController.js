@@ -33,6 +33,8 @@ alsharq.controller('RegisterController', [
                 'method': 'register',
                 'data': $scope.user,
                 'success': function(data){
+                    // edit user object to add full_name
+                    data.user.full_name = data.user.first_name + " " + data.user.last_name;
                     Storage.set({
                         'token': data.token,
                         'user': JSON.stringify(data.user)
@@ -43,7 +45,6 @@ alsharq.controller('RegisterController', [
                     Popup.showError('there is an error, please try again.');
                 }
             };
-
             // start dequeuing
             Queue.enqueue(registerOptions);
         };

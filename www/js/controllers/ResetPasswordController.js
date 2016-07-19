@@ -2,7 +2,8 @@ alsharq.controller('ResetPasswordController', [
     '$scope',
     'Queue',
     'Popup',
-    function($scope, Queue, Popup){
+    '$mdToast',
+    function($scope, Queue, Popup, $mdToast){
         $scope.email = "";
 
         $scope.reset = function(){
@@ -11,7 +12,11 @@ alsharq.controller('ResetPasswordController', [
                 'method': 'resetPassword',
                 'data': $scope.email,
                 'success': function(data){
-                    // do nothing
+                    $mdToast.show(
+                        $mdToast.simple()
+                        .textContent('Password Reseted.')
+                        .hideDelay(3000)
+                    );
                 },
                 'error': function(e){
                     Popup.showError('there is an error, please try again.');
