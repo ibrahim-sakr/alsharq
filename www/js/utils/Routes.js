@@ -44,7 +44,7 @@ alsharq.config([
 
         .when('/my-subscriptions', {
             templateUrl: "views/auth/my-subscriptions.html",
-            controller: "OwnSubscriptionssController"
+            controller: "OwnSubscriptionsController"
         })
 
         .when('/my-keywords', {

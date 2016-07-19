@@ -3,7 +3,8 @@ alsharq.controller('ProfileController', [
     'Storage',
     'Queue',
     'Popup',
-    function($scope, Storage, Queue, Popup){
+    '$mdToast',
+    function($scope, Storage, Queue, Popup, $mdToast){
         $scope.user = JSON.parse( Storage.get('user') );
         // email
         // last_name

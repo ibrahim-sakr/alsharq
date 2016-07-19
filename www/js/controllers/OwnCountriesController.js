@@ -3,42 +3,63 @@ alsharq.controller('OwnCountriesController', [
     'Country',
     'Popup',
     function($scope, Country, Popup){
-        $scope.countries = [];
-        $scope.myCountries = [];
+        $scope.countries = [
+            {
+                "code": "jo1",
+                "id": 1,
+                "name": "Jordan1"
+            },
+            {
+                "code": "jo2",
+                "id": 2,
+                "name": "Jordan2"
+            },
+            {
+                "code": "jo3",
+                "id": 3,
+                "name": "Jordan3"
+            },
+            {
+                "code": "jo4",
+                "id": 4,
+                "name": "Jordan4"
+            },
+            {
+                "code": "jo5",
+                "id": 5,
+                "name": "Jordan5"
+            },
+        ];
+        $scope.myCountries = {};
+
+        // Country.all().then(function(all){
+        //     $scope.countries = all.results;
+        //     Country.own().then(function(data){
+        //         for (var i = 0; i < data.results.length; i++) {
+        //             $scope.myCountries[ data.results[i].id ] = true;
+        //         }
+        //     }, function(e){
+        //         Popup.showError('there is an error, please try again.');
+        //     });
+        // }, function(e){
+        //     Popup.showError('there is an error, please try again.');
+        // });
         
-        Country.own().then(function(data){
-            $scope.myCountries = data.results.map(function($n){
-                return $n.id;
-            });
 
-            Country.all().then(function(all){
-                for (var i = 0; i < all.results.length; i++) {
-                    if ( $scope.myCountries.indexOf( all.results[i].id ) > -1 ) {
-                        $scope.countries.concat( all.results[i] );
-                    }
-                }
-            }, function(e){
-                Popup.showError('there is an error, please try again.');
-            });
-
-        }, function(e){
-            Popup.showError('there is an error, please try again.');
-        });
-
-        $scope.add = function(id, index){
-            Country.add(id).then(function(data){
-                $scope.countries[index].own = true;
-            }, function(e){
-                Popup.showError('there is an error, please try again.');
-            });
-        };
-
-        $scope.remove = function(id, index){
-            Country.remove(id).then(function(data){
-                $scope.countries[index].own = false;
-            }, function(e){
-                Popup.showError('there is an error, please try again.');
-            });
+        $scope.toggle = function(id){
+            if ($scope.myCountries[id]) {
+                Country.remove(id).then(function(data){
+                    $scope.myCountries[id] = false;
+                }, function(e){
+                    Popup.showError('there is an error, please try again.');
+                });
+            } else {
+                Country.add(id).then(function(data){
+                    $scope.myCountries[id] = true;
+                }, function(e){
+                    Popup.showError('there is an error, please try again.');
+                });
+            }
         };
     }
 ]);

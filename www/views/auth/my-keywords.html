@@ -1,5 +1,15 @@
-<h1>My Keyword</h1>
+<div class="my-keywords rtl">
+    <div class="my-alert">
+        تمكنك هذه الخاصية من متابعة جميع المقالات الاخبارية التي تقوم بذكر كلمات مفتاحية معينة عن طريق ارسال تنبيهات بعد نشر هذه المقالات.
+    </div>
+    <div class="my-plus" ng-click="add()">+</div>
+    
+    <md-list flex>
+        
+        <md-list-item ng-repeat="keyword in keywords" class="secondary-button-padding">
+            <p>{{ keyword.content }}</p>
+            <md-button class="md-secondary" ng-click="remove(keyword.content, $index)">حذف</md-button>
+        </md-list-item>
 
-<p>
-    list of all my keyword
-</p>
+    </md-list>
+</div>

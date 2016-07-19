@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta http-equiv="Content-Security-Policy" content="default-src https://www.googleapis.com https://graph.facebook.com *;font-src 'self' data:; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; object-src 'self'; media-src *">
+    <meta http-equiv="Content-Security-Policy" content="default-src https://www.googleapis.com https://graph.facebook.com *;font-src 'self' data:; img-src * data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; object-src 'self'; media-src *">
 
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
     <meta name="format-detection" content="telephone=no">
@@ -40,67 +40,80 @@
 
         <!-- main sidebar -->
         <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="mainSidebar">
-            <md-content layout-padding>
-                <md-list dir="rtl">
-                    <md-list-item class="secondary-button-padding">
-                        <p> تصفح </p>
-                    </md-list-item>
-                    <md-list-item class="secondary-button-padding" ng-click="goTo('home')">
-                        <p class="pull-right"> تصفح المواقع اﻷخبارية </p>
-                    </md-list-item>
-        
-
-
-                    <md-list-item class="secondary-button-padding" ng-click="goTo('profile')">
-                        <md-icon md-menu-origin class="alsharq-person"></md-icon><p> My Profile </p>
-                    </md-list-item>
-                    <md-list-item class="secondary-button-padding" ng-click="goTo('home')">
-                        <md-icon md-menu-origin class="alsharq-home"></md-icon> <p> Home (Latest News) </p>
-                    </md-list-item>
-                    <md-list-item class="secondary-button-padding" ng-click="goTo('auth')">
-                        <md-icon md-menu-origin class="alsharq-accessibility"></md-icon> <p> Login/Register </p>
-                    </md-list-item>
-                    <md-list-item class="secondary-button-padding" ng-click="goTo('websites')">
-                        <md-icon md-menu-origin class="alsharq-accessibility"></md-icon> <p> All Websites </p>
-                    </md-list-item>
-                    <md-list-item class="secondary-button-padding" ng-click="goTo('categories-writers')">
-                        <md-icon md-menu-origin class="alsharq-accessibility"></md-icon> <p> Categories and Writers </p>
-                    </md-list-item>
-                    <md-list-item class="secondary-button-padding" ng-click="goTo('my-websites')">
-                        <md-icon md-menu-origin class="alsharq-accessibility"></md-icon> <p> My Sites </p>
-                    </md-list-item>
-                    <md-list-item class="secondary-button-padding" ng-click="goTo('my-keywords')">
-                        <md-icon md-menu-origin class="alsharq-accessibility"></md-icon> <p> My Keywords </p>
-                    </md-list-item>
-                    <md-list-item class="secondary-button-padding" ng-click="goTo('my-articles/favorite')">
-                        <md-icon md-menu-origin class="alsharq-accessibility"></md-icon> <p> My Favorite Articles </p>
-                    </md-list-item>
-                    <md-list-item class="secondary-button-padding" ng-click="goTo('my-articles/later')">
-                        <md-icon md-menu-origin class="alsharq-accessibility"></md-icon> <p> My Later Articles </p>
-                    </md-list-item>
-                    <md-list-item class="secondary-button-padding" ng-click="goTo('my-countries')">
-                        <md-icon md-menu-origin class="alsharq-accessibility"></md-icon> <p> My Countries </p>
-                    </md-list-item>
-                    <md-list-item class="secondary-button-padding" ng-click="goTo('my-interests')">
-                        <md-icon md-menu-origin class="alsharq-accessibility"></md-icon> <p> My Interests </p>
-                    </md-list-item>
-
-                    <md-list-item class="secondary-button-padding" ng-click="logout()">
-                        <md-icon md-menu-origin class="alsharq-exit_to_app"></md-icon><p> Logout </p>
-                    </md-list-item>
-                    <md-list-item class="secondary-button-padding" ng-click="exit()">
-                        <md-icon md-menu-origin class="alsharq-exit_to_app"></md-icon><p> Exit </p>
-                    </md-list-item>
-                </md-list>
-            </md-content>
+            <md-list-item class="list-title">
+                <p> تصفح </p>
+            </md-list-item>
+            <md-list-item  ng-click="goTo('websites')">
+                <p> تصفح المواقع اﻷخبارية </p>
+            </md-list-item>
+            <md-list-item class="list-title">
+                <p> خياراتي </p>
+            </md-list-item>
+            <md-list-item ng-click="goTo('my-subscriptions')">
+                <p> اشتراكاتي </p>
+            </md-list-item>
+            <md-list-item  ng-click="goTo('my-keywords')">
+                <p> كلماتي المفتاحية </p>
+            </md-list-item>
+            <md-list-item  ng-click="goTo('my-articles/favorite')">
+                <p> مقالاتي المفضلة </p>
+            </md-list-item>
+            <md-list-item  ng-click="goTo('my-articles/later')">
+                <p> مقالات للقراءه لاحقا </p>
+            </md-list-item>
+            <md-list-item  ng-click="goTo('my-countries')">
+                <p> الدول المتابعة </p>
+            </md-list-item>
+            <md-list-item  ng-click="goTo('my-interests')">
+                <p> اهتماماتي </p>
+            </md-list-item>
+            <md-list-item class="list-title">
+                <p> حسابي </p>
+            </md-list-item>
+            <md-list-item  ng-click="goTo('profile')">
+                <p> الملف الشخصي </p>
+            </md-list-item>
+            <md-list-item  ng-click="logout()">
+                <p> تسجيل الخروج </p>
+            </md-list-item>
+            <md-list-item  ng-click="exit()">
+                <p> اغلاق البرنامج </p>
+            </md-list-item>
         </md-sidenav>
 
         <div ng-view></div>
 
         <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="shortcutSidebar">
-            <md-content>
-                shourtcuts
-            </md-content>
+            <md-list-item class="list-title" ng-click="goTo('home')">
+                <p> الكل </p>
+            </md-list-item>
+            <md-list-item class="list-title">
+                <p> الدول </p>
+            </md-list-item>
+                <md-list-item  ng-click="goTo('websites')">
+                    <p> every country </p>
+                </md-list-item>
+
+            <div> <!-- this div just wrap for ng-repeat -->
+                <md-list-item class="list-title">
+                    <p> every wesite </p>
+                </md-list-item>
+                    <md-list-item>
+                        <p> website caterories </p>
+                    </md-list-item>
+            </div>
+
+            <md-list-item class="list-title">
+                <p> الكلمات المفتاحية </p>
+            </md-list-item>
+
+
+            <md-list-item class="list-title">
+                <p> اضافة كلمات مفتاحية </p>
+            </md-list-item>
+        
+
+
         </md-sidenav>
     </div>
 
@@ -136,6 +149,7 @@
     <script src="js/controllers/CatsWritersController.js"></script>
     <script src="js/controllers/ContactController.js"></script>
     <script src="js/controllers/CountriesController.js"></script>
+    <script src="js/controllers/EditSubscriptionController.js"></script>
     <script src="js/controllers/HomeController.js"></script>
     <script src="js/controllers/InterestsController.js"></script>
     <script src="js/controllers/LoginController.js"></script>

@@ -1,4 +1,8 @@
-<h1>All Websites</h1>
-<p>
-    list of all supported websites with thumbnail
-</p>
+<div class="websites">
+<md-list flex>
+    <md-list-item ng-repeat="website in websites" ng-click="next(website.id)">
+        <img src="{{ website.image.file }}" width="{{ website.image.width }}" height="{{ website.image.height }}" alt="">
+        <p>{{ website.name }}</p>
+    </md-list-item>
+</md-list>
+</div>

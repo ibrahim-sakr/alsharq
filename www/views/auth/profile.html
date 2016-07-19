@@ -1,11 +1,28 @@
-<h1>My Profile</h1>
-<p>
-    *     "email": "rakan.alhneiti123@gmail.com",
-    *     "facebook_connected": false,
-    *     "first_name": "Rakan",
-    *     "google_connected": false,
-    *     "id": 6,
-    *     "is_registered": true,
-    *     "last_name": "Alhneiti",
-    *     "profile_pic": null
-</p>
+<div class="profile">
+    <md-content>
+
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>الاسم الاوب</label>
+            <input ng-model="user.first_name">
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>الاسم الاخير</label>
+            <input ng-model="user.last_name">
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>البريد الالكتروني</label>
+            <input ng-model="user.email" type="email">
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>كلمة المرور</label>
+            <input ng-model="user.password" type="password">
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>تأميد كلمة المرور</label>
+            <input ng-model="user.password_confirmation" type="password">
+        </md-input-container>
+
+        <div class="update" ng-click="update()">حفظ</div>
+
+    </md-content>
+</div>

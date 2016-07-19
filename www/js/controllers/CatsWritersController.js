@@ -1,6 +1,7 @@
 alsharq.controller('CatsWritersController', [
     '$scope',
-    function($scope){
-        
+    '$routeParams',
+    function($scope, $routeParams){
+        console.log($routeParams.id);
     }
 ]);

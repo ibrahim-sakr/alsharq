@@ -1,3 +1,21 @@
-<h1>hello world</h1>
-<button ng-click="favorite()">Favorite</button>
-<button ng-click="later()">Later</button>
+<div class="article" id="article-{{ article.channel_id }}">
+    <div class="article_header clearfix" ng-click="hideContent()">
+        <img src="" alt="">
+        <h3>title</h3>
+        <h5>time</h5>
+    </div>
+    <div class="article_body">
+        <h2 ng-click="hideContent()">articel title here</h2>
+        <div class="content" ng-show="showContent">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore pariatur quibusdam, repudiandae ut eum autem nulla, facere. Excepturi ullam dignissimos quisquam assumenda, dicta iusto rerum nihil mollitia totam quia sequi quis optio repellendus hic eveniet quas ut nemo libero expedita placeat natus maxime reiciendis doloribus. Animi voluptatum nisi suscipit soluta aliquam, labore possimus quod a commodi. Doloribus eveniet exercitationem iste minus maxime, ab explicabo. Eius distinctio incidunt ipsum tempore,
+        </div>
+        <div class="read_more">
+            <a href="#/article/{{ article.channel_id }}">read more</a>
+        </div>
+    </div>
+    <div class="article_footer clearfix">
+        <div><i></i>share</div>
+        <div ng-click="favorite()"><i></i>favorite</div>
+        <div ng-click="later()"><i></i>later</div>
+    </div>
+</div>

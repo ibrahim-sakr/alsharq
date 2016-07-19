@@ -4,33 +4,46 @@ alsharq.controller('OwnKeywordsController', [
     'Keyword',
     'Popup',
     function($scope, $mdDialog, Keyword, Popup){
-        $scope.keywords = [];
         $scope.new;
+        $scope.keywords = [
+            {
+                "content": "test",
+                "id": 1
+            },
+            {
+                "content": "test2",
+                "id": 2
+            },
+            {
+                "content": "test3",
+                "id": 3
+            },
+            {
+                "content": "test4",
+                "id": 4
+            }
+        ];
 
-        Keyword.all().then(function(data){
-            $scope.keywords = data.results;
-        }, function(e){
-            Popup.showError('there is an error, please try again.');
-        });
+        // Keyword.all().then(function(data){
+        //     $scope.keywords = data.results;
+        // }, function(e){
+        //     Popup.showError('there is an error, please try again.');
+        // });
 
         $scope.add = function(){
             var confirm = $mdDialog.prompt()
                           .title('Add a new Keyword')
-                          // .textContent('Bowser is a common name.')
                           .placeholder('new keyword')
                           .ariaLabel('new keyword')
-                          // .initialValue('')
-                          .targetEvent(ev)
                           .ok('Add')
                           .cancel('Cancel');
-            
+
             $mdDialog.show(confirm).then(function(result) {
-                console.log(result);
-                // Keyword.add(content).then(function(data){
-                //     $scope.keywords.splice(index, 1);
-                // }, function(e){
-                //     Popup.showError('there is an error, please try again.');
-                // });
+                Keyword.add(result).then(function(data){
+                    $scope.keywords.push({'content': result});
+                }, function(e){
+                    Popup.showError('there is an error, please try again.');
+                });
             }, function() {
                 // nothing to do
             });
