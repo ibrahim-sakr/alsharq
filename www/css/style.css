@@ -28,7 +28,7 @@ md-icon {
     direction: rtl;
 }
 .md-toolbar-tools{
-    background-color: #00254a;
+    background-color: #1bdeed;
 }
 .fullscreen {
     position: absolute;
@@ -268,11 +268,13 @@ md-list-item button p {
     text-align: center;
     font-weight: bold;
 }
-
-
-
-
-
+.title{
+    background-color: rgba(193, 193, 193, 0.59);
+    height: 85px;
+    text-align: center;
+    font-size: 18px;
+    padding: 18px 18px 18px 18px;
+}
 
 
 
