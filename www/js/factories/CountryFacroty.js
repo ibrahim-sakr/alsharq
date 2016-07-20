@@ -8,8 +8,8 @@ alsharq.factory('Country', [
         return {
             all:    function()   { return $http.get( API.GET_COUNTRIES); },
             own:    function()   { return $http.get( API.GET_MY_COUNTRIES); },
-            add:    function(ids){ return $http.post(API.POST_ADD_COUNTRY, { 'ids' :[ids] }); },
-            remove: function(ids){ return $http.post(API.POST_REMOVE_COUNTRY, { 'ids' :[ids] }); },
+            add:    function(id) { return $http.post(API.POST_ADD_COUNTRY,    {ids: [id]}); },
+            remove: function(id) { return $http.post(API.POST_REMOVE_COUNTRY, {ids: [id]}); },
         }
     }
 ]);

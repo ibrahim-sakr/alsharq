@@ -18,7 +18,7 @@
 
     <div id="appContainer">
         <!-- header -->
-        <md-toolbar>
+        <md-toolbar class="fixed">
             <div class="md-toolbar-tools">
                 <md-button ng-if="isHome" class="md-icon-button" aria-label="Menu" ng-click="openSidebar('mainSidebar')">
                     <md-icon class="alsharq-menu"></md-icon>
@@ -73,6 +73,9 @@
             <md-list-item  ng-click="goTo('profile')">
                 <p> الملف الشخصي </p>
             </md-list-item>
+            <md-list-item  ng-click="goTo('contact')">
+                <p> راسلنا </p>
+            </md-list-item>
             <md-list-item  ng-click="logout()">
                 <p> تسجيل الخروج </p>
             </md-list-item>
@@ -81,7 +84,9 @@
             </md-list-item>
         </md-sidenav>
 
-        <div ng-view></div>
+        <div id="page">
+            <div ng-view></div>
+        </div>
 
         <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="shortcutSidebar">
             <md-list-item class="list-title" ng-click="goTo('home')">

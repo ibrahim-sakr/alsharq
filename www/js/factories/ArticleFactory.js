@@ -42,34 +42,12 @@ alsharq.factory('Article', [
                     });
                 }
             },
-            favoriteAll: function(page){
-                var page = page || 1;
-                if (env == 'production') return $http.get(API.FAVORITE_ARTICLES, { 'page' :page });
-                if (env == 'development') {
-                    return $q(function(resolve, reject) {
-                        var data = { "data": testData.FAVORITE_ARTICLES };
-                        resolve(data);
-                    });
-                }
-            },
-            favoriteAdd: function(article_id){
-                if (env == 'production') return $http.post(API.ADD_FAVORITE_ARTICLE, { 'article_id' :article_id });
-                if (env == 'development') {
-                    return $q(function(resolve, reject) {
-                        var data = { "data": testData.ADD_FAVORITE_ARTICLE };
-                        resolve(data);
-                    });
-                }
-            },
-            favoriteRemove: function(article_id){
-                if (env == 'production') return $http.get(API.REMOVE_FAVORITE_ARTICLE, { 'article_id' :article_id });
-                if (env == 'development') {
-                    return $q(function(resolve, reject) {
-                        var data = { "data": testData.REMOVE_FAVORITE_ARTICLE };
-                        resolve(data);
-                    });
-                }
-            }
+            favoriteAll:    function()          { return $http.get( API.FAVORITE_ARTICLES); },
+            favoriteAdd:    function(article_id){ return $http.post(API.ADD_FAVORITE_ARTICLE,    { 'article_id' :article_id }); },
+            favoriteRemove: function(article_id){ return $http.post(API.REMOVE_FAVORITE_ARTICLE, { 'article_id' :article_id }); },
+            laterAll:       function()          { return $http.get( API.LATER_ARTICLES); },
+            laterAdd:       function(article_id){ return $http.post(API.ADD_LATER_ARTICLE,       { 'article_id' :article_id }); },
+            laterRemove:    function(article_id){ return $http.post(API.REMOVE_LATER_ARTICLE,    { 'article_id' :article_id }); }
         }
     }
 ]);

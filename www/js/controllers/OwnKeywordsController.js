@@ -5,30 +5,14 @@ alsharq.controller('OwnKeywordsController', [
     'Popup',
     function($scope, $mdDialog, Keyword, Popup){
         $scope.new;
-        $scope.keywords = [
-            {
-                "content": "test",
-                "id": 1
-            },
-            {
-                "content": "test2",
-                "id": 2
-            },
-            {
-                "content": "test3",
-                "id": 3
-            },
-            {
-                "content": "test4",
-                "id": 4
-            }
-        ];
+        $scope.keywords = [];
 
-        // Keyword.all().then(function(data){
-        //     $scope.keywords = data.results;
-        // }, function(e){
-        //     Popup.showError('there is an error, please try again.');
-        // });
+        Keyword.all().then(function(data){
+            $scope.keywords = data.data.results;
+            console.log($scope.keywords);
+        }, function(e){
+            Popup.showError('there is an error, please try again.');
+        });
 
         $scope.add = function(){
             var confirm = $mdDialog.prompt()

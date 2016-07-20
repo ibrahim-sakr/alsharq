@@ -1,1 +1,25 @@
-<h1>Contact us</h1>
+<div class="profile">
+    <md-content>
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>الاسم</label>
+            <input ng-model="contact.name">
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>البريد الالكتروني</label>
+            <input ng-model="contact.email" type="email">
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>عنوان الرسالة</label>
+            <input ng-model="contact.subject">
+        </md-input-container>
+
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>نص الرسالة</label>
+            <textarea ng-model="contact.message" md-maxlength="350" rows="5"></textarea>
+        </md-input-container>
+
+
+        <div class="update" ng-click="send()">ارسال</div>
+
+    </md-content>
+</div>

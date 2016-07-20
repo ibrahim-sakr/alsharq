@@ -15,7 +15,9 @@ body {
 md-icon {
     font-size: 1.5em;
 }
-
+.fixed {
+    position: fixed;
+}
 #page {
     position: absolute;
     top: 56px;
