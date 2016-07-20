@@ -143,7 +143,7 @@ md-list-item button p {
     float: right;
     color: #000000;
     margin: 0;
-    font-size: 1.2em;
+    font-size: 1em;
 }
 .article .article_header h5 {
     margin: 0 0 0 10px;
@@ -176,6 +176,7 @@ md-list-item button p {
     padding: 15px;
     color: #fff;
     display: inline-block;
+    margin: 15px 0 0 0;
 }
 .article .article_footer {
     background: #cdd2d4;
@@ -283,7 +284,10 @@ md-list-item button p {
     padding-bottom: 15px;
     text-align: center;
 }
-
+.favorite .article_footer .favorite,
+.later .article_footer .later {
+    background: #333;
+}
 
 
 

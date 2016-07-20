@@ -1,4 +1,5 @@
-<article-template ng-repeat="article in articles" article="article"></article-template>
+<article-template ng-repeat="article in articles" article="article" ngclass="{favorite: article.is_favorite, later: article.is_readlater}"></article-template>
+<div class="more" ng-click="more()">عرض المزيد</div>
 
 
 

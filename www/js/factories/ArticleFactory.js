@@ -15,15 +15,7 @@ alsharq.factory('Article', [
                     });
                 }
             },
-            all: function(data){
-                if (env == 'production') return $http.get(API.GET_ARTICLES, data);
-                if (env == 'development') {
-                    return $q(function(resolve, reject) {
-                        var data = { "data": testData.GET_ARTICLES };
-                        resolve(data);
-                    });
-                }
-            },
+            all: function(page){ return $http.get(API.GET_ARTICLES, {'page': page}); },
             read: function(article_id){
                 if (env == 'production') return $http.post(API.POST_ARTICLE_READ_COUNT, { 'article_id' :article_id });
                 if (env == 'development') {

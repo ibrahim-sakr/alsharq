@@ -9,43 +9,44 @@ alsharq.directive('articleTemplate', [
             },
             templateUrl: "views/directives/article-template.html",
             link: function($scope, $element, $attrs) {
-                $scope.article = $attrs.article;
                 $scope.showContent = false;
-                
+
                 $scope.favorite = function(){
-                    console.log("favorite " + $scope.article.channel_id);
-                    // var method;
-                    // if ( $element.hasClass('favorite') ) {
-                    //     Article.favoriteRemove($attrs.article.id).then(function(data){
-                    //         $element.removeClass('favorite');
-                    //     }, function(e){
-                    //         Popup.showError('there is an error, please try again.');
-                    //     });
-                    // } else {
-                    //     Article.favoriteAdd($attrs.article.id).then(function(data){
-                    //         $element.addClass('favorite');
-                    //     }, function(e){
-                    //         Popup.showError('there is an error, please try again.');
-                    //     });
-                    // }
+                    if ( $element.hasClass('favorite') ) {
+                        console.log('is a favorite. we will remove it...');
+                        Article.favoriteRemove($scope.article.item_id).then(function(data){
+                            $element.removeClass('favorite');
+                            console.log('now it\'s not a favorite');
+                        }, function(e){
+                            console.log('there is an error when remove favorite');
+                            Popup.showError('there is an error, please try again.');
+                        });
+                    } else {
+                        console.log('is not a favorite. we will add it...');
+                        Article.favoriteAdd($scope.article.item_id).then(function(data){
+                            $element.addClass('favorite');
+                            console.log('now it\'s a favorite');
+                        }, function(e){
+                            console.log('there is an error when add favorite');
+                            Popup.showError('there is an error, please try again.');
+                        });
+                    }
                 };
 
                 $scope.later = function(){
-                    console.log("later " + $scope.article.channel_id);
-                    // var method;
-                    // if ( $element.hasClass('later') ) {
-                    //     Article.laterRemove($attrs.article.id).then(function(data){
-                    //         $element.removeClass('later');
-                    //     }, function(e){
-                    //         Popup.showError('there is an error, please try again.');
-                    //     });
-                    // } else {
-                    //     Article.laterAdd($attrs.article.id).then(function(data){
-                    //         $element.addClass('later');
-                    //     }, function(e){
-                    //         Popup.showError('there is an error, please try again.');
-                    //     });
-                    // }
+                    if ( $element.hasClass('later') ) {
+                        Article.laterRemove($scope.article.item_id).then(function(data){
+                            $element.removeClass('later');
+                        }, function(e){
+                            Popup.showError('there is an error, please try again.');
+                        });
+                    } else {
+                        Article.laterAdd($scope.article.item_id).then(function(data){
+                            $element.addClass('later');
+                        }, function(e){
+                            Popup.showError('there is an error, please try again.');
+                        });
+                    }
                 };
 
                 $scope.hideContent = function(){

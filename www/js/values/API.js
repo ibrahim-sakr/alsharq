@@ -23,7 +23,9 @@ alsharq.constant('API', (function(){
         "REMOVE_FAVORITE_ARTICLE": URL + "article/favorite/remove",
         "LATER_ARTICLES": URL + "article/readlater/list",
         "REMOVE_LATER_ARTICLE": URL + "article/readlater/remove",
-
+        "GET_ARTICLES": URL + "article/list",
+        "ADD_FAVORITE_ARTICLE": URL + "article/favorite/add",
+        "ADD_LATER_ARTICLE": URL + "article/readlater/add",
 
 
         /**
@@ -238,50 +240,6 @@ alsharq.constant('API', (function(){
         "POST_NEWSFEED": URL + "newsfeed",
 
         /**
-         * @method GET
-         * @send {
-         *     feed_id: "",
-         *     page: 2,
-         *     OR
-         *     article_id: "",
-         * }
-         * @return {
-         *     "count": 2,
-         *     "results": [
-         *         {
-         *             "body": " ",
-         *             "channel_id": 1,
-         *             "channel_name": "نبض الشارع",
-         *             "channel_type": "category",
-         *             "country_id": [ 1 ],
-         *             "country_name": [
-         *                 "Jordan"
-         *             ],
-         *             "date_published": "2016-03-13T21:36:00",
-         *             "interest_id": [ 1 ],
-         *             "interest_name": [ "Local" ],
-         *             "is_favorite": false,
-         *             "is_readlater": false,
-         *             "item_id": "336",
-         *             "photos": [
-         *                 "http://192.168.0.10:8080/media/images/2016/03/14/1457908553_JyY9BxE.jpg",
-         *             ],
-         *             "status": 1,
-         *             "summary": "article content",
-         *             "thumbnail": null,
-         *             "title": "الطراونة: نفس حزبي بشعارات المعتصمين - فيديو",
-         *             "url": "http://192.168.0.10:8080/article/336",
-         *             "videos": null,
-         *             "website_id": 1,
-         *             "website_image": null,
-         *             "website_name": "Khaberni"
-         *         }
-         *     ]
-         * }
-         */
-        "GET_ARTICLES": URL + "article/list",
-
-        /**
          * @method POST
          * @send {
          *     article_id: 1,
@@ -302,18 +260,6 @@ alsharq.constant('API', (function(){
          *     Status 400 on fails
          */
         "POST_ARTICLE_SHARE_COUNT": URL + "article/mark_share",
-
-        /**
-         * @method POST
-         * @send {
-         *     article_id: 1,
-         * }
-         * @return
-         *     Status 200 on sucess
-         *     Status 400 on fails
-         */
-        "ADD_FAVORITE_ARTICLE": URL + "article/favorite/add",
-        "ADD_LATER_ARTICLE": URL + "article/readlater/add",
 
         /**
          * @method GET
