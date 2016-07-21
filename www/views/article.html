@@ -1,1 +1,17 @@
-<h1>Article</h1>
+<div ngclass="{favorite: article.is_favorite, later: article.is_readlater}" class="article_page" id="article">
+    <div class="title">{{ article.title }}</div>
+    <img ng-src="{{ article.thumbnail }}" alt="">
+    <div class="bar">
+        <div class="share" ng-click="share()">share</div>
+        <div class="later" ng-click="later()">later</div>
+        <div class="favorite" ng-click="favorite()">favourite</div>
+    </div>
+    <div class="bar">
+        <div class="zoomout" ng-click="resize(-1)">-</div>
+        <div class="zoomin" ng-click="resize(1)">+</div>
+        <div class="comments" ng-click="showComments()">comments ({{ commCount }})</div>
+    </div>
+    <divider></divider>
+    <div class="time">{{ article.date_published }}</div>
+    <div class="body" id="article-body">{{ article.body }}</div>
+</div>

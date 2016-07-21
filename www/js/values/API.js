@@ -26,7 +26,38 @@ alsharq.constant('API', (function(){
         "GET_ARTICLES": URL + "article/list",
         "ADD_FAVORITE_ARTICLE": URL + "article/favorite/add",
         "ADD_LATER_ARTICLE": URL + "article/readlater/add",
+        "POST_ADD_COUNTRY": URL + "country/add",
+        "POST_REMOVE_COUNTRY": URL + "country/remove",
+        "POST_ADD_INTEREST": URL + "interest/add",
+        "POST_REMOVE_INTEREST": URL + "interest/remove",
+        "COMMENTS_COUNT": URL + "comments/count",
+        "ADD_COMMENTS": URL + "comments/add",
 
+
+        /**
+         * @desc [ This endpoint archives the article from list by marking it as read (after the user has read the article, he/she can mark it as read) ]
+         * @method POST
+         * @send {
+         *     article_id: 1
+         * }
+         * @return 
+         *     Status 200 on sucess
+         *     Status 400 on fails
+         */
+        "": URL + "article/readlater/markasread",
+
+        /**
+         * @desc [ Provide the system with the Device ID or Token provided by Apple Notification service or Google Cloud Messaging for push notifications. ]
+         * @method [ POST, DELETE ]
+         * @send {
+         *     type: android, ios -> POST
+         *     key -> POST, DELETE
+         * }
+         * @return
+         *     Status 200 on sucess
+         *     Status 400 on fails
+         */
+        "UPDATE_DEVICE": URL + "user/devices/update",
 
         /**
          * @method POST
@@ -83,52 +114,6 @@ alsharq.constant('API', (function(){
          */
         "POST_RESET_PASSWORD": URL + "user/forgot_password",
 
-        /**
-         * @method POST
-         * @send {
-         *     ids: [2,5,6,7,8],
-         * }
-         * @return
-         *     Status 200 on sucess
-         *     Status 400 on fails
-         */
-        "POST_ADD_COUNTRY": URL + "country/add",
-
-        /**
-         * @method POST
-         * @send {
-         *     ids: "2,5,6,7,8",
-         * }
-         * @return
-         *     Status 200 on sucess
-         *     Status 400 on fails
-         */
-        "POST_REMOVE_COUNTRY": URL + "country/remove",
-
-
-
-
-        /**
-         * @method POST
-         * @send {
-         *     ids: "2,5,6,7,8",
-         * }
-         * @return
-         *     Status 200 on sucess
-         *     Status 400 on fails
-         */
-        "POST_ADD_INTEREST": URL + "interest/add",
-
-        /**
-         * @method POST
-         * @send {
-         *     ids: "2,5,6,7,8",
-         * }
-         * @return
-         *     Status 200 on sucess
-         *     Status 400 on fails
-         */
-        "POST_REMOVE_INTEREST": URL + "interest/remove",
 
         /**
          * @method GET
@@ -334,18 +319,6 @@ alsharq.constant('API', (function(){
          *     id: 1, // article id
          * }
          * @return {
-         *     "message": 40,
-         *     "status": true
-         * }
-         */
-        "COMMENTS_COUNT": URL + "comments/count",
-
-        /**
-         * @method GET
-         * @send {
-         *     id: 1, // article id
-         * }
-         * @return {
          *     "count": 1,
          *     "next": "",
          *     "previous": "",
@@ -369,19 +342,6 @@ alsharq.constant('API', (function(){
          * }
          */
         "COMMENTS": URL + "comments",
-
-        /**
-         * @method POST
-         * @send {
-         *     article_id: 1,
-         *     comment: ""
-         * }
-         * @return {
-         *     Status 200 on sucess
-         *     Status 400 on fails
-         * }
-         */
-        "ADD_COMMENTS": URL + "comments/add",
     }
 })());
 

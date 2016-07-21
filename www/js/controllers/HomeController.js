@@ -11,7 +11,6 @@ alsharq.controller('HomeController', [
         function load(){
             Article.all($scope.count).then(function(data){
                 $scope.articles = $scope.articles.concat(data.data.results);
-                console.log($scope.articles);
             }, function(e){
                 $mdToast.show(
                     $mdToast.simple()

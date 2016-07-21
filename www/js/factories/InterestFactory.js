@@ -8,8 +8,8 @@ alsharq.factory('Interest', [
         return {
             all:    function(page){ return $http.get( API.GET_INTERESTS); },
             own:    function(page){ return $http.get( API.GET_MY_INTERESTS); },
-            add:    function(ids) { return $http.post(API.POST_ADD_INTEREST,    { 'ids' :[ids] }); },
-            remove: function(ids) { return $http.post(API.POST_REMOVE_INTEREST, { 'ids' :[ids] }); },
+            add:    function(ids) { return $http.post(API.POST_ADD_INTEREST,    {ids: "[" + id + "]"}); },
+            remove: function(ids) { return $http.post(API.POST_REMOVE_INTEREST, {ids: "[" + id + "]"}); },
         }
     }
 ]);

@@ -20,7 +20,6 @@ alsharq.config([
                         var token = Storage.get("token");
                         config.headers = config.headers || {};
                         if (token) config.headers.Authorization = "Token " + token;
-
                         return config;
                     },
                     'response': function(response){
