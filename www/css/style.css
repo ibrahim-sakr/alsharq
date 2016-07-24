@@ -12,6 +12,11 @@ body {
     width:100%;
 }
 
+#appContainer {
+    padding: 20px 0 0 0;
+    background: #24bed4;
+}
+
 md-icon {
     font-size: 1.5em;
 }
@@ -24,7 +29,7 @@ textarea {
 }
 #page {
     position: absolute;
-    top: 56px;
+    top: 76px;
     right: 0;
     bottom: 0;
     left: 0;
@@ -195,6 +200,9 @@ md-list-item button p {
     text-align: center;
     padding: 10px;
 }
+.article .article_footer i {
+    font-size: 1.3em;
+}
 .article .article_footer div:last-child {
     border: none;
 }
@@ -270,6 +278,10 @@ md-list-item button p {
     color: #ffffff;
 }
 
+.profile .contentss {
+    padding: 0 20px;
+}
+
 .profile .update {
     padding: 15px;
     background: #1adeec;
@@ -277,6 +289,12 @@ md-list-item button p {
     color: #ffffff;
     text-align: center;
     font-weight: bold;
+}
+.profile img {
+    width: 170px;
+    position: relative;
+    left: 50%;
+    margin: 20px 0 20px -85px;
 }
 .title{
     background-color: rgba(193, 193, 193, 0.59);
@@ -308,10 +326,17 @@ md-list-item button p {
     padding-bottom: 15px;
     text-align: center;
 }
-.favorite .article_footer .favorite,
-.later .article_footer .later {
-    background: #333;
+.favorite .favorite,
+.later .later {
+    font-weight: bold;
 }
+.favorite .favorite i {
+    color: #c60605;
+}
+.later .later i {
+    color: #4d8321;
+}
+
 .auth-container {
     max-width: 500px;
     text-align: center;
@@ -354,7 +379,9 @@ md-input-container label {
     right: 0 !important;
 }
 
-.info {}
+.info {
+    margin: 20px 0 0 0;
+}
 .info img {
     width: 100px;
     left: 50%;
@@ -372,7 +399,7 @@ md-input-container label {
 }
 .ul {
     position: absolute;
-    top: 140px;
+    top: 160px;
     left: 0;
     bottom: 0;
     right: 0;
@@ -383,14 +410,15 @@ md-input-container label {
 }
 
 md-progress-linear {
-    top: 56px;
-    z-index: 3;
+    top: 20px;
+    position: absolute !important;
+    z-index: 99;
 }
 .countries i {
     right: auto !important;
     left: 16px;
     margin: 0 16px 0 0 !important;
-    background: #666;
+    background: #f90002;
     color: #fff;
     border-radius: 50%;
     padding: 5px;
@@ -404,6 +432,9 @@ md-progress-linear {
     right: auto !important;
     left: 16px;
     margin: 0 16px 0 0 !important;
+}
+md-sidenav.md-sidenav-right.md-whiteframe-z2 {
+    padding: 20px 0 0 0;
 }
 
 

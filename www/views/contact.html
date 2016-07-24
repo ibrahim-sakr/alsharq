@@ -2,21 +2,23 @@
     <div class="my-alert">
         يمكنك ارسال ايه ملاحظات او اقتراحات من خلال تعبئة عنوان و محتولى الراسلة.
     </div>
-    <md-input-container class="md-block" flex-gt-sm>
-        <label>البريد الالكتروني</label>
-        <input ng-model="contact.email" type="email">
-    </md-input-container>
-    <md-input-container class="md-block" flex-gt-sm>
-        <label>الاسم</label>
-        <input ng-model="contact.name">
-    </md-input-container>
-    <md-input-container class="md-block" flex-gt-sm>
-        <label>عنوان الرسالة</label>
-        <input ng-model="contact.subject">
-    </md-input-container>
-    <md-input-container class="md-block" flex-gt-sm>
-        <label>الرسالة</label>
-        <textarea ng-model="contact.message" md-maxlength="350" rows="5"></textarea>
-    </md-input-container>
-    <div class="update" ng-click="send()">ارسال</div>
+    <div class="contentss">
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>البريد الالكتروني</label>
+            <input ng-model="contact.email" type="email">
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>الاسم</label>
+            <input ng-model="contact.name">
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>عنوان الرسالة</label>
+            <input ng-model="contact.subject">
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>الرسالة</label>
+            <textarea ng-model="contact.message" md-maxlength="350" rows="5"></textarea>
+        </md-input-container>
+        <div class="update" ng-click="send()">ارسال</div>
+    </div>
 </div>

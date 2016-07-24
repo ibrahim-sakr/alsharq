@@ -17,6 +17,8 @@
 <body app-ready="appReady()" ng-controller="RootController" md-swipe-right="openSidebar('mainSidebar')" md-swipe-left="openSidebar('shortcutSidebar')">
 
     <div id="appContainer">
+        <md-progress-linear md-mode="indeterminate" ng-show="isLoading()"></md-progress-linear>
+
         <!-- header -->
         <md-toolbar class="fixed">
             <div class="md-toolbar-tools">
@@ -40,8 +42,6 @@
                 </md-button>
             </div>
         </md-toolbar>
-
-        <md-progress-linear md-mode="indeterminate" ng-show="isLoading()"></md-progress-linear>
 
         <!-- main sidebar -->
         <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="mainSidebar">
