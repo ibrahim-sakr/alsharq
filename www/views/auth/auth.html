@@ -4,18 +4,21 @@
     <div layout="column" layout-align="center">
         <a>سجل حسابك لدى شرق اﻷن و باشر متابعة أخبارك المفضلة حسب إختيارك</a>
 
-        <a class="md-raised md-primary button new" flex href="#/auth/register">تسجيل حساب جديد</a>
-        <a class="md-raised md-primary button login" flex href="#/auth/login">تسجيل الدخول</a>
+        <div class="auth-container">
+            <a class="md-raised md-primary button new" flex href="#/auth/register">تسجيل حساب جديد</a>
+            <a class="md-raised md-primary button login" flex href="#/auth/login">تسجيل الدخول</a>
 
-        <a>أو</a>
+            <a>أو</a>
 
-        <button class="md-raised md-primary button googleplus" flex ng-click="googleplus()">
-            <img src="img/google_login.png" alt="google_login">
-        </button>
+            <button class="md-raised md-primary button googleplus" flex ng-click="googleplus()">
+                <img src="img/google_login.png" alt="google_login">
+            </button>
 
-        <button class="md-raised md-primary button facebook" flex ng-click="facebook()">
-            <img src="img/facebook_login.png" alt="facebook_login">
-        </button>
+            <button class="md-raised md-primary button facebook" flex ng-click="facebook()">
+                <img src="img/facebook_login.png" alt="facebook_login">
+            </button>
+
+        </div>
 
         <a class="" flex href="#/auth/reset">reset your password</a>
     </div>

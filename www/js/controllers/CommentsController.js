@@ -6,14 +6,15 @@ alsharq.controller('CommentsController', [
     'Storage',
     'article',
     function($scope, $mdDialog, Comment, Popup, Storage, article){
+        $scope.article = article;
         $scope.commCount;
         $scope.commResults = [];
         $scope.commNew = {
-            article_id: article.item_id,
+            article_id: $scope.article.item_id,
             comment: ""
         };
 
-        Comment.all(article.item_id).then(function(data){
+        Comment.all($scope.article.item_id).then(function(data){
             $scope.commResults = data.data.results;
         }, function(e){
             Popup.showError('there is an error, please try again.');
@@ -31,7 +32,7 @@ alsharq.controller('CommentsController', [
 
 
         $scope.count = function(){
-            Comment.count(article.item_id).then(function(data){
+            Comment.count($scope.article.item_id).then(function(data){
                 $scope.commCount = data.message;
             }, function(e){
                 Popup.showError('there is an error, please try again.');
@@ -54,6 +55,7 @@ alsharq.controller('CommentsController', [
                         "profile_pic": user.profile_pic
                     }
                 });
+                $scope.commNew.comment = "";
             }, function(e){
                 Popup.showError('there is an error, please try again.');
             });

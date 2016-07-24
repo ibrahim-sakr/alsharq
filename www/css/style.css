@@ -15,6 +15,10 @@ body {
 md-icon {
     font-size: 1.5em;
 }
+input,
+textarea {
+    direction: rtl;
+}
 .fixed {
     position: fixed;
 }
@@ -155,6 +159,9 @@ md-list-item button p {
 .article .article_body {
     margin: 0 0 10px 0;
 }
+.article .article_body img {
+    width: 100%;
+}
 .article .article_body h2 {
     background: #333333;
     padding: 5px;
@@ -181,12 +188,12 @@ md-list-item button p {
 .article .article_footer {
     background: #cdd2d4;
 }
-.article .article_footer div {
+.article .article_footer div,
+.article_page .bar div {
     width: 33.3333333333%;
     float: right;
     text-align: center;
     padding: 10px;
-    
 }
 .article .article_footer div:last-child {
     border: none;
@@ -240,7 +247,7 @@ md-list-item button p {
 }
 .my-articles h3 {
     background: rgba(0,0,0, 0.5);
-    margin: -46px 0 0 0;
+    margin: 0;
     padding: 10px 20px;
     z-index: 2;
     position: relative;
@@ -278,6 +285,23 @@ md-list-item button p {
     font-size: 18px;
     padding: 18px 18px 18px 18px;
 }
+.article_page .article_image {
+    width: 100%;
+}
+.article_page .bar {
+    background: #cdd2d4;
+}
+.article_page .body {
+    direction: rtl;
+    padding: 10px;
+}
+.article_page .body .time {
+    color: #cdd2d4;
+}
+.article_page md-divider {
+    margin: 5px 0;
+}
+
 .more {
     background: #666;
     color: #fff;
@@ -288,9 +312,30 @@ md-list-item button p {
 .later .article_footer .later {
     background: #333;
 }
+.auth-container {
+    max-width: 500px;
+    text-align: center;
+}
+.auth-container .button {
+    height: 60px !important;
+    line-height: 60px;
+}
+.auth-container .googleplus, .auth-container .facebook {
+    padding: 0;
+}
 
-
-
+.comments_button {
+    width: 30%;
+}
+.comments_textarea {
+    width: 70%;
+}
+.comment {
+    padding: 5px;
+}
+.profile {
+    padding-bottom: 10px;
+}
 
 
 

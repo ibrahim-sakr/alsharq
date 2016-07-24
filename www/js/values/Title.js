@@ -3,15 +3,15 @@
  * { "ControllerName": "page title" }
  */
 alsharq.value('Title', {
-    "HomeController":         "home page",
-    "AuthController":         "Login\\Register",
-    "CatsWritersController":  "Categories - Writers",
-    "OwnArticlesController":  "My Articles",
-    "OwnCountriesController": "My Countries",
-    "OwnInterestsController": "My Interests",
-    "OwnKeywordsController":  "My Keywords",
-    "OwnWebsitesController":  "My websites",
-    "ProfileController":      "My Profile",
+    "HomeController":         "اخر الاخبار",
+    "AuthController":         "الدخول",
+    "CatsWritersController":  "التصنيفات",
+    "OwnArticlesController":  "مقالاتي",
+    "OwnCountriesController": "الدول",
+    "OwnInterestsController": "الاهتمامات",
+    "OwnKeywordsController":  "الكلمات الدلاية",
+    "OwnWebsitesController":  "المواقع الاخبارية",
+    "ProfileController":      "الملف الشخصى",
     "RootController":         "Root",
-    "WebsitesController":     "All Websites",
+    "WebsitesController":     "المواقع الاخبارية",
 });

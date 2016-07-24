@@ -84,9 +84,7 @@
             </md-list-item>
         </md-sidenav>
 
-        <div id="page">
-            <div ng-view></div>
-        </div>
+        <div ng-view></div>
 
         <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="shortcutSidebar">
             <md-list-item class="list-title" ng-click="goTo('home')">
@@ -95,8 +93,9 @@
             <md-list-item class="list-title">
                 <p> الدول </p>
             </md-list-item>
-                <md-list-item  ng-click="goTo('websites')">
-                    <p> every country </p>
+                <md-list-item ng-repeat="country in shortcutSidebarContent.countries"  ng-click="goTo('websites')">
+                    <p> {{ country.name }} </p>
+                    <i class="md-secondary">{{ country.count }}</i>
                 </md-list-item>
 
             <div> <!-- this div just wrap for ng-repeat -->
@@ -108,16 +107,18 @@
                     </md-list-item>
             </div>
 
-            <md-list-item class="list-title">
+            <md-list-item class="list-title" ng-click="goTo('page_with_keyword_filter')">
                 <p> الكلمات المفتاحية </p>
             </md-list-item>
+                <md-list-item ng-repeat="keyword in shortcutSidebarContent.keywords" class="secondary-button-padding">
+                    <p>{{ keyword.name }}</p>
+                    <md-checkbox class="md-secondary" ng-model="topping.wanted"></md-checkbox>
+                </md-list-item>
 
 
-            <md-list-item class="list-title">
+            <md-list-item class="list-title" ng-click="addKeyword()">
                 <p> اضافة كلمات مفتاحية </p>
             </md-list-item>
-        
-            <div ng-view class="rtl"></div>
 
         </md-sidenav>
     </div>

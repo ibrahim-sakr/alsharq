@@ -1,17 +1,29 @@
-<div ngclass="{favorite: article.is_favorite, later: article.is_readlater}" class="article_page" id="article">
-    <div class="title">{{ article.title }}</div>
-    <img ng-src="{{ article.thumbnail }}" alt="">
-    <div class="bar">
-        <div class="share" ng-click="share()">share</div>
-        <div class="later" ng-click="later()">later</div>
-        <div class="favorite" ng-click="favorite()">favourite</div>
+<div id="page">
+    <div ngclass="{favorite: article.is_favorite, later: article.is_readlater}" class="article_page" id="article">
+        <div class="title">{{ article.title }}</div>
+        <img class="article_image" ng-src="{{ article.thumbnail }}" alt="">
+        
+        <div class="bar clearfix">
+            <div class="share" ng-click="share()"><i class="alsharq-share"></i>شارك</div>
+            <div class="later" ng-click="later()"><i class="alsharq-schedule"></i>القراءة لاحقا</div>
+            <div class="favorite" ng-click="favorite()"><i class="alsharq-favorite"></i>المفضلة</div>
+        </div>
+        
+        <md-divider></md-divider>
+
+        <div class="bar clearfix">
+            <div class="zoomout" ng-click="resize(-1)">-</div>
+            <div class="zoomin" ng-click="resize(1)">+</div>
+            <div class="comments" ng-click="showComments()">التعليقات {{ commCount }}</div>
+        </div>
+        
+        <md-divider></md-divider>
+        
+        <div class="body" id="article-body">
+            <div class="time">{{ article.date_published }}</div>
+            <div class="content">
+                {{ article.body }}
+            </div>
+        </div>
     </div>
-    <div class="bar">
-        <div class="zoomout" ng-click="resize(-1)">-</div>
-        <div class="zoomin" ng-click="resize(1)">+</div>
-        <div class="comments" ng-click="showComments()">comments ({{ commCount }})</div>
-    </div>
-    <divider></divider>
-    <div class="time">{{ article.date_published }}</div>
-    <div class="body" id="article-body">{{ article.body }}</div>
 </div>

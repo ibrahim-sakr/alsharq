@@ -32,6 +32,7 @@ alsharq.constant('API', (function(){
         "POST_REMOVE_INTEREST": URL + "interest/remove",
         "COMMENTS_COUNT": URL + "comments/count",
         "ADD_COMMENTS": URL + "comments/add",
+        "COMMENTS": URL + "comments",
 
 
         /**
@@ -312,36 +313,6 @@ alsharq.constant('API', (function(){
          * }
          */
         "GET_SUBSCRIPTION_FILTER": URL + "subscriptions/filter",
-
-        /**
-         * @method GET
-         * @send {
-         *     id: 1, // article id
-         * }
-         * @return {
-         *     "count": 1,
-         *     "next": "",
-         *     "previous": "",
-         *     "results": [
-         *         {
-         *             "comment": "Hello",
-         *             "id": 4,
-         *             "submit_date": "2016-06-28T09:28:17Z",
-         *             "user": {
-         *                 "email": "rakan.alhneiti123@gmail.com",
-         *                 "facebook_connected": false,
-         *                 "first_name": "Rakan",
-         *                 "google_connected": false,
-         *                 "id": 6,
-         *                 "is_registered": true,
-         *                 "last_name": "Alhneiti",
-         *                 "profile_pic": null
-         *             }
-         *         }
-         *     ]
-         * }
-         */
-        "COMMENTS": URL + "comments",
     }
 })());
 

@@ -1,44 +1,35 @@
-<md-dialog aria-label="Mango (Fruit)"  ng-cloak>
-    <form>
-        <md-toolbar>
-            <div class="md-toolbar-tools">
-                <h2>التعليقات على {{ article.title }}</h2>
-                <span flex></span>
-                <md-button class="md-icon-button" ng-click="cancel()"> close </md-button>
-            </div>
-        </md-toolbar>
-        <md-dialog-content>
+<md-dialog aria-label="comments"  ng-cloak>
 
-
-            <div class="comments_all">
-                <div class="comment" ng-repeat="comment in commResults"></div>
-            </div>
-
-
-            <div class="comments_form">
-                <div class="comments_textarea">
-                    <md-input-container class="md-block">
-                        <label>أضف تعليق جديد</label>
-                        <textarea ng-model="commNew.comment" md-maxlength="150" rows="5"></textarea>
-                    </md-input-container>
-                </div>
-                <div class="comments_button">
-                    <md-button class="md-raised md-primary" ng-click="add()">أضف</md-button>
-                </div>
-            </div>
-
-        </md-dialog-content>
-        <md-dialog-actions layout="row">
-            <md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>
-                More on Wikipedia
-            </md-button>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>التعليقات</h2>
             <span flex></span>
-            <md-button ng-click="answer('not useful')">
-                Not Useful
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <md-icon class="alsharq-close"></md-icon>
             </md-button>
-            <md-button ng-click="answer('useful')">
-                Useful
-            </md-button>
-        </md-dialog-actions>
-    </form>
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+        <div class="comment" ng-repeat="comment in commResults">
+            <img ng-if="comment.user.profile_pic" ng-src="{{ comment.user.profile_pic }}" alt="avatar">
+            <p>{{ comment.comment }}</p>
+            <md-divider></md-divider>
+        </div>
+    </md-dialog-content>
+
+    <md-divider></md-divider>
+
+    <md-dialog-actions layout="row">
+        <div class="comments_button">
+            <md-button class="md-raised md-primary" ng-click="add()">أضف</md-button>
+        </div>
+        <div class="comments_textarea">
+            <md-input-container class="md-block">
+                <label>أضف تعليق جديد</label>
+                <textarea ng-model="commNew.comment" md-maxlength="150" rows="5"></textarea>
+            </md-input-container>
+        </div>
+    </md-dialog-actions>
+
 </md-dialog>
