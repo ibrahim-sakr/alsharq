@@ -24,9 +24,11 @@
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
-        <preference name="FadeSplashScreen" value="false" />
-        <preference name="ShowSplashScreenSpinner" value="true" />
+        <preference name="FadeSplashScreen" value="true" />
+        <preference name="ShowSplashScreenSpinner" value="false" />
     </platform>
+    <preference name="AutoHideSplashScreen" value="true" />
+    <preference name="SplashScreenDelay" value="5000" />
     <plugin name="cordova-plugin-splashscreen" spec="~3.2.2" />
     <plugin name="cordova-plugin-network-information" spec="~1.2.1" />
     <plugin name="de.appplant.cordova.plugin.local-notification" spec="~0.8.4" />

@@ -1,15 +1,17 @@
-<div class="my-keywords rtl">
-    <div class="my-alert">
-        تمكنك هذه الخاصية من متابعة جميع المقالات الاخبارية التي تقوم بذكر كلمات مفتاحية معينة عن طريق ارسال تنبيهات بعد نشر هذه المقالات.
-    </div>
-    <div class="my-plus" ng-click="$parent.addKeyword()">+</div>
-    
-    <md-list flex>
+<div id="page">
+    <div class="my-keywords rtl">
+        <div class="my-alert">
+            تمكنك هذه الخاصية من متابعة جميع المقالات الاخبارية التي تقوم بذكر كلمات مفتاحية معينة عن طريق ارسال تنبيهات بعد نشر هذه المقالات.
+        </div>
+        <div class="my-plus" ng-click="$parent.addKeyword()">+</div>
         
-        <md-list-item ng-repeat="keyword in $parent.keywords" class="secondary-button-padding">
-            <p>{{ keyword.content }}</p>
-            <md-button class="md-raised md-primary" ng-click="remove(keyword.content, $index)">حذف</md-button>
-        </md-list-item>
+        <md-list flex>
+            
+            <md-list-item ng-repeat="keyword in $parent.keywords" class="secondary-button-padding">
+                <p>{{ keyword.content }}</p>
+                <md-button class="md-raised md-primary" ng-click="remove(keyword.content, $index)">حذف</md-button>
+            </md-list-item>
 
-    </md-list>
+        </md-list>
+    </div>
 </div>

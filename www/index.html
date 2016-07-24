@@ -23,9 +23,12 @@
                 <md-button ng-if="isHome" class="md-icon-button" aria-label="Menu" ng-click="openSidebar('mainSidebar')">
                     <md-icon class="alsharq-menu"></md-icon>
                 </md-button>
-                <md-button ng-if="!isHome" class="md-icon-button" aria-label="Back" ng-click="back()">
-                    <md-icon class="alsharq-arrow_back"></md-icon>
-                </md-button>
+                <div ng-if="!isHome" class="logo-header">
+                    <md-button class="md-icon-button" aria-label="Back" ng-click="back()">
+                        <md-icon class="alsharq-arrow_back"></md-icon>
+                    </md-button>
+                    <img src="img/launcher.png" alt="logo">
+                </div>
                 <h2>
                     <span>{{ pageTitle }}</span>
                 </h2>
@@ -98,12 +101,12 @@
                     <i class="md-secondary">{{ country.count }}</i>
                 </md-list-item>
 
-            <div> <!-- this div just wrap for ng-repeat -->
+            <div ng-repeat="website in shortcutSidebarContent.websites"> <!-- this div just wrap for ng-repeat -->
                 <md-list-item class="list-title">
-                    <p> every wesite </p>
+                    <p> {{ website.name }} </p>
                 </md-list-item>
-                    <md-list-item>
-                        <p> website caterories </p>
+                    <md-list-item ng-repeat="cat in website.categories">
+                        <p> {{ cat.name }} </p>
                     </md-list-item>
             </div>
 

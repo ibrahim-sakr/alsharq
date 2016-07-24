@@ -34,7 +34,7 @@ textarea {
     direction: rtl;
 }
 .md-toolbar-tools{
-    background-color: #1bdeed;
+    background-color: #24bed4;
 }
 .fullscreen {
     position: absolute;
@@ -318,7 +318,7 @@ md-list-item button p {
 }
 .auth-container .button {
     height: 60px !important;
-    line-height: 60px;
+    line-height: 40px;
 }
 .auth-container .googleplus, .auth-container .facebook {
     padding: 0;
@@ -336,8 +336,23 @@ md-list-item button p {
 .profile {
     padding-bottom: 10px;
 }
-
-
+.subscribed {
+    background: #ccc;
+}
+.logo-header {
+    margin: 0 7px 0 -16px;
+    float: left;
+}
+.logo-header img {
+    width: 40px;
+    margin: 0 0 0 -15px;
+}
+md-input-container label {
+    padding-left: 0 !important;
+    padding-right: 3px !important;
+    left: auto !important;
+    right: 0 !important;
+}
 
 
 

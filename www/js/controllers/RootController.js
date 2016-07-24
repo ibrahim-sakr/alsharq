@@ -77,7 +77,7 @@ alsharq.controller('RootController', [
             $mdDialog.show(confirm).then(function(result) {
                 Keyword.add(result).then(function(data){
                     $scope.keywords.push({'content': result});
-                    $scope.shortcutSidebarContent.keywords.push({ "id": "", "name": result, "count": "0" });
+                    $scope.loadSortcutSidebar();
                 }, function(e){
                     Popup.showError('there is an error, please try again.');
                 });
@@ -87,14 +87,16 @@ alsharq.controller('RootController', [
         };
 
         $scope.exit = function(){
-            if (env == "production") navigator.app.exitApp();
-            if (env == "development") console.log('closing app');
+            navigator.app.exitApp();
         };
 
-        Subscription.filter().then(function(data){
-            $scope.shortcutSidebarContent = data.data;
-        }, function(e){
-            Popup.showError('there is an error, please try again.');
-        });
+        $scope.loadSortcutSidebar = function(){
+            Subscription.filter().then(function(data){
+                $scope.shortcutSidebarContent = data.data;
+            }, function(e){
+                Popup.showError('there is an error, please try again.');
+            });
+        }
+        $scope.loadSortcutSidebar();
     }
 ]);

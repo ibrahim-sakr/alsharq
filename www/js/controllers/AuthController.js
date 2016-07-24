@@ -1,7 +1,10 @@
 alsharq.controller('AuthController', [
     '$scope',
     '$cordovaOauth',
-    function($scope, $cordovaOauth){
+    'Storage',
+    '$location',
+    'Popup',
+    function($scope, $cordovaOauth, Storage, $location, Popup){
         
 
         $scope.googleplus = function(){
@@ -29,6 +32,29 @@ alsharq.controller('AuthController', [
             },  function(error){
                     alert("Error: " + error);
             });
+        };
+
+        $scope.guest = function(){
+            var loginOptions = {
+                'model': 'Auth',
+                'method': 'loginGuest',
+                'data': Storage.get('uuid'),
+                'success': function(data){
+                    // edit user object to add full_name
+                    data.user.full_name = data.user.first_name + " " + data.user.last_name;
+
+                    Storage.set({
+                        'token': data.token,
+                        'user': JSON.stringify(data.user)
+                    });
+                    $location.path('/home');
+                },
+                'error': function(e){
+                    Popup.showError('there is an error, please try again.');
+                }
+            };
+            // start dequeuing
+            Queue.enqueue(loginOptions);
         };
     }
 ]);

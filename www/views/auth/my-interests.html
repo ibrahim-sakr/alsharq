@@ -1,11 +1,13 @@
-<div class="my-countries rtl">
-    <div class="my-alert">
-        اهتماماتك تتيح لك ميزة التنبيهات عند اضافة مصادر اخبارية تندرج تحت هذه الاهتمامات.
+<div id="page">
+    <div class="my-countries rtl">
+        <div class="my-alert">
+            اهتماماتك تتيح لك ميزة التنبيهات عند اضافة مصادر اخبارية تندرج تحت هذه الاهتمامات.
+        </div>
+        <md-list>
+            <md-list-item ng-repeat="interest in interests" ng-click="toggle($index, interest.id)">
+                <p> {{ interest.name }} </p>
+                <md-checkbox class="md-secondary" ng-model="interest.subscribed"></md-checkbox>
+            </md-list-item>
+        </md-list>
     </div>
-    <md-list>
-        <md-list-item ng-repeat="interest in interests" ng-click="toggle($index, interest.id)">
-            <p> {{ interest.name }} </p>
-            <md-checkbox class="md-secondary" ng-model="interest.subscribed"></md-checkbox>
-        </md-list-item>
-    </md-list>
 </div>

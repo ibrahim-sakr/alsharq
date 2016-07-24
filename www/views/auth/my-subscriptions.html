@@ -1,11 +1,13 @@
-<div class="my-subsciptions">
-    <div class="my-alert">
-        تتيح لك خاصية الاشتراكات بإختيار المضادر التي تأتيك منها الأخبار.<br>يمكنك البدء بالإشتراك بالمصادر التي ترغب بها من خلال تصفح المواقع عن طريق الضغط على زر +
+<div id="page">
+    <div class="my-subsciptions">
+        <div class="my-alert">
+            تتيح لك خاصية الاشتراكات بإختيار المضادر التي تأتيك منها الأخبار.<br>يمكنك البدء بالإشتراك بالمصادر التي ترغب بها من خلال تصفح المواقع عن طريق الضغط على زر +
+        </div>
+        <a class="my-plus" href="#/websites">+</a>
+        <md-list flex>
+            <md-list-item ng-repeat="subscripe in subscriptions" ng-click="edit(subscripe.id, true)">
+                <p>{{ subscripe.title }}</p>
+            </md-list-item>
+        </md-list>
     </div>
-    <a class="my-plus" href="#/websites">+</a>
-    <md-list flex>
-        <md-list-item ng-repeat="subscripe in subscriptions" ng-click="edit(subscripe.id, true)">
-            <p>{{ subscripe.title }}</p>
-        </md-list-item>
-    </md-list>
 </div>

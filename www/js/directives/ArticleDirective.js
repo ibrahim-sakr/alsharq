@@ -13,21 +13,25 @@ alsharq.directive('articleTemplate', [
 
                 $scope.favorite = function(){
                     if ( $element.hasClass('favorite') ) {
-                        console.log('is a favorite. we will remove it...');
                         Article.favoriteRemove($scope.article.item_id).then(function(data){
                             $element.removeClass('favorite');
-                            console.log('now it\'s not a favorite');
+                            $mdToast.show(
+                                $mdToast.simple()
+                                .textContent('removed from favourite!')
+                                .hideDelay(3000)
+                            );
                         }, function(e){
-                            console.log('there is an error when remove favorite');
                             Popup.showError('there is an error, please try again.');
                         });
                     } else {
-                        console.log('is not a favorite. we will add it...');
                         Article.favoriteAdd($scope.article.item_id).then(function(data){
                             $element.addClass('favorite');
-                            console.log('now it\'s a favorite');
+                            $mdToast.show(
+                                $mdToast.simple()
+                                .textContent('added to favourite!')
+                                .hideDelay(3000)
+                            );
                         }, function(e){
-                            console.log('there is an error when add favorite');
                             Popup.showError('there is an error, please try again.');
                         });
                     }
@@ -37,12 +41,22 @@ alsharq.directive('articleTemplate', [
                     if ( $element.hasClass('later') ) {
                         Article.laterRemove($scope.article.item_id).then(function(data){
                             $element.removeClass('later');
+                            $mdToast.show(
+                                $mdToast.simple()
+                                .textContent('removed from Later!')
+                                .hideDelay(3000)
+                            );
                         }, function(e){
                             Popup.showError('there is an error, please try again.');
                         });
                     } else {
                         Article.laterAdd($scope.article.item_id).then(function(data){
                             $element.addClass('later');
+                            $mdToast.show(
+                                $mdToast.simple()
+                                .textContent('added to later!')
+                                .hideDelay(3000)
+                            );
                         }, function(e){
                             Popup.showError('there is an error, please try again.');
                         });

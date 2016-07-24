@@ -33,6 +33,10 @@ alsharq.constant('API', (function(){
         "COMMENTS_COUNT": URL + "comments/count",
         "ADD_COMMENTS": URL + "comments/add",
         "COMMENTS": URL + "comments",
+        "GET_FEED": URL + "feed/list",
+        "POST_FEED": URL + "feed/subscribe",
+        "GET_SUBSCRIPTION_FILTER": URL + "subscriptions/filter",
+        
 
 
         /**
@@ -45,7 +49,7 @@ alsharq.constant('API', (function(){
          *     Status 200 on sucess
          *     Status 400 on fails
          */
-        "": URL + "article/readlater/markasread",
+        "MARK_AS_READ": URL + "article/readlater/markasread",
 
         /**
          * @desc [ Provide the system with the Device ID or Token provided by Apple Notification service or Google Cloud Messaging for push notifications. ]
@@ -114,47 +118,6 @@ alsharq.constant('API', (function(){
          * }
          */
         "POST_RESET_PASSWORD": URL + "user/forgot_password",
-
-
-        /**
-         * @method GET
-         * @send {
-         *     page: 2,
-         * }
-         * @return
-         *     "count": 1,
-         *     "results": [
-         *         {
-         *             "id": 1,
-         *             "is_subscribed": null,
-         *             "title": "نبض  الشارع",
-         *             "type": "category",
-         *             "name": "Khaberni"
-         *             "website": {
-         *                 "id": 1,
-         *                 "image": {
-         *                     "caption": "asdas",
-         *                     "file": "http://192.168.0.10:8080/media/images/2016/06/18/image.gif",
-         *                     "height": 300,
-         *                     "width": 200
-         *                 },
-         *             }
-         *         }
-         *      ]
-         * }
-         */
-        "GET_FEED": URL + "feed/list",
-
-        /**
-         * @method POST
-         * @send {
-         *     feed_id: 2,
-         * }
-         * @return
-         *     Status 200 on sucess
-         *     Status 400 on fails
-         */
-        "POST_FEED": URL + "feed/subscribe",
 
         /**
          * @method POST
@@ -277,42 +240,6 @@ alsharq.constant('API', (function(){
          * }
          */
         "GET_SUBSCRIPERS": URL + "subscriptions/list",
-
-        /**
-         * @method GET
-         * @send {}
-         * @return {
-         *     "countries": [
-         *         {
-         *             "count": 0,
-         *             "id": 1,
-         *             "name": "Jordan"
-         *         }
-         *     ],
-         *     "keywords": [
-         *         {
-         *             "count": 0,
-         *             "id": 3,
-         *             "name": "test"
-         *         }
-         *     ],
-         *     "websites": [
-         *         {
-         *             "categories": [
-         *                 {
-         *                     "count": 0,
-         *                     "id": 2,
-         *                     "name": "اسواق"
-         *                 }
-         *             ],
-         *             "count": 0,
-         *             "id": 1,
-         *             "name": "Khaberni"
-         *         }
-         *     ]
-         * }
-         */
-        "GET_SUBSCRIPTION_FILTER": URL + "subscriptions/filter",
     }
 })());
 
