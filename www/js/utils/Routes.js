@@ -87,6 +87,11 @@ alsharq.config([
             controller: "ArticleController"
         })
 
+        .when('/about', {
+            templateUrl: "views/about.html",
+            controller: "AboutController"
+        })
+
         .otherwise('/home');
     }
 ]);

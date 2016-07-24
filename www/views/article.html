@@ -20,7 +20,7 @@
         <md-divider></md-divider>
         
         <div class="body" id="article-body">
-            <div class="time">{{ article.date_published }}</div>
+            <div class="time">{{ article.date_published | time }}</div>
             <div class="content">
                 {{ article.body }}
             </div>

@@ -16,15 +16,7 @@ alsharq.factory('Subscription', [
                     });
                 }
             },
-            filter: function(){
-                if (env == 'production') return $http.get(API.GET_SUBSCRIPTION_FILTER);
-                if (env == 'development') {
-                    return $q(function(resolve, reject) {
-                        var data = { "data": testData.GET_SUBSCRIPTION_FILTER };
-                        resolve(data);
-                    });
-                }
-            },
+            filter: function(){ return $http.get(API.GET_SUBSCRIPTION_FILTER); },
         }
     }
 ]);

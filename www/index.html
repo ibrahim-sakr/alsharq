@@ -41,50 +41,61 @@
             </div>
         </md-toolbar>
 
+        <md-progress-linear md-mode="indeterminate" ng-show="isLoading()"></md-progress-linear>
+
         <!-- main sidebar -->
         <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="mainSidebar">
-            <md-list-item class="list-title">
-                <p> تصفح </p>
-            </md-list-item>
-            <md-list-item  ng-click="goTo('websites')">
-                <p> تصفح المواقع اﻷخبارية </p>
-            </md-list-item>
-            <md-list-item class="list-title">
-                <p> خياراتي </p>
-            </md-list-item>
-            <md-list-item ng-click="goTo('my-subscriptions')">
-                <p> اشتراكاتي </p>
-            </md-list-item>
-            <md-list-item  ng-click="goTo('my-keywords')">
-                <p> كلماتي المفتاحية </p>
-            </md-list-item>
-            <md-list-item  ng-click="goTo('my-articles/favorite')">
-                <p> مقالاتي المفضلة </p>
-            </md-list-item>
-            <md-list-item  ng-click="goTo('my-articles/later')">
-                <p> مقالات للقراءه لاحقا </p>
-            </md-list-item>
-            <md-list-item  ng-click="goTo('my-countries')">
-                <p> الدول المتابعة </p>
-            </md-list-item>
-            <md-list-item  ng-click="goTo('my-interests')">
-                <p> اهتماماتي </p>
-            </md-list-item>
-            <md-list-item class="list-title">
-                <p> حسابي </p>
-            </md-list-item>
-            <md-list-item  ng-click="goTo('profile')">
-                <p> الملف الشخصي </p>
-            </md-list-item>
-            <md-list-item  ng-click="goTo('contact')">
-                <p> راسلنا </p>
-            </md-list-item>
-            <md-list-item  ng-click="logout()">
-                <p> تسجيل الخروج </p>
-            </md-list-item>
-            <md-list-item  ng-click="exit()">
-                <p> اغلاق البرنامج </p>
-            </md-list-item>
+            <div class="info clearfix">
+                <img ng-if="$user.profile_pic" ng-src="{{ $user.profile_pic }}" alt="avatar">
+                <img ng-if="!$user.profile_pic" src="img/user.png" alt="avatar">
+                <div class="bar clearfix">
+                    <div ng-click="goTo('profile')">تعديل حسابي</div>
+                    <div><a href="#">حساباتي المربوطة</a></div>
+                    <div ng-click="logout()">تسجيل الخروج</div>
+                </div>
+            </div>
+
+            <div class="ul">
+                <md-list-item class="list-title">
+                    <p> تصفح </p>
+                </md-list-item>
+                <md-list-item  ng-click="goTo('websites')">
+                    <p> تصفح المواقع اﻷخبارية <i class="alsharq-navigate_before"></i></p>
+                </md-list-item>
+                <md-list-item class="list-title">
+                    <p> خياراتي </p>
+                </md-list-item>
+                <md-list-item ng-click="goTo('my-subscriptions')">
+                    <p>اشتراكاتي <i class="alsharq-navigate_before"></i></p>
+                </md-list-item>
+                <md-list-item  ng-click="goTo('my-keywords')">
+                    <p>كلماتي المفتاحية <i class="alsharq-navigate_before"></i></p>
+                </md-list-item>
+                <md-list-item  ng-click="goTo('my-articles/favorite')">
+                    <p>مقالاتي المفضلة <i class="alsharq-navigate_before"></i></p>
+                </md-list-item>
+                <md-list-item  ng-click="goTo('my-articles/later')">
+                    <p>مقالات للقراءه لاحقا <i class="alsharq-navigate_before"></i></p>
+                </md-list-item>
+                <md-list-item  ng-click="goTo('my-countries')">
+                    <p>الدول المتابعة <i class="alsharq-navigate_before"></i></p>
+                </md-list-item>
+                <md-list-item  ng-click="goTo('my-interests')">
+                    <p>اهتماماتي <i class="alsharq-navigate_before"></i></p>
+                </md-list-item>
+                <md-list-item class="list-title">
+                    <p> معلومات التطبيق </p>
+                </md-list-item>
+                <md-list-item  ng-click="goTo('about')">
+                    <p>عن شرق <i class="alsharq-navigate_before"></i></p>
+                </md-list-item>
+                <md-list-item  ng-click="goTo('contact')">
+                    <p>اتصل بتا <i class="alsharq-navigate_before"></i></p>
+                </md-list-item>
+                <md-list-item class="list-title" ng-click="exit()">
+                    <p> اغلاق البرنامج </p>
+                </md-list-item>
+            </div>
         </md-sidenav>
 
         <div ng-view></div>
@@ -96,7 +107,7 @@
             <md-list-item class="list-title">
                 <p> الدول </p>
             </md-list-item>
-                <md-list-item ng-repeat="country in shortcutSidebarContent.countries"  ng-click="goTo('websites')">
+                <md-list-item class="countries" ng-repeat="country in shortcutSidebarContent.countries"  ng-click="goTo('websites')">
                     <p> {{ country.name }} </p>
                     <i class="md-secondary">{{ country.count }}</i>
                 </md-list-item>
@@ -113,7 +124,7 @@
             <md-list-item class="list-title" ng-click="goTo('page_with_keyword_filter')">
                 <p> الكلمات المفتاحية </p>
             </md-list-item>
-                <md-list-item ng-repeat="keyword in shortcutSidebarContent.keywords" class="secondary-button-padding">
+                <md-list-item class="keywords" ng-repeat="keyword in shortcutSidebarContent.keywords" class="secondary-button-padding">
                     <p>{{ keyword.name }}</p>
                     <md-checkbox class="md-secondary" ng-model="topping.wanted"></md-checkbox>
                 </md-list-item>
@@ -153,6 +164,7 @@
     <script src="js/utils/Routes.js"></script>
 
     <!-- controllers -->
+    <script src="js/controllers/AboutController.js"></script>
     <script src="js/controllers/ArticleController.js"></script>
     <script src="js/controllers/AuthController.js"></script>
     <script src="js/controllers/CatsWritersController.js"></script>
@@ -190,11 +202,13 @@
     <script src="js/services/PopupService.js"></script>
     <script src="js/services/QueueService.js"></script>
     <script src="js/services/StorageService.js"></script>
+    <script src="js/services/TimeService.js"></script>
 
     <!-- directives -->
     <script src="js/directives/ArticleDirective.js"></script>
 
     <!-- filters -->
+    <script src="js/filters/TImeFilter.js"></script>
 
     <!-- values -->
     <script src="js/values/Config.js"></script>

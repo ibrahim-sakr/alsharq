@@ -272,7 +272,7 @@ md-list-item button p {
 
 .profile .update {
     padding: 15px;
-    background: #8cc63f;
+    background: #1adeec;
     margin: 0;
     color: #ffffff;
     text-align: center;
@@ -354,10 +354,56 @@ md-input-container label {
     right: 0 !important;
 }
 
+.info {}
+.info img {
+    width: 100px;
+    left: 50%;
+    position: relative;
+    margin: 0 0 10px -50px;
+}
+.info .bar {
+    background: #e5e5e5;
+}
+.info .bar div {
+    width: 33.33333%;
+    float: left;
+    text-align: center;
+    padding: 10px 0;
+}
+.ul {
+    position: absolute;
+    top: 140px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+}
+.ul i {
+    color: #2ec2ff;
+}
 
-
-
-
-
+md-progress-linear {
+    top: 56px;
+    z-index: 3;
+}
+.countries i {
+    right: auto !important;
+    left: 16px;
+    margin: 0 16px 0 0 !important;
+    background: #666;
+    color: #fff;
+    border-radius: 50%;
+    padding: 5px;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    line-height: 22px;
+}
+.keywords {}
+.keywords md-checkbox {
+    right: auto !important;
+    left: 16px;
+    margin: 0 16px 0 0 !important;
+}
 
 

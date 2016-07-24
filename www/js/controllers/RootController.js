@@ -9,19 +9,26 @@ alsharq.controller('RootController', [
     'Popup',
     '$mdDialog',
     'Keyword',
-    function($rootScope, $scope, $location, $mdSidenav, Subscription, Storage, Queue, Popup, $mdDialog, Keyword){
+    '$http',
+    function($rootScope, $scope, $location, $mdSidenav, Subscription, Storage, Queue, Popup, $mdDialog, Keyword, $http){
         $scope.shortcutSidebarContent = {};
         $scope.keywords = [];
+        $scope.$user = JSON.parse( Storage.get('user') );
+
+        /**
+         * check if there is an http request
+         * used in loading bar
+         * @return {Boolean}
+         */
+        $scope.isLoading = function(){
+            return $http.pendingRequests.length > 0;
+        };
 
         $scope.goTo = function(page){
             $location.path('/' + page);
             $scope.closeSidebar('mainSidebar')
         };
 
-        /**
-         * fires after all angular modules loaded.
-         * it's like afterLoaded event.
-         */
         $scope.appReady = function(){
             window.Loading.hide();
             console.log('app loaded');
@@ -93,6 +100,7 @@ alsharq.controller('RootController', [
         $scope.loadSortcutSidebar = function(){
             Subscription.filter().then(function(data){
                 $scope.shortcutSidebarContent = data.data;
+                console.log($scope.shortcutSidebarContent);
             }, function(e){
                 Popup.showError('there is an error, please try again.');
             });
