@@ -10,7 +10,9 @@ alsharq.controller('HomeController', [
 
         function load(){
             Article.all($scope.count).then(function(data){
+                data.data.results = data.data.results.reverse();
                 $scope.articles = $scope.articles.concat(data.data.results);
+                $scope.$broadcast('scroll.refreshComplete');
             }, function(e){
                 $mdToast.show(
                     $mdToast.simple()
@@ -23,6 +25,12 @@ alsharq.controller('HomeController', [
 
         $scope.more = function(){
             $scope.count++;
+            load();
+        };
+
+        $scope.refresh = function(){
+            $scope.count    = 1;
+            $scope.articles = [];
             load();
         };
     }

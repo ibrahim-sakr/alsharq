@@ -11,22 +11,22 @@ alsharq.service('Time', [
                 elapsed     = past - current;
 
             if (elapsed < msPerMinute) {
-                 return Math.round(elapsed/1000) + ' seconds ago';   
+                 return "منذ " + Math.round(elapsed/1000) + ' ثانية';   
             }
             else if (elapsed < msPerHour) {
-                 return Math.round(elapsed/msPerMinute) + ' minutes ago';   
+                 return "منذ " + Math.round(elapsed/msPerMinute) + ' دقيقة';   
             }
             else if (elapsed < msPerDay ) {
-                 return Math.round(elapsed/msPerHour ) + ' hours ago';   
+                 return "منذ " + Math.round(elapsed/msPerHour ) + ' ساعه';   
             }
             else if (elapsed < msPerMonth) {
-                return Math.round(elapsed/msPerDay) + ' days ago';   
+                return "منذ " + Math.round(elapsed/msPerDay) + ' يوم';   
             }
             else if (elapsed < msPerYear) {
-                return Math.round(elapsed/msPerMonth) + ' months ago';   
+                return "منذ " + Math.round(elapsed/msPerMonth) + ' شهر';   
             }
             else {
-                return Math.round(elapsed/msPerYear ) + ' years ago';   
+                return "منذ " + Math.round(elapsed/msPerYear ) + ' عام';   
             }
         };
     }

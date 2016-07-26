@@ -26,7 +26,7 @@ alsharq.controller('RootController', [
 
         $scope.goTo = function(page){
             $location.path('/' + page);
-            $scope.closeSidebar('mainSidebar')
+            $scope.closeSidebar('mainSidebar');
         };
 
         $scope.appReady = function(){
@@ -98,6 +98,7 @@ alsharq.controller('RootController', [
         };
 
         $scope.loadSortcutSidebar = function(){
+            if ( !$scope.$user ) return;
             Subscription.filter().then(function(data){
                 $scope.shortcutSidebarContent = data.data;
                 console.log($scope.shortcutSidebarContent);
@@ -106,5 +107,10 @@ alsharq.controller('RootController', [
             });
         }
         $scope.loadSortcutSidebar();
+
+        $scope.feeds = function(){
+            $location.path('/feeds');
+            $scope.closeSidebar('shortcutSidebar');
+        };
     }
 ]);

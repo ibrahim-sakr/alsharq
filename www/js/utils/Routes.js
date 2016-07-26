@@ -22,6 +22,11 @@ alsharq.config([
             controller: "LoginController"
         })
 
+        .when('/related-accounts', {
+            templateUrl: "views/auth/related-accounts.html",
+            controller: "RelatedAccountsController"
+        })
+
         .when('/auth/reset', {
             templateUrl: "views/auth/reset.html",
             controller: "ResetPasswordController"
@@ -90,6 +95,11 @@ alsharq.config([
         .when('/about', {
             templateUrl: "views/about.html",
             controller: "AboutController"
+        })
+
+        .when('/feeds', {
+            templateUrl: "views/feeds.html",
+            controller: "FeedsController"
         })
 
         .otherwise('/home');

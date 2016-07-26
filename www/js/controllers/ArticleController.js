@@ -7,7 +7,10 @@ alsharq.controller('ArticleController', [
     '$mdDialog',
     function($scope, $routeParams, Comment, Popup, Article, $mdDialog){
         $scope.article = {};
-        $scope.articleJQ = angular.element(document.getElementById('article'));
+        $scope.articleJS = angular.element(document.getElementById('article'));
+
+        // increase count of readinf for article, no need th retrieve any thing.
+        Article.read($routeParams.id);
 
         Article.find({ "article_id": $routeParams.id }).then(function(data){
             $scope.article = data.data.results[0];
@@ -41,15 +44,25 @@ alsharq.controller('ArticleController', [
 
         $scope.favorite = function(){
             
-            if ( $scope.articleJQ.hasClass('favorite') ) {
+            if ( $scope.articleJS.hasClass('favorite') ) {
                 Article.favoriteRemove($scope.article.item_id).then(function(data){
-                    $scope.articleJQ.removeClass('favorite');
+                    $scope.articleJS.removeClass('favorite');
+                    $mdToast.show(
+                        $mdToast.simple()
+                        .textContent('removed from favourite!')
+                        .hideDelay(3000)
+                    );
                 }, function(e){
                     Popup.showError('there is an error, please try again.');
                 });
             } else {
                 Article.favoriteAdd($scope.article.item_id).then(function(data){
-                    $scope.articleJQ.addClass('favorite');
+                    $scope.articleJS.addClass('favorite');
+                    $mdToast.show(
+                        $mdToast.simple()
+                        .textContent('added to favourite!')
+                        .hideDelay(3000)
+                    );
                 }, function(e){
                     Popup.showError('there is an error, please try again.');
                 });
@@ -57,15 +70,25 @@ alsharq.controller('ArticleController', [
         };
 
         $scope.later = function(){
-            if ( $scope.articleJQ.hasClass('later') ) {
+            if ( $scope.articleJS.hasClass('later') ) {
                 Article.laterRemove($scope.article.item_id).then(function(data){
-                    $scope.articleJQ.removeClass('later');
+                    $scope.articleJS.removeClass('later');
+                    $mdToast.show(
+                        $mdToast.simple()
+                        .textContent('removed from Later!')
+                        .hideDelay(3000)
+                    );
                 }, function(e){
                     Popup.showError('there is an error, please try again.');
                 });
             } else {
                 Article.laterAdd($scope.article.item_id).then(function(data){
-                    $scope.articleJQ.addClass('later');
+                    $scope.articleJS.addClass('later');
+                    $mdToast.show(
+                        $mdToast.simple()
+                        .textContent('added to later!')
+                        .hideDelay(3000)
+                    );
                 }, function(e){
                     Popup.showError('there is an error, please try again.');
                 });

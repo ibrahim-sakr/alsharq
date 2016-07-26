@@ -5,9 +5,10 @@
         </div>
         <a class="my-plus" href="#/websites">+</a>
         <md-list flex>
-            <md-list-item ng-repeat="subscripe in subscriptions" ng-click="edit(subscripe.id, true)">
-                <p>{{ subscripe.title }}</p>
+            <md-list-item ng-repeat="subscripe in subscriptions" ng-click="edit(subscripe.id, true, $index)">
+                <p>{{ subscripe.website.name }} - {{ subscripe.title }}</p>
             </md-list-item>
         </md-list>
+        <div class="more" ng-click="load()">عرض المزيد</div>
     </div>
 </div>

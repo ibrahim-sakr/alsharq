@@ -6,7 +6,7 @@ alsharq.controller('OwnArticlesController', [
     'Popup',
     function($scope, $rootScope, $routeParams, Article, Popup){
         $scope.type = $routeParams.prefrence;
-        $rootScope.pageTitle = 'My ' + $scope.type + ' Articles';
+        $rootScope.pageTitle = ($scope.type == "favorite") ? "مقالاتي المفضلة" : "مقالات للقراءه لاحقا";
         $scope.articles = [];
 
         var methodAll    = $scope.type + "All",
@@ -14,7 +14,6 @@ alsharq.controller('OwnArticlesController', [
         
         Article[methodAll]().then(function(data){
             $scope.articles = data.data.results;
-            console.log($scope.articles);
         }, function(e){
             Popup.showError('there is an error, please try again.');
         });

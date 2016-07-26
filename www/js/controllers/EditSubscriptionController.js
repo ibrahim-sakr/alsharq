@@ -2,22 +2,42 @@ alsharq.controller('EditSubscriptionController', [
     '$scope',
     '$mdBottomSheet',
     'id',
+    'Feed',
+    '$mdToast',
     'noti',
-    function($scope, $mdBottomSheet, id, noti){
+    function($scope, $mdBottomSheet, id, Feed, $mdToast, noti){
+        
         $scope.remove = function(){
-            console.log("remove " + id);
-            hide('hello remove');
+            Feed.subscribe(id).then(function(data){
+                hide('remove');
+                $mdToast.show(
+                    $mdToast.simple()
+                    .textContent('تم الغاء الاشتراك.')
+                    .hideDelay(3000)
+                );
+            }, function(e){
+                hide('');
+                $mdToast.show(
+                    $mdToast.simple()
+                    .textContent('جدث خطأ, من فضلك اعد المحاولة.')
+                    .hideDelay(3000)
+                );
+            });
         };
+        
+
         $scope.open = function(){
             console.log("open " + id);
-            hide('hello open');
+            hide('open');
         };
+        
         $scope.notificaton = function(){
             console.log("notificaton " + id);
-            hide('hello noti');
+            hide('notify');
         };
-        function hide(m){
-            $mdBottomSheet.hide(m);
+        
+        function hide(action){
+            $mdBottomSheet.hide(action);
         }
     }
 ]);

@@ -1,7 +1,8 @@
 alsharq.directive('articleTemplate', [
     'Article',
     'Popup',
-    function(Article, Popup) {
+    '$mdToast',
+    function(Article, Popup, $mdToast) {
         return {
             restrict: "E",
             scope: {
@@ -10,6 +11,22 @@ alsharq.directive('articleTemplate', [
             templateUrl: "views/directives/article-template.html",
             link: function($scope, $element, $attrs) {
                 $scope.showContent = false;
+
+                $scope.share = function(){
+                    var options = {
+                        message: 'Share', // not supported on some apps (Facebook, Instagram)
+                        subject: 'Read this ' + $scope.article.title, // fi. for email
+                        url: $scope.article.url,
+                        chooserTitle: 'Pick an app' // Android only, you can override the default share sheet title
+                    };
+                    function onSuccess(data){
+                        console.log(data);
+                    };
+                    function onError(msg){
+                        console.log(msg);
+                    };
+                    window.plugins.socialsharing.share(options, onSuccess, onError);
+                };
 
                 $scope.favorite = function(){
                     if ( $element.hasClass('favorite') ) {

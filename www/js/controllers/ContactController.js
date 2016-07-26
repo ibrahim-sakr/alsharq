@@ -4,12 +4,13 @@ alsharq.controller('ContactController', [
     'Popup',
     '$location',
     '$mdToast',
-    function($scope, Contact, Popup, $location, $mdToast){
-        $scope.contact = {};
-        // name: 1,
-        // email: ""
-        // subject: ""
-        // message: ""
+    'Storage',
+    function($scope, Contact, Popup, $location, $mdToast, Storage){
+        var $user = JSON.parse( Storage.get('user') );
+        $scope.contact = {
+            name: $user.first_name +" "+ $user.last_name,
+            email: $user.email,
+        };
 
         $scope.send = function(){
             Contact.send($scope.contact).then(function(data){

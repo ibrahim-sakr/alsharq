@@ -1,0 +1,8 @@
+alsharq.controller('RelatedAccountsController', [
+    function(){
+
+    }
+]);
+
+
+

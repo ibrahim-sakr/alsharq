@@ -13,7 +13,7 @@ body {
 }
 
 #appContainer {
-    padding: 20px 0 0 0;
+    /*padding: 20px 0 0 0;*/
     background: #24bed4;
 }
 
@@ -29,7 +29,8 @@ textarea {
 }
 #page {
     position: absolute;
-    top: 76px;
+    /*top: 76px;*/
+    top: 56px;
     right: 0;
     bottom: 0;
     left: 0;
@@ -40,6 +41,9 @@ textarea {
 }
 .md-toolbar-tools{
     background-color: #24bed4;
+}
+.color-gray {
+    color: #2b6972;
 }
 .fullscreen {
     position: absolute;
@@ -93,12 +97,14 @@ textarea {
 
 .auth md-input-container.md-default-theme label, .auth md-input-container label, .auth md-input-container.md-default-theme .md-placeholder, .auth md-input-container .md-placeholder {
     color: #ffffff;
+    white-space: nowrap;
 }
 .auth md-input-container.md-default-theme .md-input, .auth md-input-container .md-input {
     border-color: rgba(255,255,255,0.3);
 }
 .auth md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused label, .auth md-input-container:not(.md-input-invalid).md-input-focused label {
     color: rgb(255, 255, 255);
+    white-space: nowrap;
 }
 .auth md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused .md-input, .auth md-input-container:not(.md-input-invalid).md-input-focused .md-input {
     border-color: rgb(255, 255, 255);
@@ -136,7 +142,7 @@ md-list-item button p {
 .article {
     direction: rtl;
     border-bottom: 2px solid #22bdd3;
-    padding-bottom: 10px;
+    margin-bottom: 10px;
 }
 .article .article_header {
     background: #ffffff;
@@ -194,11 +200,12 @@ md-list-item button p {
     background: #cdd2d4;
 }
 .article .article_footer div,
-.article_page .bar div {
+.article_page .barss div {
     width: 33.3333333333%;
     float: right;
     text-align: center;
     padding: 10px;
+    border-left: 1px solid #aaa;
 }
 .article .article_footer i {
     font-size: 1.3em;
@@ -245,6 +252,9 @@ md-list-item button p {
     left: 16px;
     margin: 0 16px 0 0;
     right: auto;
+}
+.my-keywords md-list p {
+    margin: 0 !important;
 }
 .my-articles img {
     width: 100%;
@@ -306,7 +316,7 @@ md-list-item button p {
 .article_page .article_image {
     width: 100%;
 }
-.article_page .bar {
+.article_page .barss {
     background: #cdd2d4;
 }
 .article_page .body {
@@ -377,6 +387,7 @@ md-input-container label {
     padding-right: 3px !important;
     left: auto !important;
     right: 0 !important;
+    white-space: nowrap;
 }
 
 .info {
@@ -388,10 +399,10 @@ md-input-container label {
     position: relative;
     margin: 0 0 10px -50px;
 }
-.info .bar {
+.info .barss {
     background: #e5e5e5;
 }
-.info .bar div {
+.info .barss div {
     width: 33.33333%;
     float: left;
     text-align: center;
@@ -410,7 +421,7 @@ md-input-container label {
 }
 
 md-progress-linear {
-    top: 20px;
+    /*top: 20px;*/
     position: absolute !important;
     z-index: 99;
 }
@@ -436,5 +447,7 @@ md-progress-linear {
 md-sidenav.md-sidenav-right.md-whiteframe-z2 {
     padding: 20px 0 0 0;
 }
-
+.pref-article {
+    margin: 0 0 10px 0;
+}
 

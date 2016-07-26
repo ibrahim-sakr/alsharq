@@ -3,6 +3,7 @@ window.env = "development"; // production
 // window.env = "production";  // development
 
 var alsharq = angular.module('AlSharq', [
+    'ionic',
     'ngRoute',
     'ngMaterial',
     'ngCordovaOauth',

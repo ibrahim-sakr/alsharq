@@ -9,6 +9,7 @@
 
     <title>Al Sharq</title>
 
+    <link rel="stylesheet" type="text/css" href="css/ionic.min.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="js/libs/angular-material/angular-material.min.css">
     <link rel="stylesheet" type="text/css" href="css/fonts.css">
@@ -23,11 +24,11 @@
         <md-toolbar class="fixed">
             <div class="md-toolbar-tools">
                 <md-button ng-if="isHome" class="md-icon-button" aria-label="Menu" ng-click="openSidebar('mainSidebar')">
-                    <md-icon class="alsharq-menu"></md-icon>
+                    <md-icon class="alsharq-menu color-gray"></md-icon>
                 </md-button>
                 <div ng-if="!isHome" class="logo-header">
                     <md-button class="md-icon-button" aria-label="Back" ng-click="back()">
-                        <md-icon class="alsharq-arrow_back"></md-icon>
+                        <md-icon class="alsharq-arrow_back color-gray"></md-icon>
                     </md-button>
                     <img src="img/launcher.png" alt="logo">
                 </div>
@@ -38,7 +39,7 @@
                 <span flex></span>
                 
                 <md-button aria-label="notifications" class="md-icon-button" ng-click="openSidebar('shortcutSidebar')">
-                    <md-icon md-menu-origin class="alsharq-more_vert"></md-icon>
+                    <md-icon md-menu-origin class="alsharq-more_vert color-gray"></md-icon>
                 </md-button>
             </div>
         </md-toolbar>
@@ -49,13 +50,16 @@
                 <img ng-if="$user.profile_pic" ng-src="{{ $user.profile_pic }}" alt="avatar">
                 <img ng-if="!$user.profile_pic" src="img/user.png" alt="avatar">
                 <div class="bar clearfix">
-                    <div ng-click="goTo('profile')">تعديل حسابي</div>
-                    <div><a href="#">حساباتي المربوطة</a></div>
                     <div ng-click="logout()">تسجيل الخروج</div>
+                    <div ng-click="goTo('related-accounts')">حساباتي المربوطة</div>
+                    <div ng-click="goTo('profile')">تعديل حسابي</div>
                 </div>
             </div>
 
             <div class="ul">
+                <md-list-item ng-click="goTo('test')">
+                    <p>test</p>
+                </md-list-item>
                 <md-list-item class="list-title">
                     <p> تصفح </p>
                 </md-list-item>
@@ -104,6 +108,9 @@
             <md-list-item class="list-title" ng-click="goTo('home')">
                 <p> الكل </p>
             </md-list-item>
+            <md-list-item ng-click="feeds()">
+                <p> feeds </p>
+            </md-list-item>
             <md-list-item class="list-title">
                 <p> الدول </p>
             </md-list-item>
@@ -143,8 +150,8 @@
     <script type="text/javascript" src="cordova.js"></script>
 
     <!-- Libs -->
-        <!-- Angular -->
-        <script src="js/libs/angular/angular.min.js"></script>
+        <!-- Angular with Ionic -->
+        <script src="js/libs/angular/ionic.bundle.min.js"></script>
         <!-- Routes -->
         <script src="js/libs/angular-route/angular-route.min.js"></script>
         <!-- Message -> for material -->
@@ -172,6 +179,7 @@
     <script src="js/controllers/ContactController.js"></script>
     <script src="js/controllers/CountriesController.js"></script>
     <script src="js/controllers/EditSubscriptionController.js"></script>
+    <script src="js/controllers/FeedsController.js"></script>
     <script src="js/controllers/HomeController.js"></script>
     <script src="js/controllers/InterestsController.js"></script>
     <script src="js/controllers/LoginController.js"></script>
@@ -182,6 +190,7 @@
     <script src="js/controllers/OwnSubscriptionsController.js"></script>
     <script src="js/controllers/ProfileController.js"></script>
     <script src="js/controllers/RegisterController.js"></script>
+    <script src="js/controllers/RelatedAccountsController.js"></script>
     <script src="js/controllers/ResetPasswordController.js"></script>
     <script src="js/controllers/RootController.js"></script>
     <script src="js/controllers/WebsitesController.js"></script>

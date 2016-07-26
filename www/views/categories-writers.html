@@ -1,6 +1,6 @@
 <div id="page">
     <md-tabs md-dynamic-height md-border-bottom>
-        <md-tab label="Categories">
+        <md-tab label="التصنيفات">
             <md-content class="md-padding">
                 <md-list>
                     <md-list-item ng-repeat="cat in cats" ng-click="subscribe(cat.id, 'cats', $index)" ng-class="{subscribed: cat.is_subscribed}">
@@ -9,7 +9,7 @@
                 </md-list>
             </md-content>
         </md-tab>
-        <md-tab label="Writers">
+        <md-tab label="الكتاب">
             <md-content class="md-padding">
                 <md-list-item ng-repeat="writer in writers" ng-click="subscribe(writer.id, 'writers', $index)" ng-class="{subscribed: cat.is_subscribed}">
                     <p> {{ writer.title }} </p>

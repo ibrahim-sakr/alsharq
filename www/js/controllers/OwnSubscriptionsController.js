@@ -4,64 +4,20 @@ alsharq.controller('OwnSubscriptionsController', [
     'Subscription',
     'Popup',
     function($scope, $mdBottomSheet, Subscription, Popup){
-        $scope.subscriptions = [
-            {
-                "id": 1,
-                "title": "Jordan",
-                "is_subscribed": "jo",
-                "type": "jo",
-                "website": {
-                    "id": 1,
-                    "name": "Khaberni",
-                    "image": {
-                        "caption": "asdas",
-                        "file": "http://192.168.0.10:8080/media/images/2016/06/18/image.gif",
-                        "height": 300,
-                        "width": 200
-                    }
-                }
-            },
-            {
-                "id": 2,
-                "title": "Jordan",
-                "is_subscribed": "jo",
-                "type": "jo",
-                "website": {
-                    "id": 1,
-                    "name": "Khaberni",
-                    "image": {
-                        "caption": "asdas",
-                        "file": "http://192.168.0.10:8080/media/images/2016/06/18/image.gif",
-                        "height": 300,
-                        "width": 200
-                    }
-                }
-            },
-            {
-                "id": 3,
-                "title": "Jordan",
-                "is_subscribed": "jo",
-                "type": "jo",
-                "website": {
-                    "id": 1,
-                    "name": "Khaberni",
-                    "image": {
-                        "caption": "asdas",
-                        "file": "http://192.168.0.10:8080/media/images/2016/06/18/image.gif",
-                        "height": 300,
-                        "width": 200
-                    }
-                }
-            }
-        ];
+        $scope.subscriptions = [];
+        $scope.count = 1;
 
-        // Subscription.all().then(function(data){
-        //     $scope.subscriptions = data.results;
-        // }, function(e){
-        //     Popup.showError('there is an error, please try again.');
-        // });
+        $scope.load = function(){
+            Subscription.all($scope.count).then(function(data){
+                $scope.count++;
+                $scope.subscriptions = $scope.subscriptions.concat(data.data.results);
+            }, function(e){
+                Popup.showError('there is an error, please try again.');
+            });
+        };
+        $scope.load();
 
-        $scope.edit = function(id, noti) {
+        $scope.edit = function(id, noti, $index) {
             $mdBottomSheet.show({
                 templateUrl: 'views/partials/bottom-sheet-subscription-template.html',
                 controller: 'EditSubscriptionController',
@@ -69,8 +25,10 @@ alsharq.controller('OwnSubscriptionsController', [
                     id: id,
                     noti: noti
                 }
-            }).then(function(m) {
-                console.log(m);
+            }).then(function(action){
+                if (action == 'remove') {
+                    $scope.subscriptions.splice($index, 1);
+                }
             });
         };
     }
