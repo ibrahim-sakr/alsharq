@@ -54,5 +54,32 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "cordova-connectivity-monitor": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-connectivity-monitor"
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
+    "cordova-libgoogleadmobads": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/appfeel/google-iosadmobads",
+            "subdir": ".",
+            "ref": "482f14dd825feee9f7994ca5327dc527b8705910"
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
+    "cordova-admob": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/appfeel/admob-google-cordova.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }

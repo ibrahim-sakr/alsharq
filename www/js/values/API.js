@@ -9,7 +9,7 @@ alsharq.constant('API', (function(){
         "POST_LOGIN":              URL + "user/login",
         "POST_GUEST_LOGIN":        URL + "user/guest",
         "POST_LOGOUT":             URL + "user/logout",
-        "GET_PROFILE":             URL + "user",
+        "PROFILE":                 URL + "user",
         "GET_WEBSITES":            URL + "website/list",
         "GET_MY_INTERESTS":        URL + "interest/mine",
         "GET_INTERESTS":           URL + "interest/list",
@@ -38,6 +38,8 @@ alsharq.constant('API', (function(){
         "GET_SUBSCRIPTION_FILTER": URL + "subscriptions/filter",
         "GET_SUBSCRIPERS":         URL + "subscriptions/list",
         "POST_ARTICLE_READ_COUNT": URL + "article/mark_read",
+        "POST_NEWSFEED":           URL + "newsfeed",
+
 
         /**
          * @desc [ This endpoint archives the article from list by marking it as read (after the user has read the article, he/she can mark it as read) ]
@@ -79,26 +81,6 @@ alsharq.constant('API', (function(){
 
         /**
          * @method POST
-         * @send {
-         *     full_name: "",
-         *     password: "",
-         *     profile_pic: "" (File upload) (Content-Type: Multipart/form-data)
-         * }
-         * @return {
-         *     "email": "rakan.alhneiti123@gmail.com",
-         *     "facebook_connected": false,
-         *     "first_name": "Rakan",
-         *     "google_connected": false,
-         *     "id": 6,
-         *     "is_registered": true,
-         *     "last_name": "Alhneiti",
-         *     "profile_pic": null
-         * }
-         */
-        "POST_PROFILE": URL + "user",
-
-        /**
-         * @method POST
          * @send {}
          * @return {
          *     "message": "password reseted"
@@ -128,64 +110,6 @@ alsharq.constant('API', (function(){
          *     Status 400 on fails
          */
         "UPDATE_DEVICE": URL + "user/devices/update",
-
-        /**
-         * @method POST
-         * @send {
-         *     filters: [
-         *         {
-         *             “type”: “country”,
-         *             “name”: “jordan”
-         *         },
-         *         {
-         *             “type”: “interest”,
-         *             “name”: “local”
-         *         },
-         *         {
-         *             “type”: “keyword”,
-         *             “name”: “داعش”
-         *         },
-         *         {
-         *             “type”: “category”,
-         *             “id”: 2,
-         *         }
-         *     ]
-         * }
-         * @return {
-         *     "count": 1,
-         *     "results": [
-         *         {
-         *             "body": " ",
-         *             "channel_id": 1,
-         *             "channel_name": "نبض الشارع",
-         *             "channel_type": "category",
-         *             "country_id": [ 1 ],
-         *             "country_name": [
-         *                 "Jordan"
-         *             ],
-         *             "date_published": "2016-03-13T21:36:00",
-         *             "interest_id": [ 1 ],
-         *             "interest_name": [ "Local" ],
-         *             "is_favorite": false,
-         *             "is_readlater": false,
-         *             "item_id": "336",
-         *             "photos": [
-         *                 "http://192.168.0.10:8080/media/images/2016/03/14/1457908553_JyY9BxE.jpg",
-         *             ],
-         *             "status": 1,
-         *             "summary": "article content",
-         *             "thumbnail": null,
-         *             "title": "الطراونة: نفس حزبي بشعارات المعتصمين - فيديو",
-         *             "url": "http://192.168.0.10:8080/article/336",
-         *             "videos": null,
-         *             "website_id": 1,
-         *             "website_image": null,
-         *             "website_name": "Khaberni"
-         *         }
-         *     ]
-         * }
-         */
-        "POST_NEWSFEED": URL + "newsfeed",
 
         /**
          * @method POST

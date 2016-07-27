@@ -13,16 +13,16 @@ alsharq.controller('OwnInterestsController', [
         //             $scope.myInterests[ data.results[i].id ] = true;
         //         }
         //     }, function(e){
-        //         Popup.showError('there is an error, please try again.');
+        //         Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
         //     });
         // }, function(e){
-        //     Popup.showError('there is an error, please try again.');
+        //     Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
         // });
 
         Interest.own().then(function(own){
             $scope.interests = own.data.results;
         }, function(e){
-            Popup.showError('there is an error, please try again.');
+            Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
         });        
 
         $scope.toggle = function($index, id){
@@ -30,13 +30,13 @@ alsharq.controller('OwnInterestsController', [
                 Interest.remove(id).then(function(data){
                     $scope.interests[$index].subscribed = false;
                 }, function(e){
-                    Popup.showError('there is an error, please try again.');
+                    Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
                 });
             } else {
                 Interest.add(id).then(function(data){
                     $scope.interests[$index].subscribed = true;
                 }, function(e){
-                    Popup.showError('there is an error, please try again.');
+                    Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
                 });
             }
         };

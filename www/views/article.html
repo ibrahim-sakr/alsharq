@@ -1,6 +1,6 @@
 <div id="page">
     <div ngclass="{favorite: article.is_favorite, later: article.is_readlater}" class="article_page" id="article">
-        <div class="title">{{ article.title }}</div>
+        <div class="title">{{ article.title | html }}</div>
         <img class="article_image" ng-src="{{ article.thumbnail }}" alt="">
         
         <div class="barss clearfix">
@@ -11,9 +11,9 @@
         
         <md-divider></md-divider>
 
-        <div class="barss clearfix">
-            <div class="zoomout" ng-click="resize(-1)">-</div>
-            <div class="zoomin" ng-click="resize(1)">+</div>
+        <div class="barsss clearfix">
+            <div class="zoomout" ng-click="resize(-1)"><i class="alsharq-zoom_out"></i></div>
+            <div class="zoomin" ng-click="resize(1)"><i class="alsharq-zoom_in"></i></div>
             <div class="comments" ng-click="showComments()">التعليقات {{ commCount }}</div>
         </div>
         

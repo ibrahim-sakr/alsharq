@@ -20,7 +20,7 @@ alsharq.controller('CatsWritersController', [
             }, function fail(e){
                 $mdToast.show(
                     $mdToast.simple()
-                    .textContent('can\'t load the data, please try again.')
+                    .textContent('حدث خطأ اثناء التحميل, حاول مرة أخرى.')
                     .hideDelay(3000)
                 );
             });
@@ -37,7 +37,7 @@ alsharq.controller('CatsWritersController', [
             }, function fail(e){
                 $mdToast.show(
                     $mdToast.simple()
-                    .textContent('can\'t load the data, please try again.')
+                    .textContent('حدث خطأ اثناء التحميل, حاول مرة أخرى.')
                     .hideDelay(3000)
                 );
             });
@@ -52,7 +52,7 @@ alsharq.controller('CatsWritersController', [
             }, function fail(e){
                 $mdToast.show(
                     $mdToast.simple()
-                    .textContent('can\'t subscripte, please try again.')
+                    .textContent('حدث خطأ اثناء التحميل, حاول مرة أخرى.')
                     .hideDelay(3000)
                 );
             });

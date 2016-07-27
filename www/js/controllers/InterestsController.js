@@ -9,14 +9,14 @@ alsharq.controller('InterestsController', [
             $scope.interests = data.results;
             console.log($scope.interests);
         }, function(e){
-            Popup.showError('there is an error, please try again.');
+            Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
         });
 
         $scope.add = function(id, index){
             Interest.add(id).then(function(data){
                 $scope.interests[index].own = true;
             }, function(e){
-                Popup.showError('there is an error, please try again.');
+                Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
             });
         };
 
@@ -24,7 +24,7 @@ alsharq.controller('InterestsController', [
             Interest.remove(id).then(function(data){
                 $scope.interests[index].own = false;
             }, function(e){
-                Popup.showError('there is an error, please try again.');
+                Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
             });
         };
 

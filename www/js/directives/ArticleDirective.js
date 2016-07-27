@@ -34,22 +34,22 @@ alsharq.directive('articleTemplate', [
                             $element.removeClass('favorite');
                             $mdToast.show(
                                 $mdToast.simple()
-                                .textContent('removed from favourite!')
+                                .textContent('تم الحذف!')
                                 .hideDelay(3000)
                             );
                         }, function(e){
-                            Popup.showError('there is an error, please try again.');
+                            Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
                         });
                     } else {
                         Article.favoriteAdd($scope.article.item_id).then(function(data){
                             $element.addClass('favorite');
                             $mdToast.show(
                                 $mdToast.simple()
-                                .textContent('added to favourite!')
+                                .textContent('تمت الاضافة!')
                                 .hideDelay(3000)
                             );
                         }, function(e){
-                            Popup.showError('there is an error, please try again.');
+                            Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
                         });
                     }
                 };
@@ -60,22 +60,22 @@ alsharq.directive('articleTemplate', [
                             $element.removeClass('later');
                             $mdToast.show(
                                 $mdToast.simple()
-                                .textContent('removed from Later!')
+                                .textContent('تم الحذف!')
                                 .hideDelay(3000)
                             );
                         }, function(e){
-                            Popup.showError('there is an error, please try again.');
+                            Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
                         });
                     } else {
                         Article.laterAdd($scope.article.item_id).then(function(data){
                             $element.addClass('later');
                             $mdToast.show(
                                 $mdToast.simple()
-                                .textContent('added to later!')
+                                .textContent('تمت الاضافة!')
                                 .hideDelay(3000)
                             );
                         }, function(e){
-                            Popup.showError('there is an error, please try again.');
+                            Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
                         });
                     }
                 };

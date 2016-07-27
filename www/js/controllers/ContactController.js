@@ -17,11 +17,11 @@ alsharq.controller('ContactController', [
                 $location.path('/home');
                 $mdToast.show(
                     $mdToast.simple()
-                    .textContent('the message has been sent.')
+                    .textContent('تم ارسال الرسالة.')
                     .hideDelay(3000)
                 );
             }, function(e){
-                Popup.showError('there is an error, please try again.');
+                Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
             });
         };
     }

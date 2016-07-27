@@ -13,7 +13,7 @@ alsharq.controller('LoginController', [
             if (!$scope.user.email || !$scope.user.password) {
                 $mdToast.show(
                     $mdToast.simple()
-                    .textContent('you must fill all fields.')
+                    .textContent('يجب تعبئة جميع الحقول.')
                     .hideDelay(3000)
                 );
             }
@@ -35,7 +35,7 @@ alsharq.controller('LoginController', [
                     // location.reload();
                 },
                 'error': function(e){
-                    Popup.showError('there is an error, please try again.');
+                    Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
                 }
             };
             // start dequeuing

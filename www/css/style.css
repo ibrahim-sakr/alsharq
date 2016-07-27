@@ -27,6 +27,13 @@ textarea {
 .fixed {
     position: fixed;
 }
+md-toolbar {
+    white-space: nowrap;
+}
+md-toolbar.home h2 {
+    text-align: center;
+    width: 100%;
+}
 #page {
     position: absolute;
     /*top: 76px;*/
@@ -43,7 +50,7 @@ textarea {
     background-color: #24bed4;
 }
 .color-gray {
-    color: #2b6972;
+    color: #2b6972 !important;
 }
 .fullscreen {
     position: absolute;
@@ -143,28 +150,27 @@ md-list-item button p {
     direction: rtl;
     border-bottom: 2px solid #22bdd3;
     margin-bottom: 10px;
+    padding-bottom: 10px;
 }
 .article .article_header {
     background: #ffffff;
 }
 .article .article_header img {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     float: right;
-    margin: 0 0 0 5px;
+    margin: 0 0 10px 15px;
 }
 .article .article_header h3 {
-    line-height: 50px;
-    float: right;
     color: #000000;
-    margin: 0;
+    margin: 18px 0 10px 0;
     font-size: 1em;
+    white-space: nowrap;
 }
 .article .article_header h5 {
-    margin: 0 0 0 10px;
-    float: left;
-    line-height: 50px;
     color: #b0b0b0;
+    margin: 0;
+    white-space: nowrap;
 }
 
 .article .article_body {
@@ -179,6 +185,7 @@ md-list-item button p {
     margin: 0;
     color: #ffffff;
     font-size: 1.1em;
+    line-height: 1.5em;
 }
 .article .article_body .content {
     margin-bottom: 10px;
@@ -195,9 +202,14 @@ md-list-item button p {
     color: #fff;
     display: inline-block;
     margin: 15px 0 0 0;
+    white-space: nowrap;
 }
 .article .article_footer {
     background: #cdd2d4;
+}
+.article_page .barss,
+.article_page .barsss {
+    background: #ccd2d2;
 }
 .article .article_footer div,
 .article_page .barss div {
@@ -206,6 +218,30 @@ md-list-item button p {
     text-align: center;
     padding: 10px;
     border-left: 1px solid #aaa;
+}
+.article_page .barsss div {
+    float: right;
+    text-align: center;
+    padding: 10px;
+}
+.article_page .barsss .zoomin {
+    width: 25%;
+    font-size: 1.6em;
+    padding: 3px;
+    line-height: 1.5em;
+}
+.article_page .barsss .zoomout {
+    width: 25%;
+    font-size: 1.6em;
+    padding: 3px;
+    line-height: 1.5em;
+}
+.article_page .barsss .zoomin i,
+.article_page .barsss .zoomout i {
+    font-size: 1.em;
+}
+.article_page .barsss .comments {
+    width: 50%;
 }
 .article .article_footer i {
     font-size: 1.3em;
@@ -270,6 +306,7 @@ md-list-item button p {
     z-index: 2;
     position: relative;
     color: #ffffff;
+    line-height: 1.8em;
 }
 .my-articles .remove {
     background:#ff0000;
@@ -289,7 +326,7 @@ md-list-item button p {
 }
 
 .profile .contentss {
-    padding: 0 20px;
+    padding: 15px 20px 0 20px;
 }
 
 .profile .update {
@@ -325,6 +362,7 @@ md-list-item button p {
 }
 .article_page .body .time {
     color: #cdd2d4;
+    margin: 0 0 15px 0;
 }
 .article_page md-divider {
     margin: 5px 0;
@@ -350,6 +388,7 @@ md-list-item button p {
 .auth-container {
     max-width: 500px;
     text-align: center;
+    margin: auto;
 }
 .auth-container .button {
     height: 60px !important;
@@ -406,7 +445,10 @@ md-input-container label {
     width: 33.33333%;
     float: left;
     text-align: center;
-    padding: 10px 0;
+    padding: 12px 0;
+    color: #24bed4;
+    white-space: nowrap;
+    font-size: 0.9em;
 }
 .ul {
     position: absolute;

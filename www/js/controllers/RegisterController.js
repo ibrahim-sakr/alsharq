@@ -18,7 +18,7 @@ alsharq.controller('RegisterController', [
             if ( $scope.user.password != $scope.user.password_confirmation ) {
                 $mdToast.show(
                     $mdToast.simple()
-                    .textContent('password didn\'t match!')
+                    .textContent('كلمة المرور غير متطابقة!')
                     .hideDelay(3000)
                 );
                 return;
@@ -42,7 +42,7 @@ alsharq.controller('RegisterController', [
                     $location.path('/websites');
                 },
                 'error': function(e){
-                    Popup.showError('there is an error, please try again.');
+                    Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
                 }
             };
             // start dequeuing

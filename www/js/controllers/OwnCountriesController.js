@@ -9,7 +9,7 @@ alsharq.controller('OwnCountriesController', [
         Country.own().then(function(own){
             $scope.countries = own.data.results;
         }, function(e){
-            Popup.showError('there is an error, please try again.');
+            Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
         });
 
         $scope.toggle = function($index, id){
@@ -18,14 +18,14 @@ alsharq.controller('OwnCountriesController', [
                     $scope.countries[$index].subscribed = false;
                     $scope.$parent.loadSortcutSidebar();
                 }, function(e){
-                    Popup.showError('there is an error, please try again.');
+                    Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
                 });
             } else {
                 Country.add(id).then(function(data){
                     $scope.countries[$index].subscribed = true;
                     $scope.$parent.loadSortcutSidebar();
                 }, function(e){
-                    Popup.showError('there is an error, please try again.');
+                    Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
                 });
             }
         };

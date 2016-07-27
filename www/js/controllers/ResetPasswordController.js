@@ -14,12 +14,12 @@ alsharq.controller('ResetPasswordController', [
                 'success': function(data){
                     $mdToast.show(
                         $mdToast.simple()
-                        .textContent('Password Reseted.')
+                        .textContent('تم اعاده كلكة المرور.')
                         .hideDelay(3000)
                     );
                 },
                 'error': function(e){
-                    Popup.showError('there is an error, please try again.');
+                    Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
                 }
             };
 

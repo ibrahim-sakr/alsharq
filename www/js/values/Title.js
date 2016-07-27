@@ -19,6 +19,6 @@ alsharq.value('Title', {
     "CountriesController":        "الدول",
     "InterestsController":        "الاهتمامات",
     "ContactController":          "اتصل بنا",
-    "ArticleController":          "مقالة",
+    "ArticleController":          "المقالات",
     "AboutController":            "عن البرنامج",
 });

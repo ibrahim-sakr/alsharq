@@ -12,7 +12,7 @@ alsharq.controller('OwnSubscriptionsController', [
                 $scope.count++;
                 $scope.subscriptions = $scope.subscriptions.concat(data.data.results);
             }, function(e){
-                Popup.showError('there is an error, please try again.');
+                Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
             });
         };
         $scope.load();

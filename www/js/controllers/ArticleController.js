@@ -5,7 +5,8 @@ alsharq.controller('ArticleController', [
     'Popup',
     'Article',
     '$mdDialog',
-    function($scope, $routeParams, Comment, Popup, Article, $mdDialog){
+    '$mdToast',
+    function($scope, $routeParams, Comment, Popup, Article, $mdDialog, $mdToast){
         $scope.article = {};
         $scope.articleJS = angular.element(document.getElementById('article'));
 
@@ -15,13 +16,13 @@ alsharq.controller('ArticleController', [
         Article.find({ "article_id": $routeParams.id }).then(function(data){
             $scope.article = data.data.results[0];
         }, function(e){
-            Popup.showError('can\'t load the article', 'please try again.');
+            Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
         });
 
         Comment.count($routeParams.id).then(function(data){
             $scope.commCount = data.data.message;
         }, function(e){
-            Popup.showError('there is an error, please try again.');
+            Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
         });
 
 
@@ -49,22 +50,22 @@ alsharq.controller('ArticleController', [
                     $scope.articleJS.removeClass('favorite');
                     $mdToast.show(
                         $mdToast.simple()
-                        .textContent('removed from favourite!')
+                        .textContent('تم الحذف!')
                         .hideDelay(3000)
                     );
                 }, function(e){
-                    Popup.showError('there is an error, please try again.');
+                    Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
                 });
             } else {
                 Article.favoriteAdd($scope.article.item_id).then(function(data){
                     $scope.articleJS.addClass('favorite');
                     $mdToast.show(
                         $mdToast.simple()
-                        .textContent('added to favourite!')
+                        .textContent('تمت الاضافة!')
                         .hideDelay(3000)
                     );
                 }, function(e){
-                    Popup.showError('there is an error, please try again.');
+                    Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
                 });
             }
         };
@@ -75,22 +76,22 @@ alsharq.controller('ArticleController', [
                     $scope.articleJS.removeClass('later');
                     $mdToast.show(
                         $mdToast.simple()
-                        .textContent('removed from Later!')
+                        .textContent('تم الحذف!')
                         .hideDelay(3000)
                     );
                 }, function(e){
-                    Popup.showError('there is an error, please try again.');
+                    Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
                 });
             } else {
                 Article.laterAdd($scope.article.item_id).then(function(data){
                     $scope.articleJS.addClass('later');
                     $mdToast.show(
                         $mdToast.simple()
-                        .textContent('added to later!')
+                        .textContent('تمت الاضافة!')
                         .hideDelay(3000)
                     );
                 }, function(e){
-                    Popup.showError('there is an error, please try again.');
+                    Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
                 });
             }
         };
@@ -114,10 +115,6 @@ alsharq.controller('ArticleController', [
                 locals: {
                     article: $scope.article
                 },
-            }).then(function(answer) {
-                $scope.status = 'You said the information was "' + answer + '".';
-            }, function() {
-                $scope.status = 'You cancelled the dialog.';
             });
         };
     }

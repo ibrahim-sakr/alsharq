@@ -16,12 +16,12 @@ alsharq.controller('WebsitesController', [
                 } else {
                     $mdToast.show(
                         $mdToast.simple()
-                        .textContent('there is no more!!.')
+                        .textContent('لا يوجد المزيد!!.')
                         .hideDelay(3000)
                     );
                 }
             }, function(e){
-                Popup.showError('there is an error, please try again.');
+                Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
             });
         }
         load();

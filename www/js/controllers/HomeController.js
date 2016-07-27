@@ -16,10 +16,29 @@ alsharq.controller('HomeController', [
             }, function(e){
                 $mdToast.show(
                     $mdToast.simple()
-                    .textContent('there is an error while loading, please try again.')
+                    .textContent('حدث خطأ اثناء التحميل, حاول مرة أخرى.')
                     .hideDelay(3000)
                 );
             });
+
+
+            // Article.newsFeed({
+            //     filters: [
+            //         {
+            //             category: "",
+            //             id: ""
+            //         }
+            //     ]
+            // }).then(function(data){
+            //     $scope.articles = data.data.results;
+            // }, function(e){
+            //     $location('/home');
+            //     $mdToast.show(
+            //         $mdToast.simple()
+            //         .textContent('can\'t load articles, please try again.')
+            //         .hideDelay(3000)
+            //     );
+            // });
         }
         load();
 

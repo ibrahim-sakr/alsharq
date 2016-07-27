@@ -7,6 +7,7 @@ var alsharq = angular.module('AlSharq', [
     'ngRoute',
     'ngMaterial',
     'ngCordovaOauth',
+    'admobModule',
 ]);
 
 var App = {

@@ -21,7 +21,7 @@
         <md-progress-linear md-mode="indeterminate" ng-show="isLoading()"></md-progress-linear>
 
         <!-- header -->
-        <md-toolbar class="fixed">
+        <md-toolbar class="fixed" ng-class="{home: isHome}">
             <div class="md-toolbar-tools">
                 <md-button ng-if="isHome" class="md-icon-button" aria-label="Menu" ng-click="openSidebar('mainSidebar')">
                     <md-icon class="alsharq-menu color-gray"></md-icon>
@@ -49,7 +49,7 @@
             <div class="info clearfix">
                 <img ng-if="$user.profile_pic" ng-src="{{ $user.profile_pic }}" alt="avatar">
                 <img ng-if="!$user.profile_pic" src="img/user.png" alt="avatar">
-                <div class="bar clearfix">
+                <div class="barss clearfix">
                     <div ng-click="logout()">تسجيل الخروج</div>
                     <div ng-click="goTo('related-accounts')">حساباتي المربوطة</div>
                     <div ng-click="goTo('profile')">تعديل حسابي</div>
@@ -57,9 +57,6 @@
             </div>
 
             <div class="ul">
-                <md-list-item ng-click="goTo('test')">
-                    <p>test</p>
-                </md-list-item>
                 <md-list-item class="list-title">
                     <p> تصفح </p>
                 </md-list-item>
@@ -94,7 +91,7 @@
                     <p>عن شرق <i class="alsharq-navigate_before"></i></p>
                 </md-list-item>
                 <md-list-item  ng-click="goTo('contact')">
-                    <p>اتصل بتا <i class="alsharq-navigate_before"></i></p>
+                    <p>اتصل بنا <i class="alsharq-navigate_before"></i></p>
                 </md-list-item>
                 <md-list-item class="list-title" ng-click="exit()">
                     <p> اغلاق البرنامج </p>
@@ -108,13 +105,10 @@
             <md-list-item class="list-title" ng-click="goTo('home')">
                 <p> الكل </p>
             </md-list-item>
-            <md-list-item ng-click="feeds()">
-                <p> feeds </p>
-            </md-list-item>
             <md-list-item class="list-title">
                 <p> الدول </p>
             </md-list-item>
-                <md-list-item class="countries" ng-repeat="country in shortcutSidebarContent.countries"  ng-click="goTo('websites')">
+                <md-list-item class="countries" ng-repeat="country in shortcutSidebarContent.countries"  ng-click="goToCountry(country.name)">
                     <p> {{ country.name }} </p>
                     <i class="md-secondary">{{ country.count }}</i>
                 </md-list-item>
@@ -128,12 +122,12 @@
                     </md-list-item>
             </div>
 
-            <md-list-item class="list-title" ng-click="goTo('page_with_keyword_filter')">
+            <md-list-item class="list-title" ng-click="goToFeed()">
                 <p> الكلمات المفتاحية </p>
             </md-list-item>
                 <md-list-item class="keywords" ng-repeat="keyword in shortcutSidebarContent.keywords" class="secondary-button-padding">
                     <p>{{ keyword.name }}</p>
-                    <md-checkbox class="md-secondary" ng-model="topping.wanted"></md-checkbox>
+                    <md-checkbox class="md-secondary" ng-model="keyword.feed"></md-checkbox>
                 </md-list-item>
 
 
@@ -164,6 +158,8 @@
         <script src="js/libs/angular-material/angular-material.min.js"></script>
         <!-- OAuth lib -->
         <script src="js/libs/ng-cordova-oauth/dist/ng-cordova-oauth.min.js"></script>
+        <!-- ADMOB -->
+        <script src="lib/angular-admob/angular-admob.js"></script>
 
     <!-- init app -->
     <script src="js/App.js"></script>
@@ -217,7 +213,8 @@
     <script src="js/directives/ArticleDirective.js"></script>
 
     <!-- filters -->
-    <script src="js/filters/TImeFilter.js"></script>
+    <script src="js/filters/TimeFormatFilter.js"></script>
+    <script src="js/filters/HTMLFilter.js"></script>
 
     <!-- values -->
     <script src="js/values/Config.js"></script>

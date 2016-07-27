@@ -27,6 +27,7 @@ alsharq.controller('RootController', [
         $scope.goTo = function(page){
             $location.path('/' + page);
             $scope.closeSidebar('mainSidebar');
+            $scope.closeSidebar('shortcutSidebar');
         };
 
         $scope.appReady = function(){
@@ -64,7 +65,7 @@ alsharq.controller('RootController', [
                 },
                 'error': function(e){
                     // show error message
-                    Popup.showError('there is an error, please try again.');
+                    Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
                 }
             };
             // start dequeuing
@@ -86,7 +87,7 @@ alsharq.controller('RootController', [
                     $scope.keywords.push({'content': result});
                     $scope.loadSortcutSidebar();
                 }, function(e){
-                    Popup.showError('there is an error, please try again.');
+                    Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
                 });
             }, function() {
                 // nothing to do
@@ -101,15 +102,26 @@ alsharq.controller('RootController', [
             if ( !$scope.$user ) return;
             Subscription.filter().then(function(data){
                 $scope.shortcutSidebarContent = data.data;
-                console.log($scope.shortcutSidebarContent);
             }, function(e){
-                Popup.showError('there is an error, please try again.');
+                Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
             });
         }
         $scope.loadSortcutSidebar();
 
-        $scope.feeds = function(){
-            $location.path('/feeds');
+        $scope.goToCountry = function(name){
+            $location.url('/feeds?country=' + name);
+            $scope.closeSidebar('shortcutSidebar');
+        };
+        
+        $scope.goToFeed = function(){
+            var params = "?";
+            for (var i = 0; i < $scope.shortcutSidebarContent.keywords.length; i++) {
+                if ( $scope.shortcutSidebarContent.keywords[i].feed ) {
+                    params += "keywords=" + $scope.shortcutSidebarContent.keywords[i].name + "&";
+                }
+            }
+            params = params.slice(0, -1);
+            $location.url('/feeds' + params);
             $scope.closeSidebar('shortcutSidebar');
         };
     }

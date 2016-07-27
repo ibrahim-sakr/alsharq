@@ -17,7 +17,7 @@ alsharq.controller('CommentsController', [
         Comment.all($scope.article.item_id).then(function(data){
             $scope.commResults = data.data.results;
         }, function(e){
-            Popup.showError('there is an error, please try again.');
+            Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
         });
 
         $scope.hide = function() {
@@ -35,13 +35,13 @@ alsharq.controller('CommentsController', [
             Comment.count($scope.article.item_id).then(function(data){
                 $scope.commCount = data.message;
             }, function(e){
-                Popup.showError('there is an error, please try again.');
+                Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
             });
         };
 
         $scope.add = function(){
             if ($scope.commNew.comment == "") {
-                Popup.showError('insert a comment then submit.');
+                Popup.showError('اكتب تعليق اولا.');
                 return;
             }
 
@@ -57,7 +57,7 @@ alsharq.controller('CommentsController', [
                 });
                 $scope.commNew.comment = "";
             }, function(e){
-                Popup.showError('there is an error, please try again.');
+                Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
             });
         }
     }

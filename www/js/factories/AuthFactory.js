@@ -10,8 +10,8 @@ alsharq.factory('Auth', [
             login:         function(data)     { return $http.post(API.POST_LOGIN, data); },
             loginGuest:    function(device_id){ return $http.post(API.POST_GUEST_LOGIN, { "device_id": device_id }); },
             logout:        function()         { return $http.post(API.POST_LOGOUT); },
-            getProfile:    function()         { return $http.get( API.GET_PROFILE); },
-            updateProfile: function(data)     { return $http.post(API.POST_PROFILE, data); },
+            getProfile:    function()         { return $http.get( API.PROFILE); },
+            updateProfile: function(data)     { return $http.post(API.PROFILE, data); },
 
             social: function(data){
                 if (env == 'production') return $http.post(API.POST_SOCIAL_LOGIN, data);

@@ -9,7 +9,7 @@
             
             <md-list-item ng-repeat="keyword in $parent.keywords" class="secondary-button-padding">
                 <p>{{ keyword.content }}</p>
-                <md-button class="md-raised md-primary" ng-click="remove(keyword.content, $index)">حذف</md-button>
+                <md-button class="md-raised md-warn" ng-click="remove(keyword.content, $index)">حذف</md-button>
             </md-list-item>
 
         </md-list>

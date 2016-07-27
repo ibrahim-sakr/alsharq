@@ -13,7 +13,7 @@ alsharq.controller('ProfileController', [
             if ($scope.user.password != $scope.user.password_confirmation) {
                 $mdToast.show(
                     $mdToast.simple()
-                    .textContent('password didn\'t match!')
+                    .textContent('كلمة المرور غير متطابقة!')
                     .hideDelay(3000)
                 );
                 return;
@@ -21,7 +21,7 @@ alsharq.controller('ProfileController', [
             if (!$scope.user.full_name || !$scope.user.email) {
                 $mdToast.show(
                     $mdToast.simple()
-                    .textContent('you must fill all fields')
+                    .textContent('يجب تعبئة جميع الحقول')
                     .hideDelay(3000)
                 );
                 return;
@@ -42,7 +42,7 @@ alsharq.controller('ProfileController', [
                     $location.path('/home');
                 },
                 'error': function(e){
-                    Popup.showError('there is an error, please try again.');
+                    Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
                 }
             };
 

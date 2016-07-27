@@ -4,8 +4,8 @@ alsharq.controller('AuthController', [
     'Storage',
     '$location',
     'Popup',
-    function($scope, $cordovaOauth, Storage, $location, Popup){
-        
+    'Queue',
+    function($scope, $cordovaOauth, Storage, $location, Popup, Queue){
 
         $scope.googleplus = function(){
             $cordovaOauth.google("CLIENT_ID_HERE", ["email", "public_profile"], {redirect_uri: "http://localhost/callback"}).then(function(result) {
@@ -50,7 +50,7 @@ alsharq.controller('AuthController', [
                     $location.path('/home');
                 },
                 'error': function(e){
-                    Popup.showError('there is an error, please try again.');
+                    Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
                 }
             };
             // start dequeuing

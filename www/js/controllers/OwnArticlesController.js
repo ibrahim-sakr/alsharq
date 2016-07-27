@@ -15,14 +15,14 @@ alsharq.controller('OwnArticlesController', [
         Article[methodAll]().then(function(data){
             $scope.articles = data.data.results;
         }, function(e){
-            Popup.showError('there is an error, please try again.');
+            Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
         });
 
         $scope.remove = function(id, index){
             Article[methodRemove](id).then(function(data){
                 $scope.articles.splice(index, 1);
             }, function(e){
-                Popup.showError('there is an error, please try again.');
+                Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
             });
         };
 
@@ -30,7 +30,7 @@ alsharq.controller('OwnArticlesController', [
             // Article.favoriteRemove().then(function(data){
             //     $scope.articles.splice(index, 1);
             // }, function(e){
-            //     Popup.showError('there is an error, please try again.');
+            //     Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
             // });
         };
     }
