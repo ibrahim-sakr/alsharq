@@ -1,16 +1,16 @@
 {
     "android": {
         "debug": {
-            "keystore": "franchiseKey.jks",
+            "keystore": "AlSharq.jks",
             "storePassword": "1234567890",
-            "alias": "franchiseAlias",
+            "alias": "AlSharqAlias",
             "password" : "1234567890",
             "keystoreType": "jks"
         },
         "release": {
-            "keystore": "franchiseKey.jks",
+            "keystore": "AlSharq.jks",
             "storePassword": "1234567890",
-            "alias": "franchiseAlias",
+            "alias": "AlSharqAlias",
             "password" : "1234567890",
             "keystoreType": "jks"
         }

@@ -1,5 +1,5 @@
 <md-bottom-sheet class="md-list md-has-header rtl">
-    <md-subheader><b>هل تود ان تقوم بــ</b></md-subheader>
+    <md-subheader><b>هل تود ان تقوم ب</b></md-subheader>
 
     <md-list>
         <md-list-item ng-click="remove()">
@@ -11,8 +11,8 @@
         </md-list-item>
 
         <md-list-item ng-click="notificaton()">
-            <span class="md-inline-list-icon-label">الغاء التنبيهات</span>
-            <!-- <span class="md-inline-list-icon-label">تفعيل التنبيهات</span> -->
+            <span class="md-inline-list-icon-label" ng-if="object.is_subscribed">الغاء التنبيهات</span>
+            <span class="md-inline-list-icon-label" ng-if="!object.is_subscribed">تفعيل التنبيهات</span>
         </md-list-item>
 
     </md-list>

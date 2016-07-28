@@ -5,30 +5,38 @@ alsharq.controller('AuthController', [
     '$location',
     'Popup',
     'Queue',
-    function($scope, $cordovaOauth, Storage, $location, Popup, Queue){
+    '$http',
+    function($scope, $cordovaOauth, Storage, $location, Popup, Queue, $http){
 
         $scope.googleplus = function(){
-            $cordovaOauth.google("CLIENT_ID_HERE", ["email", "public_profile"], {redirect_uri: "http://localhost/callback"}).then(function(result) {
-                console.log("Response Object -> " + JSON.stringify(result));
-            }, function(error) {
-                console.log("Error -> " + error);
+            var CLIENT_ID = "182420195836-uuf0dl3ph4ebi42spnupqgh4nk81c3mi.apps.googleusercontent.com";
+            $cordovaOauth.google(CLIENT_ID, ["email", "profile"], {
+                redirect_uri:  "http://localhost/callback"
+            }).then(function(result) {
+                console.log(result);
+                // email
+                // password
+                // google_token
+            }, function(e) {
+                console.log(e);
             });
         };
 
         $scope.facebook = function(){
-            $cordovaOauth.facebook("1633195863589792", ["email", "public_profile"], {redirect_uri: "http://localhost/callback"}).then(function(result){
+            $cordovaOauth.facebook("316004812072491", ["email", "public_profile"], {redirect_uri: "http://localhost/callback"}).then(function(result){
                 console.log(result);
-                // $http.get("https://graph.facebook.com/v2.2/me", {
-                //     params: {
-                //         access_token: result.access_token,
-                //         fields: "name,gender,location,picture",
-                //         format: "json"
-                //     }
-                // }).then(function(result) {
-                //     console.log(result);
-                // }, function(error) {
-                //     alert("Error: " + error);
-                // });
+                $http.get("https://graph.facebook.com/v2.2/me", {
+                    params: {
+                        access_token: result.access_token,
+                        fields: "name,gender,location,picture",
+                        format: "json"
+                    }
+                }).then(function(result) {
+                    console.log(result);
+                    $location.path('/home');
+                }, function(error) {
+                    alert("Error: " + error);
+                });
             },  function(error){
                     alert("Error: " + error);
             });

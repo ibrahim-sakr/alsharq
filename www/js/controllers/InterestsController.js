@@ -2,7 +2,9 @@ alsharq.controller('InterestsController', [
     '$scope',
     'Interest',
     'Popup',
-    function($scope, Interest, Popup){
+    'Admob',
+    function($scope, Interest, Popup, Admob){
+        Admob.show();
         $scope.interests = [];
 
         Interest.all().then(function(data){

@@ -1,6 +1,7 @@
 alsharq.controller('RelatedAccountsController', [
-    function(){
-
+    'Admob',
+    function(Admob){
+        Admob.show();
     }
 ]);
 

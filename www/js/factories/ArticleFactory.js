@@ -7,7 +7,7 @@ alsharq.factory('Article', [
 
         return {
             newsFeed:       function(data)      { return $http.post(API.POST_NEWSFEED, data); },
-            all:            function(page)      { var page = page || 1; return $http.get(API.GET_ARTICLES, { params: { 'page': page } }); },
+            all:            function(page)      { var page = page || 1; return $http.get(API.GET_ARTICLES, { params: { page: page } }); },
             find:           function(data)      { return $http.get(API.GET_ARTICLES, { params: data }); },
             read:           function(article_id){ return $http.post(API.POST_ARTICLE_READ_COUNT, { 'article_id' :article_id }); },
             share:          function(article_id){ return $http.post(API.POST_ARTICLE_SHARE_COUNT, { 'article_id' :article_id }); },

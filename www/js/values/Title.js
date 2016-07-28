@@ -9,7 +9,7 @@ alsharq.value('Title', {
     "LoginController":            "الدخول",
     "ResetPasswordController":    "اعاده كلمة المرور",
     "ProfileController":          "الملف الشخصى",
-    "WebsitesController":         "المواقع الاخبارية",
+    "WebsitesController":         "اختر الموقع",
     "CatsWritersController":      "التصنيفات",
     "OwnSubscriptionsController": "اشتراكاتي",
     "OwnKeywordsController":      "الكلمات الدلاية",

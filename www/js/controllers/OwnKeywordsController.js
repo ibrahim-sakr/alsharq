@@ -3,7 +3,9 @@ alsharq.controller('OwnKeywordsController', [
     '$mdDialog',
     'Keyword',
     'Popup',
-    function($scope, $mdDialog, Keyword, Popup){
+    'Admob',
+    function($scope, $mdDialog, Keyword, Popup, Admob){
+        Admob.show();
         $scope.new;
 
         Keyword.all().then(function(data){

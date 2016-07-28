@@ -6,7 +6,9 @@ alsharq.controller('ArticleController', [
     'Article',
     '$mdDialog',
     '$mdToast',
-    function($scope, $routeParams, Comment, Popup, Article, $mdDialog, $mdToast){
+    'Admob',
+    function($scope, $routeParams, Comment, Popup, Article, $mdDialog, $mdToast, Admob){
+        Admob.show();
         $scope.article = {};
         $scope.articleJS = angular.element(document.getElementById('article'));
 
@@ -29,18 +31,17 @@ alsharq.controller('ArticleController', [
 
         $scope.share = function(){
             var options = {
-                message: 'Share', // not supported on some apps (Facebook, Instagram)
-                subject: 'Read this ' + $scope.article.title, // fi. for email
+                message: "Check this out...",
+                subject: $scope.article.title,
                 url: $scope.article.url,
-                chooserTitle: 'Pick an app' // Android only, you can override the default share sheet title
-            };
+                chooserTitle: 'Pick an app'            };
             function onSuccess(data){
                 console.log(data);
             };
             function onError(msg){
                 console.log(msg);
             };
-            window.plugins.socialsharing.share(options, onSuccess, onError);
+            window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
         };
 
         $scope.favorite = function(){

@@ -3,7 +3,9 @@ alsharq.controller('CatsWritersController', [
     '$routeParams',
     '$mdToast',
     'Feed',
-    function($scope, $routeParams, $mdToast, Feed){
+    'Admob',
+    function($scope, $routeParams, $mdToast, Feed, Admob){
+        Admob.show();
         $scope.cCount  = 1;
         $scope.wCount  = 1;
         $scope.cats    = [];

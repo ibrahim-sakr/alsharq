@@ -4,7 +4,9 @@ alsharq.controller('OwnArticlesController', [
     '$routeParams',
     'Article',
     'Popup',
-    function($scope, $rootScope, $routeParams, Article, Popup){
+    'Admob',
+    function($scope, $rootScope, $routeParams, Article, Popup, Admob){
+        Admob.show();
         $scope.type = $routeParams.prefrence;
         $rootScope.pageTitle = ($scope.type == "favorite") ? "مقالاتي المفضلة" : "مقالات للقراءه لاحقا";
         $scope.articles = [];

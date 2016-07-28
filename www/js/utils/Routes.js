@@ -2,6 +2,15 @@ alsharq.config([
     '$routeProvider',
     function($routeProvider){
         $routeProvider
+        .when('/', {
+            redirectTo: function(){
+                if (window.localStorage.getItem("user") && window.localStorage.getItem("token")) {
+                    return "/home";
+                }
+                return "/auth";
+            },
+        })
+
         .when('/home', {
             templateUrl: "views/home.html",
             controller: "HomeController"

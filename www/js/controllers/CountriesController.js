@@ -2,7 +2,9 @@ alsharq.controller('CountriesController', [
     '$scope',
     'Country',
     'Popup',
-    function($scope, Country, Popup){
+    'Admob',
+    function($scope, Country, Popup, Admob){
+        Admob.show();
         $scope.countries = [];
         $scope.count = 1;
 

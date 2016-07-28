@@ -3,27 +3,32 @@
         يمكنك تعديل معلومات حسابك من خلال هذه الشاشة
     </div>
 
-    <img ng-if="$user.profile_pic" ng-src="{{ $user.profile_pic }}" alt="avatar">
-    <img ng-if="!$user.profile_pic" src="img/user.png" alt="avatar">
+    <!-- <img ng-if="$user.profile_pic" ng-src="{{ $user.profile_pic }}" alt="avatar"> -->
+    <!-- <img ng-if="!$user.profile_pic" src="img/user.png" alt="avatar"> -->
+    <img src="img/user.png" alt="avatar">
+    
 
     <div class="contentss">
-        <md-input-container class="md-block" flex-gt-sm>
+        <div ng-click="update()" class="update">حفظ</div>
+<!--         <md-input-container class="md-block" flex-gt-sm>
             <label>الاسم بالكامل</label>
             <input ng-model="$user.full_name">
         </md-input-container>
+
         <md-input-container class="md-block" flex-gt-sm>
             <label>البريد الالكتروني</label>
             <input ng-model="$user.email" type="email">
         </md-input-container>
+
         <md-input-container class="md-block" flex-gt-sm>
             <label>كلمة المرور</label>
             <input ng-model="$user.password" type="password">
         </md-input-container>
+
         <md-input-container class="md-block" flex-gt-sm>
             <label>تأميد كلمة المرور</label>
             <input ng-model="$user.password_confirmation" type="password">
-        </md-input-container>
+        </md-input-container> -->
 
-        <div class="update" ng-click="update()">حفظ</div>
     </div>
 </div>

@@ -4,15 +4,11 @@ alsharq.controller('FeedsController', [
     'Article',
     '$mdToast',
     '$location',
-    function($scope, $routeParams, Article, $mdToast, $location){
+    'Admob',
+    function($scope, $routeParams, Article, $mdToast, $location, Admob){
+        Admob.show();
         $scope.articles = [];
-
         console.log($routeParams);
-        // $routeParams = {
-        //     country:  "Egypt",
-        //     keywords: ["test", "test2"],
-        // }
-
         if ( $routeParams.country ) {
             Article.newsFeed({
                 filters: [
@@ -24,7 +20,7 @@ alsharq.controller('FeedsController', [
             }).then(function(data){
                 $scope.articles = data.data.results;
             }, function(e){
-                $location('/home');
+                $location.path('/home');
                 $mdToast.show(
                     $mdToast.simple()
                     .textContent('حدث خطأ اثناء التحميل, حاول مرة أخرى.')
@@ -37,7 +33,7 @@ alsharq.controller('FeedsController', [
             var filter = [];
             if (typeof $routeParams.keywords != 'string') {
                 for (var i = 0; i < $routeParams.keywords.length; i++) {
-                    filetr.push({
+                    filter.push({
                         type: "keyword",
                         content: $routeParams.keywords[i]
                     });
@@ -55,7 +51,27 @@ alsharq.controller('FeedsController', [
             }).then(function(data){
                 $scope.articles = data.data.results;
             }, function(e){
-                $location('/home');
+                $location.path('/home');
+                $mdToast.show(
+                    $mdToast.simple()
+                    .textContent('حدث خطأ اثناء التحميل, حاول مرة أخرى.')
+                    .hideDelay(3000)
+                );
+            });
+        }
+
+        if ( $routeParams.category ) {
+            Article.newsFeed({
+                filters: [
+                    {
+                        type: "category",
+                        id: $routeParams.category,
+                    }
+                ]
+            }).then(function(data){
+                $scope.articles = data.data.results;
+            }, function(e){
+                $location.path('/home');
                 $mdToast.show(
                     $mdToast.simple()
                     .textContent('حدث خطأ اثناء التحميل, حاول مرة أخرى.')

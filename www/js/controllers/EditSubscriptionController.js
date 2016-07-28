@@ -1,14 +1,14 @@
 alsharq.controller('EditSubscriptionController', [
     '$scope',
     '$mdBottomSheet',
-    'id',
     'Feed',
+    '$location',
     '$mdToast',
-    'noti',
-    function($scope, $mdBottomSheet, id, Feed, $mdToast, noti){
+    'object',
+    function($scope, $mdBottomSheet, Feed, $location, $mdToast, object){
         
         $scope.remove = function(){
-            Feed.subscribe(id).then(function(data){
+            Feed.subscribe(object.id).then(function(data){
                 hide('remove');
                 $mdToast.show(
                     $mdToast.simple()
@@ -27,13 +27,14 @@ alsharq.controller('EditSubscriptionController', [
         
 
         $scope.open = function(){
-            console.log("open " + id);
-            hide('open');
+            hide();
+            $location.url('/feeds?category=' + object.id);
         };
         
         $scope.notificaton = function(){
-            console.log("notificaton " + id);
-            hide('notify');
+            Feed.notify(object.id).then(function(data){
+                hide('notify');
+            }, function(e){});
         };
         
         function hide(action){

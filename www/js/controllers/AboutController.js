@@ -1,4 +1,6 @@
-alsharq.controller('AboutController', function(){});
+alsharq.controller('AboutController', ['Admob', function(Admob){
+    Admob.show();
+}]);
 
 
 

@@ -8,6 +8,7 @@ var alsharq = angular.module('AlSharq', [
     'ngMaterial',
     'ngCordovaOauth',
     'admobModule',
+    'ngFileUpload',
 ]);
 
 var App = {

@@ -5,7 +5,9 @@ alsharq.controller('ContactController', [
     '$location',
     '$mdToast',
     'Storage',
-    function($scope, Contact, Popup, $location, $mdToast, Storage){
+    'Admob',
+    function($scope, Contact, Popup, $location, $mdToast, Storage, Admob){
+        Admob.show();
         var $user = JSON.parse( Storage.get('user') );
         $scope.contact = {
             name: $user.first_name +" "+ $user.last_name,

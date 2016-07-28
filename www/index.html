@@ -47,8 +47,9 @@
         <!-- main sidebar -->
         <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="mainSidebar">
             <div class="info clearfix">
-                <img ng-if="$user.profile_pic" ng-src="{{ $user.profile_pic }}" alt="avatar">
-                <img ng-if="!$user.profile_pic" src="img/user.png" alt="avatar">
+                <!-- <img ng-if="$user.profile_pic" ng-src="{{ $user.profile_pic }}" alt="avatar"> -->
+                <!-- <img ng-if="!$user.profile_pic" src="img/user.png" alt="avatar"> -->
+                <img src="img/user.png" alt="avatar">
                 <div class="barss clearfix">
                     <div ng-click="logout()">تسجيل الخروج</div>
                     <div ng-click="goTo('related-accounts')">حساباتي المربوطة</div>
@@ -160,6 +161,8 @@
         <script src="js/libs/ng-cordova-oauth/dist/ng-cordova-oauth.min.js"></script>
         <!-- ADMOB -->
         <script src="lib/angular-admob/angular-admob.js"></script>
+        <!-- File Upload -->
+        <script src="js/libs/ng-file-upload/ng-file-upload.min.js"></script>
 
     <!-- init app -->
     <script src="js/App.js"></script>
@@ -204,8 +207,10 @@
     <script src="js/factories/WebsiteFactory.js"></script>
 
     <!-- services -->
+    <script src="js/services/AdmobService.js"></script>
     <script src="js/services/PopupService.js"></script>
     <script src="js/services/QueueService.js"></script>
+    <script src="js/services/RequestService.js"></script>
     <script src="js/services/StorageService.js"></script>
     <script src="js/services/TimeService.js"></script>
 

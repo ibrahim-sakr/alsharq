@@ -5,14 +5,17 @@ alsharq.controller('WebsitesController', [
     'Website',
     'Popup',
     '$mdToast',
-    function($scope, $window, $location, Website, Popup, $mdToast){
+    'Admob',
+    function($scope, $window, $location, Website, Popup, $mdToast, Admob){
+        Admob.show();
         $scope.websites = [];
         $scope.count = 1;
 
-        function load(){
+        $scope.load = function(){
             Website.all($scope.count).then(function(data){
                 if (data.data.results) {
                     $scope.websites = $scope.websites.concat(data.data.results);
+                    $scope.count    = $scope.count + 1;
                 } else {
                     $mdToast.show(
                         $mdToast.simple()
@@ -24,12 +27,8 @@ alsharq.controller('WebsitesController', [
                 Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
             });
         }
-        load();
-
-        $scope.more = function(){
-            $scope.count++;
-            load();
-        }
+        
+        $scope.load();
 
         $scope.next = function(id){
             $location.path('/categories-writers/' + id);

@@ -5,8 +5,7 @@ alsharq.config([
     '$compileProvider',
     '$httpProvider',
     '$mdThemingProvider',
-    'admobSvcProvider',
-    function($compileProvider, $httpProvider, $mdThemingProvider, admobSvcProvider){
+    function($compileProvider, $httpProvider, $mdThemingProvider){
 
         // disable debug in angular to increase performance
         $compileProvider.debugInfoEnabled(false);
@@ -50,16 +49,6 @@ alsharq.config([
 
         // Use that theme for the primary intentions
         $mdThemingProvider.theme('default').primaryPalette('alsharqTheme');
-
-        // Optionally you can configure the options here:
-        admobSvcProvider.setOptions({
-            publisherId:          "pub-5044923081076791",
-            interstitialAdId:     "ca-app-pub-5044923081076791/1925090666",
-            autoShowBanner:       true,
-            autoShowInterstitial: true,
-            bannerAtTop:          false,
-            overlap:              false,
-        });
     }
 ]);
 
@@ -68,14 +57,7 @@ alsharq.run([
     '$route',
     '$location',
     'Title',
-    'admobSvc',
-    function($rootScope, $route, $location, Title, admobSvc) {
-        admobSvc.createBannerView();
-
-        $rootScope.$on(admobSvc.events.onAdOpened, function onAdOpened(evt, e) {
-            console.log('adOpened: type of ad:' + e.adType);
-        });
-
+    function($rootScope, $route, $location, Title) {
         $rootScope.$on('$routeChangeSuccess', function (){
             if ($route.current.$$route) {
                 var paths = ["/auth", "/auth/register", "/auth/login", "/auth/reset"];

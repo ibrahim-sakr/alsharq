@@ -3,7 +3,9 @@ alsharq.controller('OwnSubscriptionsController', [
     '$mdBottomSheet',
     'Subscription',
     'Popup',
-    function($scope, $mdBottomSheet, Subscription, Popup){
+    'Admob',
+    function($scope, $mdBottomSheet, Subscription, Popup, Admob){
+        Admob.show();
         $scope.subscriptions = [];
         $scope.count = 1;
 
@@ -17,17 +19,19 @@ alsharq.controller('OwnSubscriptionsController', [
         };
         $scope.load();
 
-        $scope.edit = function(id, noti, $index) {
+        $scope.edit = function(object, $index) {
             $mdBottomSheet.show({
                 templateUrl: 'views/partials/bottom-sheet-subscription-template.html',
                 controller: 'EditSubscriptionController',
                 locals: {
-                    id: id,
-                    noti: noti
+                    object: object
                 }
             }).then(function(action){
                 if (action == 'remove') {
                     $scope.subscriptions.splice($index, 1);
+                }
+                if (action == "notify") {
+                    $scope.subscriptions[$index].is_subscribed = !$scope.subscriptions[$index].is_subscribed;
                 }
             });
         };

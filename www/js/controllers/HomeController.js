@@ -2,43 +2,44 @@ alsharq.controller('HomeController', [
     '$scope',
     'Article',
     '$mdToast',
-    function($scope, Article, $mdToast){
+    'Subscription',
+    'Popup',
+    '$location',
+    function($scope, Article, $mdToast, Subscription, Popup, $location){
 
         // display all feedPAP
         $scope.articles = [];
         $scope.count = 1;
 
         function load(){
-            Article.all($scope.count).then(function(data){
-                data.data.results = data.data.results.reverse();
-                $scope.articles = $scope.articles.concat(data.data.results);
-                $scope.$broadcast('scroll.refreshComplete');
-            }, function(e){
-                $mdToast.show(
-                    $mdToast.simple()
-                    .textContent('حدث خطأ اثناء التحميل, حاول مرة أخرى.')
-                    .hideDelay(3000)
-                );
-            });
+            Subscription.all().then(function(data){
+                if (data.data.results) {
+                    var filter = [];
 
+                    for (var i = 0; i < data.data.results.length; i++) {
+                        filter.push({
+                            type: 'category',
+                            id:   data.data.results[i].id
+                        });
+                    }
 
-            // Article.newsFeed({
-            //     filters: [
-            //         {
-            //             category: "",
-            //             id: ""
-            //         }
-            //     ]
-            // }).then(function(data){
-            //     $scope.articles = data.data.results;
-            // }, function(e){
-            //     $location('/home');
-            //     $mdToast.show(
-            //         $mdToast.simple()
-            //         .textContent('can\'t load articles, please try again.')
-            //         .hideDelay(3000)
-            //     );
-            // });
+                    Article.newsFeed({
+                        filters: filter
+                    }).then(function(articles){
+                        // $scope.articles = articles.data.results;
+                        $scope.articles = $scope.articles.concat(articles.data.results);
+                    }, function(e){
+                        $mdToast.show(
+                            $mdToast.simple()
+                            .textContent('حدث خطأ اثناء التحميل, حاول مرة أخرىز')
+                            .hideDelay(3000)
+                        );
+                    });
+
+                } else {
+                    Popup.showError('يجب عليك الاشتراك في بضعة مواقع لتظهر لكز.');
+                }
+            }, function(e){});
         }
         load();
 

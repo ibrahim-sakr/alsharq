@@ -1,7 +1,7 @@
 * {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
-
+/*border-bottom: 2px solid #22bdd3;*/
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
@@ -45,6 +45,19 @@ md-toolbar.home h2 {
 }
 .rtl {
     direction: rtl;
+}
+md-bottom-sheet .md-subheader {
+    margin: 0 -15px;
+    border-bottom: 2px solid #40acd5;
+    color: #40acd5;
+}
+md-bottom-sheet .md-list-item-inner {
+    padding: 0 20px;
+    border-bottom: 1px solid #ccc;
+    color: #000;
+}
+md-bottom-sheet md-list {
+    margin: 0 -15px;
 }
 .md-toolbar-tools{
     background-color: #24bed4;
@@ -210,6 +223,7 @@ md-list-item button p {
 .article_page .barss,
 .article_page .barsss {
     background: #ccd2d2;
+    margin: 10px 0 0 0;
 }
 .article .article_footer div,
 .article_page .barss div {
@@ -365,7 +379,9 @@ md-list-item button p {
     margin: 0 0 15px 0;
 }
 .article_page md-divider {
-    margin: 5px 0;
+    margin: 10px 0;
+    height: 2px;
+    background: #22bdd3;
 }
 
 .more {
@@ -452,7 +468,7 @@ md-input-container label {
 }
 .ul {
     position: absolute;
-    top: 160px;
+    top: 175px;
     left: 0;
     bottom: 0;
     right: 0;

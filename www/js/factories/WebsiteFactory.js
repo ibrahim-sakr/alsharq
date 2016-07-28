@@ -6,10 +6,7 @@ alsharq.factory('Website', [
     function($http, $q, API, testData){
 
         return {
-            all: function(page){
-                var page = page || 1;
-                return $http.get(API.GET_WEBSITES, { 'page' :page });
-            }
+            all: function(page){ return $http.get(API.GET_WEBSITES, { params: { page: page } }); }
         }
     }
 ]);
