@@ -1,5 +1,5 @@
 <div id="page">
-    <div ngclass="{favorite: article.is_favorite, later: article.is_readlater}" class="article_page" id="article">
+    <div ng-class="{favorite: article.is_favorite, later: article.is_readlater}" class="article_page" id="article">
         <div class="title">{{ article.title | html }}</div>
         <img class="article_image" ng-src="{{ article.thumbnail }}" alt="">
         

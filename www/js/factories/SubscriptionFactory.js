@@ -6,7 +6,7 @@ alsharq.factory('Subscription', [
     function($http, $q, API, testData){
 
         return {
-            all:    function(page){ return $http.get(API.GET_SUBSCRIPERS, { 'page' :page }); },
+            all:    function(page){ return $http.get(API.GET_SUBSCRIPERS, { params: {'page' :page} }); },
             filter: function()    { return $http.get(API.GET_SUBSCRIPTION_FILTER); },
         }
     }

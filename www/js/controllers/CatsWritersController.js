@@ -14,7 +14,7 @@ alsharq.controller('CatsWritersController', [
         $scope.loadCats = function(){
             Feed.all({
                 website_id: $routeParams.id,
-                type: "categories",
+                type: "category",
                 page: $scope.cCount,
             }).then(function success(data){
                 $scope.cats = $scope.cats.concat(data.data.results);
@@ -27,11 +27,12 @@ alsharq.controller('CatsWritersController', [
                 );
             });
         };
+        $scope.loadCats();
 
         $scope.loadWriters = function(){
             Feed.all({
                 website_id: $routeParams.id,
-                type: "writers",
+                type: "writer",
                 page: $scope.wCount,
             }).then(function success(data){
                 $scope.writers = $scope.writers.concat(data.data.results);
@@ -45,7 +46,6 @@ alsharq.controller('CatsWritersController', [
             });
         };
 
-        $scope.loadCats();
         $scope.loadWriters();
 
         $scope.subscribe = function(id, type, $index){

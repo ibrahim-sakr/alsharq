@@ -9,9 +9,14 @@ alsharq.service("Admob", [
                 autoShowInterstitial: true,
                 bannerAtTop:          false,
                 overlap:              false,
+                isTesting:            true,
             };
             admobSvc.createBannerView(options, this.onSuccess, this.onFail);
         };
+
+        this.hide = function () {
+            admobSvc.showBannerAd(false)
+        },
         
         this.onSuccess = function(){
             console.log('Ad displayed');

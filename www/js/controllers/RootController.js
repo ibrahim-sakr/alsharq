@@ -25,9 +25,9 @@ alsharq.controller('RootController', [
         };
 
         $scope.goTo = function(page){
-            $location.path('/' + page);
             $scope.closeSidebar('mainSidebar');
             $scope.closeSidebar('shortcutSidebar');
+            $location.path('/' + page);
         };
 
         $scope.appReady = function(){
@@ -37,19 +37,6 @@ alsharq.controller('RootController', [
 
         $scope.back = function(){
             history.back();
-        };
-
-        $scope.openSidebar = function(id){
-            if (!$rootScope.isAuth) {
-                var sidebars = ['mainSidebar', 'shortcutSidebar'];
-                sidebars.splice( sidebars.indexOf(id) , 1);
-                $mdSidenav(sidebars[0]).close();
-                $mdSidenav(id).open();
-            }
-        };
-
-        $scope.closeSidebar = function(id){
-            $mdSidenav(id).close();
         };
 
         $scope.logout = function(){
@@ -123,6 +110,55 @@ alsharq.controller('RootController', [
             params = params.slice(0, -1);
             $location.url('/feeds' + params);
             $scope.closeSidebar('shortcutSidebar');
+        };
+
+        $scope.openSidebar = function(id){
+            if (!$rootScope.isAuth) {
+                var sidebars = ['mainSidebar', 'shortcutSidebar'];
+                sidebars.splice( sidebars.indexOf(id) , 1);
+                $mdSidenav(sidebars[0]).close();
+                $mdSidenav(id).open();
+            }
+        };
+
+        $scope.closeSidebar = function(id){
+            $mdSidenav(id).close();
+        };
+
+        function one(){
+            if( $mdSidenav('mainSidebar').isOpen() && $mdSidenav('shortcutSidebar').isOpen() == false ) return true;
+            return false;
+        }
+        function two(){
+            if( $mdSidenav('mainSidebar').isOpen() == false && $mdSidenav('shortcutSidebar').isOpen() == false ) return true;
+            return false;
+        }
+        function three(){
+            if( $mdSidenav('mainSidebar').isOpen() == false && $mdSidenav('shortcutSidebar').isOpen() ) return true;
+            return false;
+        }
+
+        $scope.swipeRight = function(){
+            if( one() ) return;
+            if( two() ) {
+                $scope.openSidebar('mainSidebar');
+                return;
+            }
+            if( three() ) {
+                $scope.closeSidebar('shortcutSidebar');
+                return;
+            }
+        };
+        $scope.swipeLeft = function(){
+            if( one() ) {
+                $scope.closeSidebar('mainSidebar');
+                return;
+            }
+            if( two() ) {
+                $scope.openSidebar('shortcutSidebar');
+                return;
+            }
+            if( three() ) return;
         };
     }
 ]);

@@ -3,17 +3,25 @@ alsharq.controller('HomeController', [
     'Article',
     '$mdToast',
     'Subscription',
-    'Popup',
     '$location',
-    function($scope, Article, $mdToast, Subscription, Popup, $location){
+    'Admob',
+    'Storage',
+    function($scope, Article, $mdToast, Subscription, $location, Admob, Storage){
+        Admob.hide();
 
-        // display all feedPAP
         $scope.articles = [];
         $scope.count = 1;
+        $scope.empty = true;
+
+        $scope.$user = JSON.parse(Storage.get('user'));
 
         function load(){
-            Subscription.all().then(function(data){
-                if (data.data.results) {
+            if ($scope.$user.is_registered) {
+                Subscription.all().then(function(data){
+                    if (data.data.count == 0) {
+                        $scope.empty = true; return;
+                    }
+                    $scope.empty = false;
                     var filter = [];
 
                     for (var i = 0; i < data.data.results.length; i++) {
@@ -22,12 +30,13 @@ alsharq.controller('HomeController', [
                             id:   data.data.results[i].id
                         });
                     }
-
                     Article.newsFeed({
                         filters: filter
                     }).then(function(articles){
-                        // $scope.articles = articles.data.results;
+                        // hide loading
                         $scope.articles = $scope.articles.concat(articles.data.results);
+                        $scope.$broadcast('scroll.refreshComplete');
+                        $scope.$broadcast('scroll.infiniteScrollComplete');
                     }, function(e){
                         $mdToast.show(
                             $mdToast.simple()
@@ -36,15 +45,32 @@ alsharq.controller('HomeController', [
                         );
                     });
 
-                } else {
-                    Popup.showError('يجب عليك الاشتراك في بضعة مواقع لتظهر لكز.');
-                }
-            }, function(e){});
+                }, function(e){
+                    $mdToast.show(
+                        $mdToast.simple()
+                        .textContent('حدث خطأ اثناء التحميل, حاول مرة أخرى.')
+                        .hideDelay(3000)
+                    );
+                });
+            } else {
+                Article.all($scope.count).then(function(data){
+                    // hide loading
+                    $scope.articles = $scope.articles.concat(data.data.results);
+                    $scope.$broadcast('scroll.refreshComplete');
+                    $scope.$broadcast('scroll.infiniteScrollComplete');
+                }, function(e){
+                    $mdToast.show(
+                        $mdToast.simple()
+                        .textContent('حدث خطأ اثناء التحميل, حاول مرة أخرى.')
+                        .hideDelay(3000)
+                    );
+                });
+            }
         }
         load();
 
         $scope.more = function(){
-            $scope.count++;
+            $scope.count = $scope.count + 1;
             load();
         };
 

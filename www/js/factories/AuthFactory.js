@@ -12,26 +12,8 @@ alsharq.factory('Auth', [
             logout:        function()         { return $http.post(API.POST_LOGOUT); },
             getProfile:    function()         { return $http.get( API.PROFILE); },
             updateProfile: function(data)     { return $http.post(API.PROFILE, data); },
-
-            social: function(data){
-                if (env == 'production') return $http.post(API.POST_SOCIAL_LOGIN, data);
-                if (env == 'development') {
-                    return $q(function(resolve, reject) {
-                        var data = { "data": testData.POST_SOCIAL_LOGIN };
-                        resolve(data);
-                    });
-                }
-            },
-
-            resetPassword: function(email){
-                if (env == 'production') return $http.post(API.POST_RESET_PASSWORD, { "email": email });
-                if (env == 'development') {
-                    return $q(function(resolve, reject) {
-                        var data = { "data": testData.POST_RESET_PASSWORD };
-                        resolve(data);
-                    });
-                }
-            },
+            social:        function(data)     { return $http.post(API.POST_SOCIAL_LOGIN, data); },
+            resetPassword: function(email)    { return $http.post(API.POST_RESET_PASSWORD, { "email": email }); },
         }
     }
 ]);

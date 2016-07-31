@@ -8,25 +8,25 @@ alsharq.service('Time', [
                 msPerDay    = msPerHour * 24,
                 msPerMonth  = msPerDay * 30,
                 msPerYear   = msPerDay * 365,
-                elapsed     = past - current;
+                elapsed     = Math.abs(past - current);
 
             if (elapsed < msPerMinute) {
-                 return "منذ " + Math.round(elapsed/1000) + ' ثانية';   
+                 return "منذ " + Math.round(elapsed/1000) + ' ثانية';
             }
             else if (elapsed < msPerHour) {
-                 return "منذ " + Math.round(elapsed/msPerMinute) + ' دقيقة';   
+                 return "منذ " + Math.round(elapsed/msPerMinute) + ' دقيقة';
             }
             else if (elapsed < msPerDay ) {
-                 return "منذ " + Math.round(elapsed/msPerHour ) + ' ساعه';   
+                 return "منذ " + Math.round(elapsed/msPerHour ) + ' ساعه';
             }
             else if (elapsed < msPerMonth) {
-                return "منذ " + Math.round(elapsed/msPerDay) + ' يوم';   
+                return "منذ " + Math.round(elapsed/msPerDay) + ' يوم';
             }
             else if (elapsed < msPerYear) {
-                return "منذ " + Math.round(elapsed/msPerMonth) + ' شهر';   
+                return "منذ " + Math.round(elapsed/msPerMonth) + ' شهر';
             }
             else {
-                return "منذ " + Math.round(elapsed/msPerYear ) + ' عام';   
+                return "منذ " + Math.round(elapsed/msPerYear ) + ' عام';
             }
         };
     }

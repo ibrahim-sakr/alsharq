@@ -15,7 +15,7 @@ alsharq.controller('ArticleController', [
         // increase count of readinf for article, no need th retrieve any thing.
         Article.read($routeParams.id);
 
-        Article.find({ "article_id": $routeParams.id }).then(function(data){
+        Article.find($routeParams.id).then(function(data){
             $scope.article = data.data.results[0];
         }, function(e){
             Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
@@ -34,7 +34,8 @@ alsharq.controller('ArticleController', [
                 message: "Check this out...",
                 subject: $scope.article.title,
                 url: $scope.article.url,
-                chooserTitle: 'Pick an app'            };
+                chooserTitle: 'Pick an app'
+            };
             function onSuccess(data){
                 console.log(data);
             };

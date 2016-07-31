@@ -6,7 +6,7 @@ alsharq.factory('Feed', [
     function($http, $q, API, testData){
 
         return {
-            all:        function(data)   { return $http.get( API.GET_FEED, data); },
+            all:        function(data)   { return $http.get( API.GET_FEED,         { params: data}); },
             subscribe:  function(feed_id){ return $http.post(API.POST_FEED,        { 'feed_id' :feed_id }); },
             notify:     function(feed_id){ return $http.post(API.POST_NOTIFY_FEED, { 'feed_id' :feed_id }); },
         }

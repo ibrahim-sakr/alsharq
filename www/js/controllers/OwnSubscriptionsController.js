@@ -6,6 +6,7 @@ alsharq.controller('OwnSubscriptionsController', [
     'Admob',
     function($scope, $mdBottomSheet, Subscription, Popup, Admob){
         Admob.show();
+        
         $scope.subscriptions = [];
         $scope.count = 1;
 
@@ -28,10 +29,14 @@ alsharq.controller('OwnSubscriptionsController', [
                 }
             }).then(function(action){
                 if (action == 'remove') {
+                    Popup.showError('تم الغاء الاشتراك.');
                     $scope.subscriptions.splice($index, 1);
                 }
                 if (action == "notify") {
                     $scope.subscriptions[$index].is_subscribed = !$scope.subscriptions[$index].is_subscribed;
+                }
+                if (action == "error") {
+                    Popup.showError('جدث خطأ, من فضلك اعد المحاولة.');
                 }
             });
         };

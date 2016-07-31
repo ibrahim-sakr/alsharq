@@ -5,9 +5,11 @@ alsharq.controller('LoginController', [
     'Queue',
     'Storage',
     'Popup',
-    function($scope, $location, $mdToast, Queue, Storage, Popup){
-        $scope.user = {};
+    'Admob',
+    function($scope, $location, $mdToast, Queue, Storage, Popup, Admob){
+        Admob.hide();
 
+        $scope.user = {};
         $scope.login = function(){
             // validate inputs
             if (!$scope.user.email || !$scope.user.password) {

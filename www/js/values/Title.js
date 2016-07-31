@@ -21,4 +21,5 @@ alsharq.value('Title', {
     "ContactController":          "اتصل بنا",
     "ArticleController":          "المقالات",
     "AboutController":            "عن البرنامج",
+    "FeedsController":            "المقالات",
 });

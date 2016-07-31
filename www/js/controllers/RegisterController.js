@@ -5,7 +5,9 @@ alsharq.controller('RegisterController', [
     'Queue',
     'Storage',
     'Popup',
-    function($scope, $location, $mdToast, Queue, Storage, Popup){
+    'Admob',
+    function($scope, $location, $mdToast, Queue, Storage, Popup, Admob){
+        Admob.hide();
         $scope.user = {
             // email: "",
             // fullname: "",

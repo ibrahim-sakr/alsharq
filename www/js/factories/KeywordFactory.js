@@ -7,7 +7,7 @@ alsharq.factory('Keyword', [
 
         return {
             all:    function()       { return $http.get( API.KEYWORDS); },
-            add:    function(content){ return $http.post(API.ADD_KEYWORD, { 'content': content }); },
+            add:    function(content){ return $http.post(API.ADD_KEYWORD,    { 'content': content }); },
             remove: function(content){ return $http.post(API.REMOVE_KEYWORD, { 'content': content }); },
         }
     }

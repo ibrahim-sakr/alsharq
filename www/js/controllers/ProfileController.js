@@ -5,77 +5,45 @@ alsharq.controller('ProfileController', [
     'Popup',
     '$mdToast',
     'API',
-    'Upload',
     '$location',
     'Admob',
-    'Request',
     '$http',
-    function($scope, Storage, Queue, Popup, $mdToast, API, Upload, $location, Admob, Request, $http){
-        Admob.show();
-        
-        $scope.$user = JSON.parse( Storage.get('user') );
+    function($scope, Storage, Queue, Popup, $mdToast, API, $location, Admob, $http){
+        // Admob.show();
 
+        $scope.$user = JSON.parse( Storage.get('user') );
         console.log($scope.$user);
 
-        $scope.update = function(){
-            console.log('submitting the form...');
-            console.log($scope.$user);
-            delete $scope.$user.profile_pic;
+        $scope.profile_pic;
+        $scope.saveProfile = function(){
+            if ($scope.$user.password != $scope.$user.password_confirmation) {
+                Popup.showError("كلمة المرور غير متطابقة!"); return;
+            }
+            if (!$scope.$user.full_name || !$scope.$user.email) {
+                Popup.showError('يجب تعبئة جميع الحقول'); return;
+            };
+
+            var payload = new FormData();
+                payload.append("full_name", $scope.$user.full_name);
+                payload.append("email", $scope.$user.email);
+
+            if( $scope.$user.password ) payload.append("password", $scope.$user.password);
+            if( $scope.profile_pic ) payload.append("profile_pic", $scope.profile_pic);
 
             $http({
-                method: "post",
+                method: "POST",
                 url: API.PROFILE,
-                transformRequest: Request.transform(),
-                data: $scope.$user
+                data: payload,
+                headers: {"Content-Type": undefined},
+                transformRequest: angular.identity
             }).then(function(data){
-                console.log(data);
+                data.data.full_name = data.data.first_name + " " + data.data.last_name;
+                $scope.$user = data.data;
+                Storage.set('user', JSON.stringify($scope.$user));
+                $location.path('/home');
             }, function(e){
                 console.log(e);
             });
         };
-        
-
-
-
-        // $scope.update = function() {
-            // if ($scope.$user.password != $scope.$user.password_confirmation) {
-            //     $mdToast.show(
-            //         $mdToast.simple()
-            //         .textContent('كلمة المرور غير متطابقة!')
-            //         .hideDelay(3000)
-            //     );
-            //     return;
-            // }
-            // if (!$scope.$user.full_name || !$scope.$user.email) {
-            //     $mdToast.show(
-            //         $mdToast.simple()
-            //         .textContent('يجب تعبئة جميع الحقول')
-            //         .hideDelay(3000)
-            //     );
-            //     return;
-            // };
-
-            // delete $scope.$user.password_confirmation;
-            // if (!$scope.$user.profile_pic) delete $scope.$user.profile_pic;
-
-            // $scope.$user.profile_pic.upload = Upload.upload({
-            //     method: 'POST',
-            //     url: API.PROFILE,
-            //     data: $scope.$user,
-            // });
-
-            // $scope.$user.profile_pic.upload.then(function (response) {
-            //     console.log(response.data);
-            // //     // response.data.full_name = response.data.first_name + " " + response.data.last_name;
-            // //     // Storage.set('user', JSON.stringify(response.data));
-            // //     // $location.path('/home');
-            // }, function (e) {
-            //     console.log(e);
-            // //     Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
-            // }, function (evt) {
-            // //     // Math.min is to fix IE which reports 200% sometimes
-            // //     $scope.$user.profile_pic.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-            // });
-        // }
     }
 ]);

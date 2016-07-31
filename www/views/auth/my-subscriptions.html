@@ -1,14 +1,18 @@
 <div id="page">
     <div class="my-subsciptions">
-        <div class="my-alert">
-            تتيح لك خاصية الاشتراكات بإختيار المصادر التي تأتيك منها الأخبار.<br>يمكنك البدء بالإشتراك بالمصادر التي ترغب بها من خلال تصفح المواقع عن طريق الضغط على زر +
-        </div>
-        <a class="my-plus" href="#/websites">+</a>
-        <md-list flex>
-            <md-list-item ng-repeat="subscripe in subscriptions" ng-click="edit(subscripe, $index)">
-                <p>{{ subscripe.website.name }} - {{ subscripe.title }}</p>
-            </md-list-item>
-        </md-list>
-        <div class="more" ng-click="load()">عرض المزيد</div>
+        <ion-content>
+            <div class="my-alert">
+                تتيح لك خاصية الاشتراكات بإختيار المصادر التي تأتيك منها الأخبار.<br>يمكنك البدء بالإشتراك بالمصادر التي ترغب بها من خلال تصفح المواقع عن طريق الضغط على زر +
+            </div>
+            <a class="my-plus" href="#/websites">+</a>
+            <md-list flex>
+                <md-list-item ng-repeat="subscripe in subscriptions" ng-click="edit(subscripe, $index)">
+                    <p>{{ subscripe.website.name }} - {{ subscripe.title }}</p>
+                </md-list-item>
+            </md-list>
+
+            <ion-infinite-scroll on-infinite="load()" distance="1%"></ion-infinite-scroll>
+        </ion-content>
+
     </div>
 </div>

@@ -8,7 +8,6 @@ var alsharq = angular.module('AlSharq', [
     'ngMaterial',
     'ngCordovaOauth',
     'admobModule',
-    'ngFileUpload',
 ]);
 
 var App = {
@@ -23,10 +22,11 @@ var App = {
     // read more https://cordova.apache.org/docs/en/5.4.0/cordova/events/events.html
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
-        // document.addEventListener("offline",     this.onDeviceOffline, false);
-        // document.addEventListener("online",      this.onDeviceOnline,  false);
-        // document.addEventListener("resume",      this.onResume,        false);
-        // document.addEventListener("pause",       this.onPause,         false);
+        // document.addEventListener("offline",           this.onDeviceOffline, false);
+        // document.addEventListener("online",            this.onDeviceOnline,  false);
+        // document.addEventListener("resume",            this.onResume,        false);
+        // document.addEventListener("pause",             this.onPause,         false);
+        // document.addEventListener("orientationchange", this.onOrientationChange, false);
     },
 
     // offline Event Hamdler
@@ -35,6 +35,8 @@ var App = {
         if (env == "production") navigator.app.exitApp();
         if (env == "development") console.log('no Internet Connection .. closing app ....');
     },
+
+    onOrientationChange: function(){},
 
     // online Event Hamdler
     // fires whene the app back to online

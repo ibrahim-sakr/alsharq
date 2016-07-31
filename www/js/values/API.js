@@ -39,7 +39,7 @@ alsharq.constant('API', (function(){
         "GET_SUBSCRIPERS":         URL + "subscriptions/list",
         "POST_ARTICLE_READ_COUNT": URL + "article/mark_read",
         "POST_NEWSFEED":           URL + "newsfeed",
-
+        "POST_SOCIAL_LOGIN":       URL + "user/register_social",
 
         /**
          * @desc [ This endpoint archives the article from list by marking it as read (after the user has read the article, he/she can mark it as read) ]
@@ -52,32 +52,6 @@ alsharq.constant('API', (function(){
          *     Status 400 on fails
          */
         "MARK_AS_READ": URL + "article/readlater/markasread",
-
-        /**
-         * @method POST
-         * @send {
-         *     email: "",
-         *     full_name: "",
-         *     password: "",
-         *     google_token: "",
-         *     facebook_token: ""
-         * }
-         * @return {
-         *     created: false,
-         *     token: "75eb9e7afaedd82653b4b5eed00a9ecfdb26d835",
-         *     user: {
-         *         "email": "rakan.alhneiti123@gmail.com",
-         *         "facebook_connected": false,
-         *         "first_name": "Rakan",
-         *         "google_connected": false,
-         *         "id": 6,
-         *         "is_registered": true,
-         *         "last_name": "Alhneiti",
-         *         "profile_pic": null
-         *     }
-         * }
-         */
-        "POST_SOCIAL_LOGIN": URL + "user/register_social",
 
         /**
          * @method POST
