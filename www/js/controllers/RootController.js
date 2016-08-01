@@ -13,6 +13,7 @@ alsharq.controller('RootController', [
     function($rootScope, $scope, $location, $mdSidenav, Subscription, Storage, Queue, Popup, $mdDialog, Keyword, $http){
         $scope.shortcutSidebarContent = {};
         $scope.keywords = [];
+        
         $scope.$user = JSON.parse( Storage.get('user') );
 
         /**

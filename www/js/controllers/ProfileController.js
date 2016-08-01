@@ -11,8 +11,7 @@ alsharq.controller('ProfileController', [
     function($scope, Storage, Queue, Popup, $mdToast, API, $location, Admob, $http){
         // Admob.show();
 
-        $scope.$user = JSON.parse( Storage.get('user') );
-        console.log($scope.$user);
+        $scope.$user = $scope.$parent.$user;
 
         $scope.profile_pic;
         $scope.saveProfile = function(){

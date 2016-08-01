@@ -9,13 +9,16 @@ alsharq.controller('WebsitesController', [
     function($scope, $window, $location, Website, Popup, $mdToast, Admob){
         Admob.show();
         $scope.websites = [];
-        $scope.count = 1;
+        $scope.count    = 1;
+        $scope.isMore   = true;
 
         $scope.load = function(){
             Website.all($scope.count).then(function(data){
                 if (data.data.results) {
                     $scope.websites = $scope.websites.concat(data.data.results);
+                    if (data.data.results.length < 10) $scope.isMore = false;
                     $scope.count    = $scope.count + 1;
+                    $scope.$broadcast('scroll.infiniteScrollComplete');
                 } else {
                     $mdToast.show(
                         $mdToast.simple()

@@ -8,10 +8,9 @@
         </div>
         <div ng-if="!empty">
             <article-template ng-repeat="article in articles" article="article"></article-template>
-            <!-- <div class="more" ng-click="more()">عرض المزيد</div> -->
         </div>
 
-        <ion-infinite-scroll on-infinite="more()" distance="1%"></ion-infinite-scroll>
+        <ion-infinite-scroll ng-if="isMore" on-infinite="more()" distance="1%"></ion-infinite-scroll>
     </ion-content>
 </div>
 

@@ -5,7 +5,7 @@
 
         <article-template ng-repeat="article in articles" article="article" ngclass="{favorite: article.is_favorite, later: article.is_readlater}"></article-template>
 
-        <ion-infinite-scroll on-infinite="more()" distance="1%"></ion-infinite-scroll>
+        <ion-infinite-scroll ng-if="isMore" on-infinite="more()" distance="1%"></ion-infinite-scroll>
     </ion-content>
     
 </div>

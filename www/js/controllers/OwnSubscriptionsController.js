@@ -9,11 +9,13 @@ alsharq.controller('OwnSubscriptionsController', [
         
         $scope.subscriptions = [];
         $scope.count = 1;
+        $scope.isMore = true;
 
         $scope.load = function(){
             Subscription.all($scope.count).then(function(data){
                 $scope.count++;
                 $scope.subscriptions = $scope.subscriptions.concat(data.data.results);
+                if (data.data.results.length < 10) $scope.isMore = false;
             }, function(e){
                 Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
             });

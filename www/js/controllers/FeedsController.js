@@ -7,7 +7,9 @@ alsharq.controller('FeedsController', [
     'Admob',
     function($scope, $routeParams, Article, $mdToast, $location, Admob){
         Admob.show();
+
         $scope.articles = [];
+        $scope.isMore   = true;
         console.log($routeParams);
         if ( $routeParams.country ) {
             Article.newsFeed({
@@ -19,6 +21,7 @@ alsharq.controller('FeedsController', [
                 ]
             }).then(function(data){
                 $scope.articles = data.data.results;
+                if (data.data.results.length < 10) $scope.isMore = false;
             }, function(e){
                 $location.path('/home');
                 $mdToast.show(
@@ -50,6 +53,7 @@ alsharq.controller('FeedsController', [
                 filters: filter
             }).then(function(data){
                 $scope.articles = data.data.results;
+                if (data.data.results.length < 10) $scope.isMore = false;
             }, function(e){
                 $location.path('/home');
                 $mdToast.show(
@@ -70,6 +74,7 @@ alsharq.controller('FeedsController', [
                 ]
             }).then(function(data){
                 $scope.articles = data.data.results;
+                if (data.data.results.length < 10) $scope.isMore = false;
             }, function(e){
                 $location.path('/home');
                 $mdToast.show(

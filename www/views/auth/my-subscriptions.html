@@ -11,7 +11,7 @@
                 </md-list-item>
             </md-list>
 
-            <ion-infinite-scroll on-infinite="load()" distance="1%"></ion-infinite-scroll>
+            <ion-infinite-scroll ng-if="isMore" on-infinite="load()" distance="1%"></ion-infinite-scroll>
         </ion-content>
 
     </div>

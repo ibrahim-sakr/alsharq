@@ -10,7 +10,7 @@
                     </md-list-item>
                 </md-list>
 
-                <ion-infinite-scroll on-infinite="loadCats()" distance="1%"></ion-infinite-scroll>
+                <ion-infinite-scroll ng-if="isMoreCats" on-infinite="loadCats()" distance="1%"></ion-infinite-scroll>
             </ion-content>
         </md-tab>
         
@@ -21,7 +21,7 @@
                     <p> {{ writer.title }} </p>
                 </md-list-item>
 
-                <ion-infinite-scroll on-infinite="loadWriters()" distance="1%"></ion-infinite-scroll>
+                <ion-infinite-scroll ng-if="isMoreWriters" on-infinite="loadWriters()" distance="1%"></ion-infinite-scroll>
             </ion-content>
         </md-tab>
     </md-tabs>

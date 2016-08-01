@@ -10,8 +10,9 @@ alsharq.controller('HomeController', [
         Admob.hide();
 
         $scope.articles = [];
-        $scope.count = 1;
-        $scope.empty = true;
+        $scope.count    = 1;
+        $scope.empty    = true;
+        $scope.isMore = true;
 
         $scope.$user = JSON.parse(Storage.get('user'));
 
@@ -19,7 +20,9 @@ alsharq.controller('HomeController', [
             if ($scope.$user.is_registered) {
                 Subscription.all().then(function(data){
                     if (data.data.count == 0) {
-                        $scope.empty = true; return;
+                        $scope.empty = true;
+                        $scope.isMore = false;
+                        return;
                     }
                     $scope.empty = false;
                     var filter = [];
@@ -33,10 +36,11 @@ alsharq.controller('HomeController', [
                     Article.newsFeed({
                         filters: filter
                     }).then(function(articles){
-                        // hide loading
                         $scope.articles = $scope.articles.concat(articles.data.results);
                         $scope.$broadcast('scroll.refreshComplete');
                         $scope.$broadcast('scroll.infiniteScrollComplete');
+
+                        if (articles.data.results.length < 10) $scope.isMore = false;
                     }, function(e){
                         $mdToast.show(
                             $mdToast.simple()

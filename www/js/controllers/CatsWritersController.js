@@ -6,10 +6,12 @@ alsharq.controller('CatsWritersController', [
     'Admob',
     function($scope, $routeParams, $mdToast, Feed, Admob){
         Admob.show();
-        $scope.cCount  = 1;
-        $scope.wCount  = 1;
-        $scope.cats    = [];
-        $scope.writers = [];
+        $scope.cCount        = 1;
+        $scope.wCount        = 1;
+        $scope.cats          = [];
+        $scope.writers       = [];
+        $scope.isMoreCats    = true;
+        $scope.isMoreWriters = true;
 
         $scope.loadCats = function(){
             Feed.all({
@@ -18,6 +20,7 @@ alsharq.controller('CatsWritersController', [
                 page: $scope.cCount,
             }).then(function success(data){
                 $scope.cats = $scope.cats.concat(data.data.results);
+                if (data.data.results.length < 10) $scope.isMoreCats = false;
                 $scope.cCount++;
             }, function fail(e){
                 $mdToast.show(
@@ -36,6 +39,7 @@ alsharq.controller('CatsWritersController', [
                 page: $scope.wCount,
             }).then(function success(data){
                 $scope.writers = $scope.writers.concat(data.data.results);
+                if (data.data.results.length < 10) $scope.isMoreWriters = false;
                 $scope.wCount++;
             }, function fail(e){
                 $mdToast.show(
