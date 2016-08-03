@@ -33,7 +33,7 @@ md-toolbar.home h2 {
     text-align: center;
     width: 100%;
 }
-#page {
+#page, .page {
     position: absolute;
     /*top: 76px;*/
     top: 56px;
@@ -175,9 +175,9 @@ md-list-item button p {
 }
 .article .article_header h3 {
     color: #000000;
-    margin: 30px 0 10px 0;
+    margin: 20px 0 5px 0;
     font-size: 1em;
-    white-space: nowrap;
+    line-height: 1.5em;
 }
 .article .article_header h5 {
     color: #b0b0b0;

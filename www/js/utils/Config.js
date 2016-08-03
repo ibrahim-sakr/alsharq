@@ -60,19 +60,10 @@ alsharq.run([
     function($rootScope, $route, $location, Title) {
         $rootScope.$on('$routeChangeSuccess', function (){
             if ($route.current.$$route) {
-                var paths = ["/auth", "/auth/register", "/auth/login", "/auth/reset"];
-                if (paths.indexOf( $route.current.$$route.originalPath ) == -1) {
-                    // check if user signin
-                    var token = window.localStorage.getItem('token');
-                    if (!token) {
-                        $location.path('/auth');
-                    }
-                }
+                var authControllers  = ['AuthController', 'LoginController', 'RegisterController', 'ResetPasswordController'];
                 $rootScope.pageTitle = Title[$route.current.$$route.controller];
                 $rootScope.isHome    = $route.current.$$route.controller == 'HomeController';
-
-                var authControllers = ['AuthController', 'LoginController', 'RegisterController', 'ResetPasswordController'];
-                $rootScope.isAuth = authControllers.indexOf( $route.current.$$route.controller ) > -1;
+                $rootScope.isAuth    = authControllers.indexOf( $route.current.$$route.controller ) > -1;
 
             }
         });

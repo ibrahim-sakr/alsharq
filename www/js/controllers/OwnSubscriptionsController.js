@@ -20,7 +20,7 @@ alsharq.controller('OwnSubscriptionsController', [
                 Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
             });
         };
-        $scope.load();
+        // $scope.load();
 
         $scope.edit = function(object, $index) {
             $mdBottomSheet.show({

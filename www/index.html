@@ -15,7 +15,8 @@
     <link rel="stylesheet" type="text/css" href="css/fonts.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body app-ready="appReady()" ng-controller="RootController" on-swipe-right="swipeRight()" on-swipe-left="swipeLeft()">
+<!-- on-swipe-right="swipeRight()" on-swipe-left="swipeLeft()" -->
+<body app-ready="appReady()" ng-controller="RootController">
 
     <div id="appContainer">
         <md-progress-linear md-mode="indeterminate" ng-show="isLoading()"></md-progress-linear>
@@ -23,7 +24,7 @@
         <!-- header -->
         <md-toolbar class="fixed" ng-class="{home: isHome}">
             <div class="md-toolbar-tools">
-                <md-button ng-if="isHome" class="md-icon-button" aria-label="Menu" ng-click="openSidebar('mainSidebar')">
+                <md-button ng-if="isHome" class="md-icon-button" aria-label="Menu" ng-click="toggleLeft()">
                     <md-icon class="alsharq-menu color-gray"></md-icon>
                 </md-button>
                 <div ng-if="!isHome" class="logo-header">
@@ -38,106 +39,112 @@
                 
                 <span flex></span>
                 
-                <md-button aria-label="notifications" class="md-icon-button" ng-click="openSidebar('shortcutSidebar')">
+                <md-button aria-label="notifications" class="md-icon-button" ng-click="toggleRight()">
                     <md-icon md-menu-origin class="alsharq-more_vert color-gray"></md-icon>
                 </md-button>
             </div>
         </md-toolbar>
 
-        <!-- main sidebar -->
-        <md-sidenav class="md-sidenav-l  eft md-whiteframe-z2" md-component-id="mainSidebar">
-            <div class="info clearfix">
-                <div class="image">
-                    <img ng-if="$user.profile_pic" ng-src="{{ $user.profile_pic.file }}" alt="avatar">
-                    <img ng-if="!$user.profile_pic" src="img/user.png" alt="avatar">
+        <ion-side-menus ng-if="!isAuth">
+            <ion-side-menu side="left">
+                <div class="page">
+                    <div class="info clearfix">
+                        <div class="image">
+                            <img ng-src="{{ ($user().profile_pic) ? $user().profile_pic.file : 'img/user.png' }}" alt="avatar">
+                        </div>
+                        <div class="barss clearfix">
+                            <div ng-click="logout()">تسجيل الخروج</div>
+                            <div ng-click="goToFromLeft('related-accounts')">حساباتي المربوطة</div>
+                            <div ng-click="goToFromLeft('profile')">تعديل حسابي</div>
+                        </div>
+                    </div>
+
+                    <div class="ul">
+                        <md-list-item class="list-title">
+                            <p> تصفح </p>
+                        </md-list-item>
+                        <md-list-item ng-click="goToFromLeft('websites')">
+                            <p> تصفح المواقع اﻷخبارية <i class="alsharq-navigate_before"></i></p>
+                        </md-list-item>
+                        <md-list-item class="list-title">
+                            <p> خياراتي </p>
+                        </md-list-item>
+                        <md-list-item ng-click="goToFromLeft('my-subscriptions')">
+                            <p>اشتراكاتي <i class="alsharq-navigate_before"></i></p>
+                        </md-list-item>
+                        <md-list-item ng-click="goToFromLeft('my-keywords')">
+                            <p>كلماتي المفتاحية <i class="alsharq-navigate_before"></i></p>
+                        </md-list-item>
+                        <md-list-item ng-click="goToFromLeft('my-articles/favorite')">
+                            <p>مقالاتي المفضلة <i class="alsharq-navigate_before"></i></p>
+                        </md-list-item>
+                        <md-list-item ng-click="goToFromLeft('my-articles/later')">
+                            <p>مقالات للقراءه لاحقا <i class="alsharq-navigate_before"></i></p>
+                        </md-list-item>
+                        <md-list-item ng-click="goToFromLeft('my-countries')">
+                            <p>الدول المتابعة <i class="alsharq-navigate_before"></i></p>
+                        </md-list-item>
+                        <md-list-item ng-click="goToFromLeft('my-interests')">
+                            <p>اهتماماتي <i class="alsharq-navigate_before"></i></p>
+                        </md-list-item>
+                        <md-list-item class="list-title">
+                            <p> معلومات التطبيق </p>
+                        </md-list-item>
+                        <md-list-item ng-click="goToFromLeft('about')">
+                            <p>عن شرق <i class="alsharq-navigate_before"></i></p>
+                        </md-list-item>
+                        <md-list-item ng-click="goToFromLeft('contact')">
+                            <p>اتصل بنا <i class="alsharq-navigate_before"></i></p>
+                        </md-list-item>
+                        <md-list-item class="list-title" ng-click="exit()">
+                            <p> اغلاق البرنامج </p>
+                        </md-list-item>
+                    </div>
                 </div>
-                <div class="barss clearfix">
-                    <div ng-click="logout()">تسجيل الخروج</div>
-                    <div ng-click="goTo('related-accounts')">حساباتي المربوطة</div>
-                    <div ng-click="goTo('profile')">تعديل حسابي</div>
-                </div>
-            </div>
-
-            <div class="ul">
-                <md-list-item class="list-title">
-                    <p> تصفح </p>
-                </md-list-item>
-                <md-list-item  ng-click="goTo('websites')">
-                    <p> تصفح المواقع اﻷخبارية <i class="alsharq-navigate_before"></i></p>
-                </md-list-item>
-                <md-list-item class="list-title">
-                    <p> خياراتي </p>
-                </md-list-item>
-                <md-list-item ng-click="goTo('my-subscriptions')">
-                    <p>اشتراكاتي <i class="alsharq-navigate_before"></i></p>
-                </md-list-item>
-                <md-list-item  ng-click="goTo('my-keywords')">
-                    <p>كلماتي المفتاحية <i class="alsharq-navigate_before"></i></p>
-                </md-list-item>
-                <md-list-item  ng-click="goTo('my-articles/favorite')">
-                    <p>مقالاتي المفضلة <i class="alsharq-navigate_before"></i></p>
-                </md-list-item>
-                <md-list-item  ng-click="goTo('my-articles/later')">
-                    <p>مقالات للقراءه لاحقا <i class="alsharq-navigate_before"></i></p>
-                </md-list-item>
-                <md-list-item  ng-click="goTo('my-countries')">
-                    <p>الدول المتابعة <i class="alsharq-navigate_before"></i></p>
-                </md-list-item>
-                <md-list-item  ng-click="goTo('my-interests')">
-                    <p>اهتماماتي <i class="alsharq-navigate_before"></i></p>
-                </md-list-item>
-                <md-list-item class="list-title">
-                    <p> معلومات التطبيق </p>
-                </md-list-item>
-                <md-list-item  ng-click="goTo('about')">
-                    <p>عن شرق <i class="alsharq-navigate_before"></i></p>
-                </md-list-item>
-                <md-list-item  ng-click="goTo('contact')">
-                    <p>اتصل بنا <i class="alsharq-navigate_before"></i></p>
-                </md-list-item>
-                <md-list-item class="list-title" ng-click="exit()">
-                    <p> اغلاق البرنامج </p>
-                </md-list-item>
-            </div>
-        </md-sidenav>
-
-        <div ng-view></div>
-
-        <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="shortcutSidebar">
-            <md-list-item class="list-title" ng-click="goTo('home')">
-                <p> الكل </p>
-            </md-list-item>
-            <md-list-item class="list-title">
-                <p> الدول </p>
-            </md-list-item>
-                <md-list-item class="countries" ng-repeat="country in shortcutSidebarContent.countries"  ng-click="goToCountry(country.name)">
-                    <p> {{ country.name }} </p>
-                    <i class="md-secondary">{{ country.count }}</i>
-                </md-list-item>
-
-            <div ng-repeat="website in shortcutSidebarContent.websites"> <!-- this div just wrap for ng-repeat -->
-                <md-list-item class="list-title">
-                    <p> {{ website.name }} </p>
-                </md-list-item>
-                    <md-list-item ng-repeat="cat in website.categories">
-                        <p> {{ cat.name }} </p>
+            </ion-side-menu>
+            <ion-side-menu side="right">
+                <div class="page">
+                    <md-list-item class="list-title" ng-click="goToFromRight('home')">
+                        <p> الكل </p>
                     </md-list-item>
-            </div>
+                    <md-list-item class="list-title">
+                        <p> الدول </p>
+                    </md-list-item>
+                        <md-list-item class="countries" ng-repeat="country in shortcutSidebarContent.countries"  ng-click="goToCountry(country.name)">
+                            <p> {{ country.name }} </p>
+                            <i class="md-secondary">{{ country.count }}</i>
+                        </md-list-item>
 
-            <md-list-item class="list-title" ng-click="goToFeed()">
-                <p> الكلمات المفتاحية </p>
-            </md-list-item>
-                <md-list-item class="keywords" ng-repeat="keyword in shortcutSidebarContent.keywords" class="secondary-button-padding">
-                    <p>{{ keyword.name }}</p>
-                    <md-checkbox class="md-secondary" ng-model="keyword.feed"></md-checkbox>
-                </md-list-item>
+                    <div ng-repeat="website in shortcutSidebarContent.websites"> <!-- this div just wrap for ng-repeat -->
+                        <md-list-item class="list-title">
+                            <p> {{ website.name }} </p>
+                        </md-list-item>
+                            <md-list-item ng-repeat="cat in website.categories">
+                                <p> {{ cat.name }} </p>
+                            </md-list-item>
+                    </div>
+
+                    <md-list-item class="list-title" ng-click="goToFeed()">
+                        <p> الكلمات المفتاحية </p>
+                    </md-list-item>
+                        <md-list-item class="keywords" ng-repeat="keyword in shortcutSidebarContent.keywords" class="secondary-button-padding">
+                            <p>{{ keyword.name }}</p>
+                            <md-checkbox class="md-secondary" ng-model="keyword.feed"></md-checkbox>
+                        </md-list-item>
 
 
-            <md-list-item class="list-title" ng-click="addKeyword()">
-                <p> اضافة كلمات مفتاحية </p>
-            </md-list-item>
+                    <md-list-item class="list-title" ng-click="addKeyword()">
+                        <p> اضافة كلمات مفتاحية </p>
+                    </md-list-item>
+                </div>
+            </ion-side-menu>
 
-        </md-sidenav>
+            <ion-side-menu-content>
+                <div ng-view></div>
+            </ion-side-menu-content>
+        </ion-side-menus>
+
+        <div ng-view ng-if="isAuth"></div>
     </div>
 
     <!-- Scripts -->

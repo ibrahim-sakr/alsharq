@@ -10,11 +10,14 @@ alsharq.controller('RootController', [
     '$mdDialog',
     'Keyword',
     '$http',
-    function($rootScope, $scope, $location, $mdSidenav, Subscription, Storage, Queue, Popup, $mdDialog, Keyword, $http){
+    '$ionicSideMenuDelegate',
+    function($rootScope, $scope, $location, $mdSidenav, Subscription, Storage, Queue, Popup, $mdDialog, Keyword, $http, $ionicSideMenuDelegate){
         $scope.shortcutSidebarContent = {};
         $scope.keywords = [];
-        
-        $scope.$user = JSON.parse( Storage.get('user') );
+
+        $scope.$user = function(){
+            return JSON.parse( Storage.get('user') );
+        };
 
         /**
          * check if there is an http request
@@ -24,12 +27,20 @@ alsharq.controller('RootController', [
         $scope.isLoading = function(){
             return $http.pendingRequests.length > 0;
         };
-
-        $scope.goTo = function(page){
-            $scope.closeSidebar('mainSidebar');
-            $scope.closeSidebar('shortcutSidebar');
+        $scope.toggleLeft = function(){
+            $ionicSideMenuDelegate.toggleLeft();
+        };
+        $scope.toggleRight = function(){
+            $ionicSideMenuDelegate.toggleRight();
+        };
+        $scope.goToFromLeft = function(page){
+            $scope.toggleLeft();
             $location.path('/' + page);
         };
+        $scope.goToFromRight = function(page){
+            $scope.toggleRight();
+            $location.path('/' + page);
+        }
 
         $scope.appReady = function(){
             window.Loading.hide();
@@ -46,7 +57,7 @@ alsharq.controller('RootController', [
                 'method': 'logout',
                 'data': '',
                 'success': function(){
-                    $scope.closeSidebar('mainSidebar');
+                    // $scope.closeSidebar('mainSidebar');
                     Storage.remove(['token', 'user']);
                     // redirect to login page
                     $location.path('/auth');
@@ -62,7 +73,7 @@ alsharq.controller('RootController', [
         };
 
         $scope.addKeyword = function(){
-            $scope.closeSidebar('shortcutSidebar');
+            $scope.toggleRight();
             var confirm = $mdDialog.prompt()
                           .title('أضف كلمة مفتاحية')
                           .placeholder('الكلمة')
@@ -87,7 +98,7 @@ alsharq.controller('RootController', [
         };
 
         $scope.loadSortcutSidebar = function(){
-            if ( !$scope.$user ) return;
+            if ( !$scope.$user() ) return;
             Subscription.filter().then(function(data){
                 $scope.shortcutSidebarContent = data.data;
             }, function(e){
@@ -97,10 +108,10 @@ alsharq.controller('RootController', [
         $scope.loadSortcutSidebar();
 
         $scope.goToCountry = function(name){
+            $scope.toggleRight();
             $location.url('/feeds?country=' + name);
-            $scope.closeSidebar('shortcutSidebar');
         };
-        
+
         $scope.goToFeed = function(){
             var params = "?";
             for (var i = 0; i < $scope.shortcutSidebarContent.keywords.length; i++) {
@@ -110,56 +121,7 @@ alsharq.controller('RootController', [
             }
             params = params.slice(0, -1);
             $location.url('/feeds' + params);
-            $scope.closeSidebar('shortcutSidebar');
-        };
-
-        $scope.openSidebar = function(id){
-            if (!$rootScope.isAuth) {
-                var sidebars = ['mainSidebar', 'shortcutSidebar'];
-                sidebars.splice( sidebars.indexOf(id) , 1);
-                $mdSidenav(sidebars[0]).close();
-                $mdSidenav(id).open();
-            }
-        };
-
-        $scope.closeSidebar = function(id){
-            $mdSidenav(id).close();
-        };
-
-        function one(){
-            if( $mdSidenav('mainSidebar').isOpen() && $mdSidenav('shortcutSidebar').isOpen() == false ) return true;
-            return false;
-        }
-        function two(){
-            if( $mdSidenav('mainSidebar').isOpen() == false && $mdSidenav('shortcutSidebar').isOpen() == false ) return true;
-            return false;
-        }
-        function three(){
-            if( $mdSidenav('mainSidebar').isOpen() == false && $mdSidenav('shortcutSidebar').isOpen() ) return true;
-            return false;
-        }
-
-        $scope.swipeRight = function(){
-            if( one() ) return;
-            if( two() ) {
-                $scope.openSidebar('mainSidebar');
-                return;
-            }
-            if( three() ) {
-                $scope.closeSidebar('shortcutSidebar');
-                return;
-            }
-        };
-        $scope.swipeLeft = function(){
-            if( one() ) {
-                $scope.closeSidebar('mainSidebar');
-                return;
-            }
-            if( two() ) {
-                $scope.openSidebar('shortcutSidebar');
-                return;
-            }
-            if( three() ) return;
+            $scope.toggleRight();
         };
     }
 ]);

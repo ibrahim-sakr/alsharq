@@ -31,7 +31,7 @@ alsharq.controller('WebsitesController', [
             });
         }
         
-        $scope.load();
+        // $scope.load();
 
         $scope.next = function(id){
             $location.path('/categories-writers/' + id);

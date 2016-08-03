@@ -1,12 +1,11 @@
 <div class="article" id="article-{{ article.item_id }}" ng-class="{favorite: article.is_favorite, later: article.is_readlater}">
     <div class="article_header clearfix" ng-click="hideContent()">
         <img ng-if="article.website_image" ng-src="{{ article.website_image }}" alt="">
-        <h3>{{ article.website_name }} - {{ article.channel_name }}</h3>
+        <h3>{{ article.title | html }}</h3>
         <h5>{{ article.date_published | time }}</h5>
     </div>
     <div class="article_body">
         <img ng-if="article.thumbnail" ng-click="hideContent()" ng-src="{{ article.thumbnail }}" alt="">
-        <h2 ng-click="hideContent()">{{ article.title | html }}</h2>
         <div class="content" ng-show="showContent">
             {{ article.summary }}
             <div class="read_more">

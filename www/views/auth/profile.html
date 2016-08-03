@@ -4,8 +4,8 @@
     </div>
 
     <div class="avatar">
-        <img ng-if="$user.profile_pic" ng-src="{{ $user.profile_pic.file }}" alt="avatar">
-        <img ng-if="!$user.profile_pic" src="img/user.png" alt="avatar">
+        <img ng-src="{{ ($user.profile_pic.file) ? $user.profile_pic.file : 'img/user.png' }}" alt="avatar">
+        <!-- <img ng-if="!$user.profile_pic" src="img/user.png" alt="avatar"> -->
     </div>
 
     <div class="contentss">

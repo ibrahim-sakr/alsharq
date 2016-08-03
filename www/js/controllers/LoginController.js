@@ -32,9 +32,7 @@ alsharq.controller('LoginController', [
                         'user': JSON.stringify(data.user)
                     });
                     $location.path('/home');
-
-                    // pure javascript reload app to display any new data
-                    // location.reload();
+                    $scope.$parent.$user();
                 },
                 'error': function(e){
                     Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
