@@ -1,0 +1,31 @@
+<md-dialog aria-label="comments"  ng-cloak>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>التعليقات</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <md-icon class="alsharq-close"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+        <div class="comment" ng-repeat="comment in commResults">
+            <img ng-if="comment.user.profile_pic" ng-src="{{ comment.user.profile_pic }}" alt="avatar">
+            <p>{{ comment.comment }}</p>
+            <md-divider></md-divider>
+        </div>
+    
+        <md-divider></md-divider>
+
+        <div layout layout-wrap>
+            <md-input-container class="md-block" flex="100">
+                <label>أضف تعليق جديد</label>
+                <textarea ng-model="commNew.comment" md-maxlength="150" rows="5"></textarea>
+            </md-input-container>
+            
+            <md-button class="md-raised md-primary" ng-click="add()" flex="100">أضف</md-button>
+        </div>
+
+    </md-dialog-content>
+</md-dialog>

@@ -1,0 +1,18 @@
+<div id="page" class="fullscreen auth">
+    <img class="logo" src="img/logo_landscape.png" alt="logo_landscape">
+    <div class="padding" layout="column" layout-align="center">
+
+        <a> سجل دخولك لتصفح و متابعة اﻷخبار حسب إختيارك</a>
+        <md-input-container>
+            <label>البريد الإلكتروني</label>
+            <input ng-model="user.email" type="email">
+        </md-input-container>
+        <md-input-container>
+            <label>كلمة السر</label>
+            <input ng-model="user.password" type="password">
+        </md-input-container>
+    </div>
+    <div class="md-raised md-primary button register" flex ng-click="login()">تسجيل الدخول</div>
+    <a class="md-raised md-primary button register" flex href="#/auth/reset">نسيت كلمة المرور ؟</a>
+    <a class="md-raised md-primary button register" flex href="#/auth">عودة</a>
+</div>

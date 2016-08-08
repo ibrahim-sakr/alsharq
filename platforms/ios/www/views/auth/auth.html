@@ -1,0 +1,25 @@
+<div id="page" class="fullscreen auth">
+    <img class="logo" src="img/logo_landscape.png" alt="logo_landscape">
+    
+    <div layout="column" layout-align="center">
+        <a>سجل حسابك لدى شرق اﻷن و باشر متابعة أخبارك المفضلة حسب إختيارك</a>
+
+        <div class="auth-container">
+            <a class="md-raised md-primary button new" flex href="#/auth/register">تسجيل حساب جديد</a>
+            <a class="md-raised md-primary button login" flex href="#/auth/login">تسجيل الدخول</a>
+
+            <a>أو</a>
+
+            <button class="md-raised md-primary button googleplus" flex ng-click="googleplus()">
+                <img src="img/google_login.png" alt="google_login">
+            </button>
+
+            <button class="md-raised md-primary button facebook" flex ng-click="facebook()">
+                <img src="img/facebook_login.png" alt="facebook_login">
+            </button>
+
+            <a flex ng-click="guest()">الاستمرار بدون تسجيل</a>
+        </div>
+
+    </div>
+</div>

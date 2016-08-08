@@ -1,0 +1,14 @@
+<div id="page">
+    <div class="my-articles">
+        <div class="pref-article rtl" ng-repeat="article in articles">
+            <a ng-href="#/article/{{ article.item_id }}">
+                <img ng-if="article.thumbnail" ng-src="{{ article.thumbnail }}" alt="">
+                <h3>{{ article.title | html }}</h3>
+            </a>
+            <div layout="row">
+                <div class="remove" flex ng-click="remove(article.item_id, $index)">حذف</div>
+                <div class="readed" flex ng-if="type == 'later'" ng-click="readed(article.item_id, $index)">تمت القراءه</div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<div id="page">
+    <ion-content>
+        <div class="websites">
+            <md-list>
+                <md-list-item ng-repeat="website in websites" ng-click="next(website.id)">
+                    <img ng-src="{{ website.image.file }}" width="{{ website.image.width }}" height="{{ website.image.height }}" alt="{{ website.image.caption }}">
+                    <p>{{ website.name }}</p>
+                    <md-divider ng-if="!$last"></md-divider>
+                </md-list-item>
+
+            </md-list>
+        </div>
+
+        <ion-infinite-scroll ng-if="isMore" on-infinite="load()" distance="1%"></ion-infinite-scroll>
+    </ion-content>
+</div>

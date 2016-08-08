@@ -1,0 +1,21 @@
+<div class="article" id="article-{{ article.item_id }}" ng-class="{favorite: article.is_favorite, later: article.is_readlater}">
+    <div class="article_header clearfix" ng-click="hideContent()">
+        <img ng-if="article.website_image" ng-src="{{ article.website_image }}" alt="">
+        <h3>{{ article.title | html }}</h3>
+        <h5>{{ article.date_published | time }}</h5>
+    </div>
+    <div class="article_body">
+        <img ng-if="article.thumbnail" ng-click="hideContent()" ng-src="{{ article.thumbnail }}" alt="">
+        <div class="content" ng-show="showContent">
+            {{ article.summary }}
+            <div class="read_more">
+                <a href="#/article/{{ article.item_id }}">أقرأ المزيد</a>
+            </div>
+        </div>
+    </div>
+    <div class="article_footer clearfix">
+        <div ng-click="share()">شارك <i class="alsharq-share"></i></div>
+        <div class="later" ng-click="later()">القراءة لاحقا <i class="alsharq-schedule"></i></div>
+        <div class="favorite" ng-click="favorite()">المفضلة <i class="alsharq-favorite"></i></div>
+    </div>
+</div>
