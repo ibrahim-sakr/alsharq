@@ -93,10 +93,6 @@ alsharq.controller('RootController', [
             });
         };
 
-        $scope.exit = function(){
-            navigator.app.exitApp();
-        };
-
         $scope.loadSortcutSidebar = function(){
             if ( !$scope.$user() ) return;
             Subscription.filter().then(function(data){

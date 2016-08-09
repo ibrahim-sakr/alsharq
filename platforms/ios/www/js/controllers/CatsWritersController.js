@@ -14,13 +14,14 @@ alsharq.controller('CatsWritersController', [
         $scope.isMoreWriters = true;
 
         $scope.loadCats = function(){
+            console.log('start loading!!!');
             Feed.all({
                 website_id: $routeParams.id,
                 type: "category",
                 page: $scope.cCount,
             }).then(function success(data){
                 $scope.cats = $scope.cats.concat(data.data.results);
-                if (data.data.results.length < 10) $scope.isMoreCats = false;
+                // if (data.data.results.length < 10) $scope.isMoreCats = false;
                 $scope.cCount++;
             }, function fail(e){
                 $mdToast.show(
@@ -30,7 +31,7 @@ alsharq.controller('CatsWritersController', [
                 );
             });
         };
-        $scope.loadCats();
+        // $scope.loadCats();
 
         $scope.loadWriters = function(){
             Feed.all({
@@ -50,7 +51,7 @@ alsharq.controller('CatsWritersController', [
             });
         };
 
-        $scope.loadWriters();
+        // $scope.loadWriters();
 
         $scope.subscribe = function(id, type, $index){
             Feed.subscribe(id).then(function success(data){

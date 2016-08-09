@@ -5,7 +5,8 @@ alsharq.config([
     '$compileProvider',
     '$httpProvider',
     '$mdThemingProvider',
-    function($compileProvider, $httpProvider, $mdThemingProvider){
+    '$ionicConfigProvider',
+    function($compileProvider, $httpProvider, $mdThemingProvider, $ionicConfigProvider){
 
         // disable debug in angular to increase performance
         $compileProvider.debugInfoEnabled(false);
@@ -19,7 +20,7 @@ alsharq.config([
                     'request': function(config) {
                         var token = Storage.get("token");
                         config.headers = config.headers || {};
-                        if (token) config.headers.Authorization = "Token " + token;
+                        config.headers.Authorization = "token " + token;
                         return config;
                     },
                     'response': function(response){
@@ -49,6 +50,8 @@ alsharq.config([
 
         // Use that theme for the primary intentions
         $mdThemingProvider.theme('default').primaryPalette('alsharqTheme');
+
+        $ionicConfigProvider.tabs.position('top');
     }
 ]);
 

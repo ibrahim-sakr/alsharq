@@ -6,6 +6,7 @@ alsharq.controller('CommentsController', [
     'Storage',
     'article',
     function($scope, $mdDialog, Comment, Popup, Storage, article){
+        console.log($scope.$parent);
         $scope.article = article;
         $scope.commCount;
         $scope.commResults = [];
@@ -47,6 +48,8 @@ alsharq.controller('CommentsController', [
 
             Comment.add($scope.commNew).then(function(data){
                 var user = JSON.parse( Storage.get('user') );
+                $scope.$parent.commCount = $scope.$parent.commCount + 1;
+                console.log($scope.$parent.commCount);
                 $scope.commResults.unshift({
                     "comment": $scope.commNew.comment,
                     "user": {
