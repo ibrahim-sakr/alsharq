@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0207DA571B56EA530066E2B4 /* Images.xcassets */; };
 		02A80B9EE4124DCBA4095B4D /* AppFeelReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 056103A0BD8441CBB99AE380 /* AppFeelReachability.m */; };
@@ -45,6 +44,7 @@
 		F5C5E27E17E1454990BA1B77 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFA1D91505244C09E8F8627 /* CoreFoundation.framework */; };
 		F73CB44C3CA1411CBEA33D87 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6E10970A5A142ABB050B789 /* AdSupport.framework */; };
 		F955D713D6C440388A300CBA /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 4959332C5EC14E6E8C9DDD47 /* NSString+URLEncoding.m */; };
+		187BBAE57DD54620A562B99E /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = DA60FB03472D446F9D704F8B /* CDVStatusBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +135,8 @@
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "Al Sharq/config.xml"; sourceTree = "<group>"; };
 		FDA15B55BF004DCBA2943E9F /* APPLocalNotificationOptions.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = APPLocalNotificationOptions.h; path = "de.appplant.cordova.plugin.local-notification/APPLocalNotificationOptions.h"; sourceTree = "<group>"; };
 		FE90251907784CC2AC85FBC3 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = "NSString+URLEncoding.h"; path = "cordova-plugin-x-socialsharing/NSString+URLEncoding.h"; sourceTree = "<group>"; };
+		DA60FB03472D446F9D704F8B /* CDVStatusBar.m */ = {isa = PBXFileReference; name = "CDVStatusBar.m"; path = "cordova-plugin-statusbar/CDVStatusBar.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		105CE30B75904EB297F216FF /* CDVStatusBar.h */ = {isa = PBXFileReference; name = "CDVStatusBar.h"; path = "cordova-plugin-statusbar/CDVStatusBar.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,6 +304,8 @@
 				99BDE280FADD4B91B7FCCC7D /* APPAppEventDelegate.h */,
 				7034BA793590438BBB803FC9 /* CDVInAppBrowser.m */,
 				2B1A4AAEB96940EF8CAED70A /* CDVInAppBrowser.h */,
+				DA60FB03472D446F9D704F8B /* CDVStatusBar.m */,
+				105CE30B75904EB297F216FF /* CDVStatusBar.h */,
 			);
 			name = Plugins;
 			path = "Al Sharq/Plugins";
@@ -439,6 +443,7 @@
 				AD59B78986A6448B95B781E2 /* AppDelegate+APPAppEvent.m in Sources */,
 				F2228A92D3E042B3AD4645B2 /* CDVPlugin+APPAppEvent.m in Sources */,
 				20749712ADC84D5A8EFE62CC /* CDVInAppBrowser.m in Sources */,
+				187BBAE57DD54620A562B99E /* CDVStatusBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

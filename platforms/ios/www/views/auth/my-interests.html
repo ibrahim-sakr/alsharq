@@ -1,10 +1,10 @@
-<div id="page">
-    <div class="my-countries rtl">
+<div id="page" ng-cloak>
+    <div class="my-countries rtl" ng-cloak>
         <div class="my-alert">
             اهتماماتك تتيح لك ميزة التنبيهات عند اضافة مصادر اخبارية تندرج تحت هذه الاهتمامات.
         </div>
-        <md-list>
-            <md-list-item ng-repeat="interest in interests" ng-click="toggle($index, interest.id)">
+        <md-list ng-cloak>
+            <md-list-item ng-repeat="interest in interests" ng-click="toggle($index, interest.id)" ng-cloak>
                 <p> {{ interest.name }} </p>
                 <md-checkbox class="md-secondary" ng-model="interest.subscribed"></md-checkbox>
             </md-list-item>

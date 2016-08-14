@@ -22,7 +22,7 @@
         <md-progress-linear md-mode="indeterminate" ng-show="isLoading()"></md-progress-linear>
 
         <!-- header -->
-        <md-toolbar class="fixed" ng-class="{home: isHome}">
+        <md-toolbar class="fixed" ng-class="{home: isHome}" ng-cloak>
             <div class="md-toolbar-tools">
                 <md-button ng-if="isHome" class="md-icon-button" aria-label="Menu" ng-click="toggleLeft()">
                     <md-icon class="alsharq-menu color-gray"></md-icon>
@@ -34,7 +34,7 @@
                     <img src="img/launcher.png" alt="logo">
                 </div>
                 <h2>
-                    <span>{{ pageTitle }}</span>
+                    <span ng-cloak>{{ pageTitle }}</span>
                 </h2>
                 
                 <span flex></span>
@@ -45,12 +45,14 @@
             </div>
         </md-toolbar>
 
+        <div ng-view ng-if="isAuth"></div>
+
         <ion-side-menus ng-if="!isAuth">
-            <ion-side-menu side="left">
+            <ion-side-menu side="left" ng-cloak>
                 <div class="page">
                     <div class="info clearfix">
                         <div class="image">
-                            <img ng-src="{{ ($user().profile_pic) ? $user().profile_pic.file : 'img/user.png' }}" alt="avatar">
+                            <img ng-src="{{ ($user().profile_pic) ? $user().profile_pic.file : 'img/user.png' }}" alt="avatar" ng-cloak>
                         </div>
                         <div class="barss clearfix">
                             <div ng-click="logout()">تسجيل الخروج</div>
@@ -59,7 +61,7 @@
                         </div>
                     </div>
 
-                    <div class="ul">
+                    <div class="ul" ng-cloak>
                         <md-list-item class="list-title">
                             <p> تصفح </p>
                         </md-list-item>
@@ -107,25 +109,25 @@
                     <md-list-item class="list-title">
                         <p> الدول </p>
                     </md-list-item>
-                        <md-list-item class="countries" ng-repeat="country in shortcutSidebarContent.countries"  ng-click="goToCountry(country.name)">
-                            <p> {{ country.name }} </p>
-                            <i class="md-secondary">{{ country.count }}</i>
+                        <md-list-item class="countries" ng-repeat="country in shortcutSidebarContent.countries"  ng-click="goToCountry(country.name)" ng-cloak>
+                            <p ng-cloak> {{ country.name }} </p>
+                            <i class="md-secondary" ng-cloak>{{ country.count }}</i>
                         </md-list-item>
 
-                    <div ng-repeat="website in shortcutSidebarContent.websites"> <!-- this div just wrap for ng-repeat -->
+                    <div ng-repeat="website in shortcutSidebarContent.websites" ng-cloak> <!-- this div just wrap for ng-repeat -->
                         <md-list-item class="list-title">
-                            <p> {{ website.name }} </p>
+                            <p ng-cloak> {{ website.name }} </p>
                         </md-list-item>
                             <md-list-item ng-repeat="cat in website.categories">
-                                <p> {{ cat.name }} </p>
+                                <p ng-cloak> {{ cat.name }} </p>
                             </md-list-item>
                     </div>
 
                     <md-list-item class="list-title" ng-click="goToFeed()">
                         <p> الكلمات المفتاحية </p>
                     </md-list-item>
-                        <md-list-item class="keywords" ng-repeat="keyword in shortcutSidebarContent.keywords" class="secondary-button-padding">
-                            <p>{{ keyword.name }}</p>
+                        <md-list-item class="keywords" ng-repeat="keyword in shortcutSidebarContent.keywords" class="secondary-button-padding" ng-cloak>
+                            <p ng-cloak>{{ keyword.name }}</p>
                             <md-checkbox class="md-secondary" ng-model="keyword.feed"></md-checkbox>
                         </md-list-item>
 
@@ -140,8 +142,6 @@
                 <div ng-view></div>
             </ion-side-menu-content>
         </ion-side-menus>
-
-        <div ng-view ng-if="isAuth"></div>
     </div>
 
     <!-- Scripts -->

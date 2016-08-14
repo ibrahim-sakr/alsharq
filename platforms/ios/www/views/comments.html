@@ -1,4 +1,4 @@
-<md-dialog aria-label="comments"  ng-cloak>
+<md-dialog aria-label="comments" ng-cloak>
     <md-toolbar>
         <div class="md-toolbar-tools">
             <h2>التعليقات</h2>
@@ -10,9 +10,9 @@
     </md-toolbar>
 
     <md-dialog-content>
-        <div class="comment" ng-repeat="comment in commResults">
-            <img ng-if="comment.user.profile_pic" ng-src="{{ comment.user.profile_pic }}" alt="avatar">
-            <p>{{ comment.comment }}</p>
+        <div class="comment" ng-repeat="comment in commResults" ng-cloak>
+            <img ng-if="comment.user.profile_pic" ng-src="{{ comment.user.profile_pic }}" alt="avatar" ng-cloak>
+            <p ng-cloak>{{ comment.comment }}</p>
             <md-divider></md-divider>
         </div>
     

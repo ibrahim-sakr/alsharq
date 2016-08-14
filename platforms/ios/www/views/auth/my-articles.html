@@ -1,11 +1,11 @@
-<div id="page">
-    <div class="my-articles">
-        <div class="pref-article rtl" ng-repeat="article in articles">
+<div id="page" ng-cloak>
+    <div class="my-articles" ng-cloak>
+        <div class="pref-article rtl" ng-repeat="article in articles" ng-cloak>
             <a ng-href="#/article/{{ article.item_id }}">
-                <img ng-if="article.thumbnail" ng-src="{{ article.thumbnail }}" alt="">
-                <h3>{{ article.title | html }}</h3>
+                <img ng-if="article.thumbnail" ng-src="{{ article.thumbnail }}" alt="" ng-cloak>
+                <h3 ng-cloak>{{ article.title | html }}</h3>
             </a>
-            <div layout="row">
+            <div layout="row" ng-cloak>
                 <div class="remove" flex ng-click="remove(article.item_id, $index)">حذف</div>
                 <div class="readed" flex ng-if="type == 'later'" ng-click="readed(article.item_id, $index)">تمت القراءه</div>
             </div>

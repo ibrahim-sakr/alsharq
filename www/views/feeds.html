@@ -1,9 +1,9 @@
-<div id="page">
+<div id="page" ng-cloak>
     
     <ion-content>
         <ion-refresher on-refresh="refresh()"></ion-refresher>
 
-        <article-template ng-repeat="article in articles" article="article" ngclass="{favorite: article.is_favorite, later: article.is_readlater}"></article-template>
+        <article-template ng-repeat="article in articles" article="article" ngclass="{favorite: article.is_favorite, later: article.is_readlater}" ng-cloak></article-template>
 
         <ion-infinite-scroll ng-if="isMore" on-infinite="more()" distance="1%"></ion-infinite-scroll>
     </ion-content>

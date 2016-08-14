@@ -30,6 +30,9 @@
         },
         "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "io.cordova.hellocordova"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.sahifa_app.www"
         }
     },
     "dependent_plugins": {

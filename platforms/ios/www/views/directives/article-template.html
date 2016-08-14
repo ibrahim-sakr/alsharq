@@ -1,4 +1,4 @@
-<div class="article" id="article-{{ article.item_id }}" ng-class="{favorite: article.is_favorite, later: article.is_readlater}">
+<div class="article" id="article-{{ article.item_id }}" ng-class="{favorite: article.is_favorite, later: article.is_readlater}" ng-cloak>
     <div class="article_header clearfix" ng-click="hideContent()">
         <img ng-if="article.website_image" ng-src="{{ article.website_image }}" alt="">
         <h3>{{ article.title | html }}</h3>

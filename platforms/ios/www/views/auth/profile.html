@@ -1,10 +1,10 @@
-<div id="page" class="profile">
+<div id="page" class="profile" ng-cloak>
     <div class="my-alert">
         يمكنك تعديل معلومات حسابك من خلال هذه الشاشة
     </div>
 
     <div class="avatar">
-        <img ng-src="{{ ($user.profile_pic.file) ? $user.profile_pic.file : 'img/user.png' }}" alt="avatar">
+        <img ng-src="{{ ($user.profile_pic.file) ? $user.profile_pic.file : 'img/user.png' }}" alt="avatar" ng-cloak>
         <!-- <img ng-if="!$user.profile_pic" src="img/user.png" alt="avatar"> -->
     </div>
 

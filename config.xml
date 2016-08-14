@@ -26,6 +26,10 @@
         <allow-intent href="itms-apps:*" />
         <preference name="FadeSplashScreen" value="true" />
         <preference name="ShowSplashScreenSpinner" value="false" />
+
+        <preference name="StatusBarOverlaysWebView" value="false" />
+        <preference name="StatusBarBackgroundColor" value="#1fa4b7" />
+        <preference name="StatusBarStyle" value="lightcontent" />
     </platform>
     <preference name="AutoHideSplashScreen" value="true" />
     <preference name="SplashScreenDelay" value="10000" />
