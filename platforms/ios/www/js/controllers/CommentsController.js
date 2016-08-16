@@ -6,7 +6,6 @@ alsharq.controller('CommentsController', [
     'Storage',
     'article',
     function($scope, $mdDialog, Comment, Popup, Storage, article){
-        console.log($scope.$parent);
         $scope.article = article;
         $scope.commCount;
         $scope.commResults = [];

@@ -18,7 +18,7 @@
 <body app-ready="appReady()" ng-controller="RootController">
 
     <div id="appContainer">
-        <md-progress-linear md-mode="indeterminate" ng-show="isLoading()"></md-progress-linear>
+        <!-- <md-progress-linear md-mode="indeterminate" ng-show="isLoading()"></md-progress-linear> -->
         <md-toolbar class="fixed" ng-class="{home: isHome}" ng-cloak>
             <div class="md-toolbar-tools">
                 <md-button ng-if="isHome" class="md-icon-button" aria-label="Menu" ng-click="toggleLeft()">
