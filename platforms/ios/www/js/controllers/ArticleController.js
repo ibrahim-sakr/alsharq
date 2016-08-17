@@ -1,4 +1,5 @@
 alsharq.controller('ArticleController', [
+    '$rootScope',
     '$scope',
     '$routeParams',
     'Comment',
@@ -7,10 +8,10 @@ alsharq.controller('ArticleController', [
     '$mdDialog',
     '$mdToast',
     'Admob',
-    function($scope, $routeParams, Comment, Popup, Article, $mdDialog, $mdToast, Admob){
+    function($rootScope, $scope, $routeParams, Comment, Popup, Article, $mdDialog, $mdToast, Admob){
         Admob.show();
         $scope.article   = {};
-        $scope.commCount = 0;
+        $rootScope.commCount = 0;
         $scope.articleJS = angular.element(document.getElementById('article'));
 
         // increase count of readinf for article, no need th retrieve any thing.
@@ -23,7 +24,7 @@ alsharq.controller('ArticleController', [
         });
 
         Comment.count($routeParams.id).then(function(data){
-            $scope.commCount = Number(data.data.message);
+            $rootScope.commCount = Number(data.data.message);
         }, function(e){
             Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
         });

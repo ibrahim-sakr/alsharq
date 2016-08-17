@@ -52,24 +52,32 @@ alsharq.controller('RootController', [
         };
 
         $scope.logout = function(){
-            var logoutOptions = {
-                'model': 'Auth',
-                'method': 'logout',
-                'data': '',
-                'success': function(){
-                    // $scope.closeSidebar('mainSidebar');
-                    Storage.remove(['token', 'user']);
-                    // redirect to login page
-                    $location.path('/auth');
-                },
-                'error': function(e){
-                    // show error message
-                    Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
-                }
-            };
-            // start dequeuing
-            Queue.enqueue(logoutOptions);
+            navigator.notification.confirm(
+                "Are you sure you want to logout!!!",
+                function(index){
+                    if (index == 2) return;
 
+                    var logoutOptions = {
+                        'model': 'Auth',
+                        'method': 'logout',
+                        'data': '',
+                        'success': function(){
+                            // $scope.closeSidebar('mainSidebar');
+                            Storage.remove(['token', 'user']);
+                            // redirect to login page
+                            $location.path('/auth');
+                        },
+                        'error': function(e){
+                            // show error message
+                            Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
+                        }
+                    };
+                    // start dequeuing
+                    Queue.enqueue(logoutOptions);
+                },
+                "Logout",
+                ["Logout", "Cancel"]
+            )
         };
 
         $scope.addKeyword = function(){
@@ -79,7 +87,7 @@ alsharq.controller('RootController', [
                           .placeholder('الكلمة')
                           .ariaLabel('new keyword')
                           .ok('أضف')
-                          .cancel('الغلء');
+                          .cancel('الغالء');
 
             $mdDialog.show(confirm).then(function(result) {
                 Keyword.add(result).then(function(data){

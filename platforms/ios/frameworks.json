@@ -1,6 +1,6 @@
 {
     "AdSupport.framework": 2,
-    "AudioToolbox.framework": 2,
+    "AudioToolbox.framework": 3,
     "AVFoundation.framework": 2,
     "CoreFoundation.framework": 2,
     "CoreMedia.framework": 2,

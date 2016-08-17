@@ -8,6 +8,8 @@ alsharq.controller('OwnKeywordsController', [
         Admob.show();
         $scope.new;
 
+        console.log($scope);
+
         Keyword.all().then(function(data){
             $scope.$parent.keywords = data.data.results;
         }, function(e){

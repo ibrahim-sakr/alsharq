@@ -1,13 +1,14 @@
 alsharq.controller('CommentsController', [
+    '$rootScope',
     '$scope',
     '$mdDialog',
     'Comment',
     'Popup',
     'Storage',
     'article',
-    function($scope, $mdDialog, Comment, Popup, Storage, article){
+    function($rootScope, $scope, $mdDialog, Comment, Popup, Storage, article){
         $scope.article = article;
-        $scope.commCount;
+        $rootScope.commCount;
         $scope.commResults = [];
         $scope.commNew = {
             article_id: $scope.article.item_id,
@@ -33,7 +34,7 @@ alsharq.controller('CommentsController', [
 
         $scope.count = function(){
             Comment.count($scope.article.item_id).then(function(data){
-                $scope.commCount = data.message;
+                $rootScope.commCount = data.message;
             }, function(e){
                 Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
             });
