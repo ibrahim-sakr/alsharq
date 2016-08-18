@@ -2,7 +2,7 @@
 <widget id="com.sahifa-app.www" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Al Sharq</name>
     <description>
-        Al Sharq Application
+        Sharq Application
     </description>
     <author email="dev@cordova.apache.org" href="http://cordova.io">
         PremaitTech
