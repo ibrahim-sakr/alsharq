@@ -1,0 +1,27 @@
+<div id="page" ng-cloak>
+    <div ng-class="{favorite: article.is_favorite, later: article.is_readlater}" class="article_page" id="article" ng-cloak>
+        <div class="title">{{ article.title | html }}</div>
+        <img class="article_image" ng-src="{{ article.thumbnail }}" alt="" ng-cloak>
+        
+        <div class="barss clearfix">
+            <div class="share" ng-click="share()"><i class="alsharq-share"></i>شارك</div>
+            <div class="later" ng-click="later()"><i class="alsharq-schedule"></i>القراءة لاحقا</div>
+            <div class="favorite" ng-click="favorite()"><i class="alsharq-favorite"></i>المفضلة</div>
+        </div>
+        
+        <div class="barsss clearfix">
+            <div class="zoomout" ng-click="resize(-1)"><i class="alsharq-zoom_out"></i></div>
+            <div class="zoomin" ng-click="resize(1)"><i class="alsharq-zoom_in"></i></div>
+            <div class="comments" ng-click="showComments()" ng-cloak>التعليقات {{ commCount }}</div>
+        </div>
+        
+        <md-divider></md-divider>
+        
+        <div class="body" id="article-body">
+            <div class="time" ng-cloak>{{ article.date_published | time }}</div>
+            <div class="content" ng-cloak>
+                {{ article.body }}
+            </div>
+        </div>
+    </div>
+</div>

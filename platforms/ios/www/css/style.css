@@ -286,6 +286,7 @@ md-list-item button p {
     background: #dddddd;
     color: #000;
     padding: 10px;
+    text-align: center;
 }
 .my-plus {
     text-align: center;

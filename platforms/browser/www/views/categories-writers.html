@@ -1,0 +1,54 @@
+<div id="page">
+    <!-- <md-tabs md-dynamic-height md-border-bottom>
+        
+
+        <md-tab label="التصنيفات">
+            <ion-content>
+                <md-list>
+                    <md-list-item ng-repeat="cat in cats" ng-click="subscribe(cat.id, 'cats', $index)" ng-class="{subscribed: cat.is_subscribed}">
+                        <p> {{ cat.title }} </p>
+                    </md-list-item>
+                </md-list>
+
+                <ion-infinite-scroll ng-if="isMoreCats" on-infinite="loadCats()" distance="1%"></ion-infinite-scroll>
+            </ion-content>
+        </md-tab>
+        
+
+        <md-tab label="الكتاب">
+            <ion-content>
+                <md-list-item ng-repeat="writer in writers" ng-click="subscribe(writer.id, 'writers', $index)" ng-class="{subscribed: cat.is_subscribed}">
+                    <p> {{ writer.title }} </p>
+                </md-list-item>
+
+                <ion-infinite-scroll ng-if="isMoreWriters" on-infinite="loadWriters()" distance="1%"></ion-infinite-scroll>
+            </ion-content>
+        </md-tab>
+    </md-tabs> -->
+
+
+    <ion-tabs>
+
+        <ion-tab title="التصنيفات">
+            <ion-content>
+                <md-list>
+                    <md-list-item ng-repeat="cat in cats" ng-click="subscribe(cat.id, 'cats', $index)" ng-class="{subscribed: cat.is_subscribed}">
+                        <p> {{ cat.title }} </p>
+                    </md-list-item>
+                </md-list>
+
+                <ion-infinite-scroll ng-if="isMoreCats" on-infinite="loadCats()" distance="10%"></ion-infinite-scroll>
+            </ion-content>
+        </ion-tab>
+
+        <ion-tab title="الكتاب">
+            <ion-content>
+                <md-list-item ng-repeat="writer in writers" ng-click="subscribe(writer.id, 'writers', $index)" ng-class="{subscribed: cat.is_subscribed}">
+                    <p> {{ writer.title }} </p>
+                </md-list-item>
+
+                <ion-infinite-scroll ng-if="isMoreWriters" on-infinite="loadWriters()" distance="10%"></ion-infinite-scroll>
+            </ion-content>
+        </ion-tab>
+    </ion-tabs>
+</div>
