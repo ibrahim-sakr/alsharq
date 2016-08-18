@@ -1,0 +1,18 @@
+<div id="page" ng-cloak>
+    <div class="my-subsciptions" ng-cloak>
+        <ion-content>
+            <div class="my-alert">
+                تتيح لك خاصية الاشتراكات بإختيار المصادر التي تأتيك منها الأخبار.<br>يمكنك البدء بالإشتراك بالمصادر التي ترغب بها من خلال تصفح المواقع عن طريق الضغط على زر +
+            </div>
+            <a class="my-plus" href="#/websites">+</a>
+            <md-list flex ng-cloak>
+                <md-list-item ng-repeat="subscripe in subscriptions" ng-click="edit(subscripe, $index)" ng-cloak>
+                    <p>{{ subscripe.website.name }} - {{ subscripe.title }}</p>
+                </md-list-item>
+            </md-list>
+
+            <ion-infinite-scroll ng-if="isMore" on-infinite="load()" distance="1%"></ion-infinite-scroll>
+        </ion-content>
+
+    </div>
+</div>
