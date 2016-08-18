@@ -1,0 +1,24 @@
+<div id="page" class="profile" ng-cloak>
+    <div class="my-alert">
+        يمكنك إرسال أية ملاحظات أو إقتراحات من خلال تعبئة عنوان و محتوى الرسالة.
+    </div>
+    <div class="contentss">
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>البريد الإلكتروني</label>
+            <input ng-model="contact.email" type="email">
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>الإسم الكامل</label>
+            <input ng-model="contact.name">
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>عنوان الرسالة</label>
+            <input ng-model="contact.subject">
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>محتوى الراسلة</label>
+            <textarea ng-model="contact.message" md-maxlength="350" rows="5"></textarea>
+        </md-input-container>
+        <div class="update" ng-click="send()">إرسال</div>
+    </div>
+</div>

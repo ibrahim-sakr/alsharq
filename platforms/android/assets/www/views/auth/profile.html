@@ -1,0 +1,41 @@
+<div id="page" class="profile" ng-cloak>
+    <div class="my-alert">
+        يمكنك تعديل معلومات حسابك من خلال هذه الشاشة.
+    </div>
+
+    <div class="avatar">
+        <img ng-src="{{ ($user.profile_pic.file) ? $user.profile_pic.file : 'img/user.png' }}" alt="avatar" ng-cloak>
+        <!-- <img ng-if="!$user.profile_pic" src="img/user.png" alt="avatar"> -->
+    </div>
+
+    <div class="contentss">
+        <md-input-container class="md-block">
+            <label>الصورة الشخصية</label>
+            <!-- <input type="file" file-upload="profile_pic"> -->
+            <input type="file" onchange="angular.element(this).scope().profile_pic = this.files[0]">
+        </md-input-container>
+
+        <md-input-container class="md-block">
+            <label>البريد الالكتروني</label>
+            <input ng-model="$user.email">
+        </md-input-container>
+
+        <md-input-container class="md-block">
+            <label>الاسم بالكامل</label>
+            <input ng-model="$user.full_name">
+        </md-input-container>
+
+
+        <md-input-container class="md-block">
+            <label>كلمة المرور</label>
+            <input ng-model="$user.password" type="password">
+        </md-input-container>
+
+        <md-input-container class="md-block">
+            <label>تأكيد كلمة المرور</label>
+            <input ng-model="$user.password_confirmation" type="password">
+        </md-input-container>
+
+        <div ng-click="saveProfile()" class="update">أرسال</div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<div id="page" ng-cloak>
+    <ion-content>
+        <ion-refresher on-refresh="refresh()"></ion-refresher>
+        
+        <div class="empty" ng-if="empty" ng-cloak>
+            <p>.لا تظهر المقالات حاليا لأنك لم تقم بالاشتراك بأي من مواقعك المفضلة. يمكنك البدء باختيار المواقع المفضلة التى تود الاشتراك بتحديثاتها الان</p>
+            <a href="#/websites" class="subscribe-now">إشترك الان</a>
+        </div>
+        <div ng-if="!empty" ng-cloak>
+            <article-template ng-repeat="article in articles" article="article" ng-cloak></article-template>
+        </div>
+
+        <ion-infinite-scroll ng-if="isMore" on-infinite="more()" distance="1%"></ion-infinite-scroll>
+    </ion-content>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

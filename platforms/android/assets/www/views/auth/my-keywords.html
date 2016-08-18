@@ -1,0 +1,17 @@
+<div id="page" ng-cloak>
+    <div class="my-keywords rtl" ng-cloak>
+        <div class="my-alert">
+            تمكنك هذه الخاصية من متابعة جميع المقالات الاخبارية التي تقوم بذكر كلمات مفتاحية معينة عن طريق ارسال تنبيهات بعد نشر هذه المقالات.
+        </div>
+        <div class="my-plus" ng-click="$parent.addKeyword()">+</div>
+        
+        <md-list flex ng-cloak>
+            
+            <md-list-item ng-repeat="keyword in keywords" class="secondary-button-padding" ng-cloak>
+                <p>{{ keyword.content }}</p>
+                <md-button class="md-raised md-warn" ng-click="remove(keyword.content, $index)">حذف</md-button>
+            </md-list-item>
+
+        </md-list>
+    </div>
+</div>

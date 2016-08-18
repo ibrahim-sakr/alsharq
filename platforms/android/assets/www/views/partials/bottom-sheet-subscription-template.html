@@ -1,0 +1,19 @@
+<md-bottom-sheet class="md-list md-has-header rtl" ng-cloak>
+    <md-subheader><b>هل تود ان تقوم ب</b></md-subheader>
+
+    <md-list ng-cloak>
+        <md-list-item ng-click="remove()">
+            <span class="md-inline-list-icon-label">الغاء الاشتراك</span>
+        </md-list-item>
+
+        <md-list-item ng-click="open()">
+            <span class="md-inline-list-icon-label">مشاهده المقالات</span>
+        </md-list-item>
+
+        <md-list-item ng-click="notificaton()">
+            <span class="md-inline-list-icon-label" ng-if="object.is_subscribed">الغاء التنبيهات</span>
+            <span class="md-inline-list-icon-label" ng-if="!object.is_subscribed">تفعيل التنبيهات</span>
+        </md-list-item>
+
+    </md-list>
+</md-bottom-sheet>
