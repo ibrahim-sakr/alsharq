@@ -3,12 +3,11 @@ alsharq.controller('ProfileController', [
     'Storage',
     'Queue',
     'Popup',
-    '$mdToast',
     'API',
     '$location',
     'Admob',
     '$http',
-    function($scope, Storage, Queue, Popup, $mdToast, API, $location, Admob, $http){
+    function($scope, Storage, Queue, Popup, API, $location, Admob, $http){
         // Admob.show();
 
         $scope.$user = $scope.$parent.$user();
@@ -40,6 +39,7 @@ alsharq.controller('ProfileController', [
                 $scope.$user = data.data;
                 Storage.set('user', JSON.stringify($scope.$user));
                 $location.path('/home');
+                Popup.showError('تم تحديث الملف الشخصي');
             }, function(e){
                 console.log(e);
             });

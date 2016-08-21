@@ -6,7 +6,8 @@ alsharq.controller('LoginController', [
     'Storage',
     'Popup',
     'Admob',
-    function($scope, $location, $mdToast, Queue, Storage, Popup, Admob){
+    'Rate',
+    function($scope, $location, $mdToast, Queue, Storage, Popup, Admob, Rate){
         Admob.hide();
 
         $scope.user = {};
@@ -33,6 +34,8 @@ alsharq.controller('LoginController', [
                     });
                     $location.path('/home');
                     $scope.$parent.$user();
+
+                    Rate.show();
                 },
                 'error': function(e){
                     Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');

@@ -53,9 +53,9 @@ alsharq.controller('RootController', [
 
         $scope.logout = function(){
             navigator.notification.confirm(
-                "Are you sure you want to logout!!!",
+                "هل تود الخروج من البرنامج!!!",
                 function(index){
-                    if (index == 2) return;
+                    if (index == 1) return;
 
                     var logoutOptions = {
                         'model': 'Auth',
@@ -75,8 +75,8 @@ alsharq.controller('RootController', [
                     // start dequeuing
                     Queue.enqueue(logoutOptions);
                 },
-                "Logout",
-                ["Logout", "Cancel"]
+                "خروج",
+                ["الغاء", "نعم"]
             )
         };
 
@@ -87,7 +87,7 @@ alsharq.controller('RootController', [
                           .placeholder('الكلمة')
                           .ariaLabel('new keyword')
                           .ok('أضف')
-                          .cancel('الغالء');
+                          .cancel('الغاء');
 
             $mdDialog.show(confirm).then(function(result) {
                 Keyword.add(result).then(function(data){

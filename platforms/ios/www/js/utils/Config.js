@@ -32,7 +32,17 @@ alsharq.config([
                     },
                     'responseError': function (rejection) {
                         if (rejection.status === 401 || rejection.status === 403) {
-                            // Do some kind of redirect to login page here...
+                            Storage.remove(['token', 'user']);
+                            $location.path('/auth');
+
+                            navigator.notification.alert(
+                                "حدث حطأ من فضلك سجل دخولك مرة اخري!!!",
+                                function(index){
+                                    console.log('loged out');
+                                },
+                                "خطأ!!",
+                                ["اغلاق"]
+                            )
                         }
                         return $q.reject(rejection);
                     }

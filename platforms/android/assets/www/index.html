@@ -18,8 +18,9 @@
 <body app-ready="appReady()" ng-controller="RootController">
 
     <div id="appContainer">
-        <!-- <md-progress-linear md-mode="indeterminate" ng-show="isLoading()"></md-progress-linear> -->
+        <md-progress-linear md-mode="indeterminate" ng-show="isLoading()"></md-progress-linear>
         <md-toolbar class="fixed" ng-class="{home: isHome}" ng-cloak>
+            <div class="status-bar"></div>
             <div class="md-toolbar-tools">
                 <md-button ng-if="isHome" class="md-icon-button" aria-label="Menu" ng-click="toggleLeft()">
                     <md-icon class="alsharq-menu color-gray"></md-icon>
@@ -210,6 +211,7 @@
     <script src="js/services/AdmobService.js"></script>
     <script src="js/services/PopupService.js"></script>
     <script src="js/services/QueueService.js"></script>
+    <script src="js/services/RateingService.js"></script>
     <script src="js/services/StorageService.js"></script>
     <script src="js/services/TimeService.js"></script>
 

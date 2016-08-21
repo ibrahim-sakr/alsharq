@@ -35,6 +35,9 @@
         },
         "de.appplant.cordova.plugin.local-notification": {
             "PACKAGE_NAME": "io.cordova.hellocordova"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.sahifa-app.www"
         }
     },
     "dependent_plugins": {},
@@ -116,6 +119,22 @@
                 "cordova.plugins.notification.local.core",
                 "plugin.notification.local.core"
             ]
+        },
+        {
+            "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
+            "id": "cordova-plugin-statusbar.statusbar",
+            "pluginId": "cordova-plugin-statusbar",
+            "clobbers": [
+                "window.StatusBar"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-statusbar/src/browser/statusbar.js",
+            "id": "cordova-plugin-statusbar.statusbar.Browser",
+            "pluginId": "cordova-plugin-statusbar",
+            "merges": [
+                "window.StatusBar"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -124,6 +143,7 @@
         "cordova-plugin-network-information": "1.2.1",
         "cordova-plugin-splashscreen": "3.2.2",
         "cordova-plugin-whitelist": "1.2.2",
-        "de.appplant.cordova.plugin.local-notification": "0.8.4"
+        "de.appplant.cordova.plugin.local-notification": "0.8.4",
+        "cordova-plugin-statusbar": "2.1.3"
     }
 }

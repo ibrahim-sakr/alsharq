@@ -1,2 +1,2 @@
 #!/bin/bash
-cordova-splash
+# cordova-splash

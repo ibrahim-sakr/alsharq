@@ -8,7 +8,8 @@ alsharq.controller('AuthController', [
     '$http',
     'Auth',
     'Admob',
-    function($scope, $cordovaOauth, Storage, $location, Popup, Queue, $http, Auth, Admob){
+    'Rate',
+    function($scope, $cordovaOauth, Storage, $location, Popup, Queue, $http, Auth, Admob, Rate){
         Admob.hide();
         $scope.googleplus = function(){
             var CLIENT_ID = "182420195836-uuf0dl3ph4ebi42spnupqgh4nk81c3mi.apps.googleusercontent.com";
@@ -31,6 +32,7 @@ alsharq.controller('AuthController', [
                             'user': JSON.stringify(data.data.user)
                         });
                         $location.path('/home');
+                        Rate.show();
                     }, function(e){
                         Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
                     });
@@ -62,6 +64,7 @@ alsharq.controller('AuthController', [
                             'user': JSON.stringify(data.data.user)
                         });
                         $location.path('/home');
+                        Rate.show();
                     }, function(e){
                         Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
                     });
@@ -87,6 +90,7 @@ alsharq.controller('AuthController', [
                         'user': JSON.stringify(data.user)
                     });
                     $location.path('/home');
+                    Rate.show();
                 },
                 'error': function(e){
                     Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');

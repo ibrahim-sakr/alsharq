@@ -1,11 +1,11 @@
 alsharq.service('Popup', [
     '$mdToast', 
     function($mdToast){
-        this.showError = function(m){
+        this.showError = function(m, t){
             $mdToast.show(
                 $mdToast.simple()
                 .textContent(m)
-                .hideDelay(3000)
+                .hideDelay(t || 3000)
             );
         };
     }

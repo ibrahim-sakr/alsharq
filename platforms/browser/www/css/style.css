@@ -11,7 +11,14 @@ body {
     padding:0px;
     width:100%;
 }
+/*
+header {
+    border-bottom: 2px solid #40acd5;
+    color: #40acd5;
+}
 
+
+*/
 #appContainer {
     background: #24bed4;
 }
@@ -20,6 +27,19 @@ body {
 }
 .pane.tab-content.scroll-content.ionic-scroll.has-tabs-top {
     padding-top: 49px !important;
+}
+.status-bar {
+    background: #0f90a2;
+    height: 20px;
+}
+md-toast, md-dialog md-dialog-content {
+    direction: rtl;
+}
+md-dialog h2 {
+    border-bottom: 2px solid #40acd5;
+    color: #40acd5;
+    padding: 0 24px 24px 24px;
+    margin: -24px -24px 15px -24px;
 }
 
 md-icon {
@@ -41,8 +61,7 @@ md-toolbar.home h2 {
 }
 #page, .page {
     position: absolute;
-    /*top: 76px;*/
-    top: 56px;
+    top: 76px;
     right: 0;
     bottom: 0;
     left: 0;
@@ -490,7 +509,7 @@ md-input-container label {
 }
 
 md-progress-linear {
-    /*top: 20px;*/
+    top: 75px;
     position: absolute !important;
     z-index: 99;
 }

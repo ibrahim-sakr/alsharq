@@ -12,7 +12,10 @@
         <md-input-container class="md-block">
             <label>الصورة الشخصية</label>
             <!-- <input type="file" file-upload="profile_pic"> -->
-            <input type="file" onchange="angular.element(this).scope().profile_pic = this.files[0]">
+            <input
+                type="file"
+                onchange="angular.element(this).scope().profile_pic = this.files[0]"
+                style="direction:ltr;">
         </md-input-container>
 
         <md-input-container class="md-block">
