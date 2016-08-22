@@ -116,7 +116,7 @@
                         <md-list-item class="list-title">
                             <p ng-cloak> {{ website.name }} </p>
                         </md-list-item>
-                            <md-list-item ng-repeat="cat in website.categories">
+                            <md-list-item ng-repeat="cat in website.categories" ng-click="goToCat(cat.name)">
                                 <p ng-cloak> {{ cat.name }} </p>
                             </md-list-item>
                     </div>

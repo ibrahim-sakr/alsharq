@@ -3,8 +3,8 @@ alsharq.service("Admob", [
     function(admobSvc){
         this.show = function(){
             var options = {
-                publisherId:          "pub-5044923081076791",
-                interstitialAdId:     "ca-app-pub-5044923081076791/1925090666",
+                publisherId:          "pub-7692991725635166",
+                interstitialAdId:     "ca-app-pub-7692991725635166~3801390136",
                 autoShowBanner:       true,
                 autoShowInterstitial: true,
                 bannerAtTop:          false,

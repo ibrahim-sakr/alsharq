@@ -127,5 +127,10 @@ alsharq.controller('RootController', [
             $location.url('/feeds' + params);
             $scope.toggleRight();
         };
+
+        $scope.goToCat = function(name){
+            $scope.toggleRight();
+            $location.url('/feeds?category=' + name);
+        };
     }
 ]);

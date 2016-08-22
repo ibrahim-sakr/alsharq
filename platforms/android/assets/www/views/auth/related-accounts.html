@@ -1,3 +1,12 @@
 <div id="page" ng-cloak>
-    <h1>related accounts</h1>
+    <div class="my-keywords rtl" ng-cloak>
+        <md-list-item ng-if="google" class="secondary-button-padding">
+            <p>Google+</p>
+            <md-button class="md-secondary" ng-click="remove('google')">حذف</md-button>
+        </md-list-item>
+        <md-list-item ng-if="facebook" class="secondary-button-padding">
+            <p>Facebook</p>
+            <md-button class="md-secondary" ng-click="remove('facebook')">حذف</md-button>
+        </md-list-item>
+    </div>
 </div>

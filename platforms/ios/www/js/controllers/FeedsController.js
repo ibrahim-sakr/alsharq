@@ -85,12 +85,6 @@ alsharq.controller('FeedsController', [
             });
         }
 
-        // if ( $routeParams.websites ) {
-        //     // load websites
-        // }
-
-        // $scope.more = function(){};
-        // $scope.refresh = function(){};
     }
 ]);
 

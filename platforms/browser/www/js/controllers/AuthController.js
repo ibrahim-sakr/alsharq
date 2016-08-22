@@ -12,7 +12,7 @@ alsharq.controller('AuthController', [
     function($scope, $cordovaOauth, Storage, $location, Popup, Queue, $http, Auth, Admob, Rate){
         Admob.hide();
         $scope.googleplus = function(){
-            var CLIENT_ID = "182420195836-uuf0dl3ph4ebi42spnupqgh4nk81c3mi.apps.googleusercontent.com";
+            var CLIENT_ID = "202853284020-kd6n6cn346gmta62os517196i6osj05p.apps.googleusercontent.com";
             $cordovaOauth.google(CLIENT_ID, ["email"], {
                 redirect_uri:  "http://localhost/callback"
             }).then(function(result) {
@@ -45,7 +45,7 @@ alsharq.controller('AuthController', [
         };
 
         $scope.facebook = function(){
-            $cordovaOauth.facebook("316004812072491", ["email"], {redirect_uri: "http://localhost/callback"}).then(function(result){
+            $cordovaOauth.facebook("168649593567565", ["email"], {redirect_uri: "http://localhost/callback"}).then(function(result){
                 $http.get("https://graph.facebook.com/v2.2/me", {
                     params: {
                         access_token: result.access_token,
@@ -54,8 +54,8 @@ alsharq.controller('AuthController', [
                     }
                 }).then(function(data) {
                     var options = {
-                        email        : data.data.email,
-                        google_token : result.access_token,
+                        email          : data.data.email,
+                        facebook_token : result.access_token,
                     };
                     Auth.social(options).then(function(data){
                         data.data.user.full_name = data.data.user.first_name + " " + data.data.user.last_name;
