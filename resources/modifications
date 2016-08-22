@@ -1,0 +1,85 @@
+2- notfication. -> conversation with Feras
+4- home page - make loader down instead of read more button. -> done but just make sure that /newsfeed hase a pagination.
+6- Right side menu. -> API
+
+7- swipe left and right
+
+ 
+- done - When subscribing to/unsubscribing from a website category there is no confirmation prompt displayed.
+- done - To have a confirmation prompt message when exiting/closing the application
+- done - Comments counter displays incorrect number when adding a new comment
+- Serialize fields notify and is subscribed are not returning correct values
+- Add filter to websites, by country -> API
+
+2) Google GCM API (Notifications):
+URL: console.developers.google.com
+You need to enable  Google Cloud Messaging. Once this is done, go to credentials tab and provide me with the API Key for the server.
+
+3) Youtube, I also need a key for Android an API key to be able to play youtube videos.
+
+
+=============================
+
+4- done - Some websites are missing on "Website" filtration list under feeds page.
+6- email not veritied error - Users are not able to Reset their password on forgot my password page.
+7- done - Articles' images do not display on news feed page.
+8- done - No confirmation prompt message on signout.
+9- done - Unable to login using facebook.
+10- {"error": "Could not send email"} - Users are not able to send the Contact us form .
+11- No message displays to inform users that there is no connected accounts under "My Connected accounts" page.
+12- done - Images do not display under all App pages.
+13- done - Users are not abel to uncheck last 5 intrests under all pages that have check boxes.
+15- done - My Profile image displays empty after uploading it.
+16- done - Page keeps loading upon deleteing Keywords under Keyword tab.
+17- Newly added subscriptions do not display upon subscribing to new subscriptions and navigating back to  My subscriptions page. .
+18- Key words do not display highlighted whithin the article.
+19- done - Articles' images do not display on news feed page.
+20- done - "Item Not found" page displays upon click on "yes" from the Rate APP popup.
+21- FaceBook account does not display under "My connected Accounts" page upon login using facebook account.
+22- Upon unsubscribing news under my subscribtions page ,the unsubscribed news still appear.however, unsubscribed news disappears upon navigating back to main list then open Subscribtions page again.
+
+=================================
+
+1- Profile page:
+    - done - style upload btn.
+    - done - style pawword, confirm input.
+
+2-  rigth menu not working.
+3-  done - text in alert must be from right to left.
+4-  done - Related account page: delete text "Related account" and ,ake style and functialty page.
+5-  done - icon app not apper, just hsow phonegap icon, and spalsh screen the same.
+6-  when not subscribe any website loading top page still show.
+7-  done - logout alert must be show arabic.
+8-  done - header app must be space between ios bar(date, battery, ...).
+9-  done - show screenshot "ساعدنا بتقيم الموقع".
+10- done - when add "كلماتي المفتاحية" pop, please make same design in screenshot.
+11- done - when delete all subscription error occurd in app (can not make any action must show error message alert and can nojt make logout app).
+12- done - name app must be "شرق" dont "alsraq".
+
+done - general@sharq.mobi make FB, G+ .
+Google GCM API (Notifications).
+right sidebar make sure it's working.
+
+--------------------
+facebook
+
+url: facebook.com
+username: sharq.app@gmail.com
+password: SharqApp
+--------------------
+
+--------------------
+Gmail
+
+url: gmail.com
+username: sharq.app
+password: AlSharqApp
+--------------------
+
+--------------------
+AdMob
+
+url: apps.admob.com
+username: sharq.app@gmail.com
+passwrod: AlSharqApp
+--------------------
