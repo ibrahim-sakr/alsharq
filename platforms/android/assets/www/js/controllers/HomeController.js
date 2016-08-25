@@ -21,7 +21,6 @@ alsharq.controller('HomeController', [
             var done = 0;
             function getArticles(filters){
                 if (done == 2) {
-                    console.log(filters);
                     Article.newsFeed({
                         filters: filters
                     }).then(function(articles){

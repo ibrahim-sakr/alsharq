@@ -7,7 +7,7 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
     <meta name="format-detection" content="telephone=no">
 
-    <title>Al Sharq</title>
+    <title>الشرق</title>
 
     <link rel="stylesheet" type="text/css" href="css/ionic.min.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -116,7 +116,7 @@
                         <md-list-item class="list-title">
                             <p ng-cloak> {{ website.name }} </p>
                         </md-list-item>
-                            <md-list-item ng-repeat="cat in website.categories" ng-click="goToCat(cat.name)">
+                            <md-list-item ng-repeat="cat in website.categories" ng-click="goToCat(cat.id)">
                                 <p ng-cloak> {{ cat.name }} </p>
                             </md-list-item>
                     </div>

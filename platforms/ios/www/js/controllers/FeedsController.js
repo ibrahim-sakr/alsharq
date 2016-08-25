@@ -8,9 +8,11 @@ alsharq.controller('FeedsController', [
     function($scope, $routeParams, Article, $mdToast, $location, Admob){
         Admob.show();
 
+        console.log($routeParams);
+
         $scope.articles = [];
         $scope.isMore   = true;
-        console.log($routeParams);
+
         if ( $routeParams.country ) {
             Article.newsFeed({
                 filters: [
@@ -23,6 +25,7 @@ alsharq.controller('FeedsController', [
                 $scope.articles = data.data.results;
                 if (data.data.results.length < 10) $scope.isMore = false;
             }, function(e){
+                console.log(e);
                 $location.path('/home');
                 $mdToast.show(
                     $mdToast.simple()
@@ -45,13 +48,14 @@ alsharq.controller('FeedsController', [
                 filter = [
                     {
                         type: "keyword",
-                        content: $routeParams.keywords
+                        name: $routeParams.keywords
                     }
                 ];
             }
             Article.newsFeed({
                 filters: filter
             }).then(function(data){
+                console.log(data);
                 $scope.articles = data.data.results;
                 if (data.data.results.length < 10) $scope.isMore = false;
             }, function(e){
@@ -62,6 +66,13 @@ alsharq.controller('FeedsController', [
                     .hideDelay(3000)
                 );
             });
+        } else {
+            $location.path('/home');
+                $mdToast.show(
+                    $mdToast.simple()
+                    .textContent('من فضلك اختر كلمة دلالية او اكثر.')
+                    .hideDelay(3000)
+                );
         }
 
         if ( $routeParams.category ) {
@@ -76,6 +87,7 @@ alsharq.controller('FeedsController', [
                 $scope.articles = data.data.results;
                 if (data.data.results.length < 10) $scope.isMore = false;
             }, function(e){
+                console.log(e);
                 $location.path('/home');
                 $mdToast.show(
                     $mdToast.simple()

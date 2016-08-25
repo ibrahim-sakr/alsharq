@@ -105,6 +105,7 @@ alsharq.controller('RootController', [
             if ( !$scope.$user() ) return;
             Subscription.filter().then(function(data){
                 $scope.shortcutSidebarContent = data.data;
+                console.log($scope.shortcutSidebarContent);
             }, function(e){
                 Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
             });
@@ -117,15 +118,17 @@ alsharq.controller('RootController', [
         };
 
         $scope.goToFeed = function(){
-            var params = "?";
-            for (var i = 0; i < $scope.shortcutSidebarContent.keywords.length; i++) {
-                if ( $scope.shortcutSidebarContent.keywords[i].feed ) {
-                    params += "keywords=" + $scope.shortcutSidebarContent.keywords[i].name + "&";
+            if ($scope.shortcutSidebarContent.keywords.length) {
+                var params = "?";
+                for (var i = 0; i < $scope.shortcutSidebarContent.keywords.length; i++) {
+                    if ( $scope.shortcutSidebarContent.keywords[i].feed ) {
+                        params += "keywords=" + $scope.shortcutSidebarContent.keywords[i].name + "&";
+                    }
                 }
+                params = params.slice(0, -1);
+                $location.url('/feeds' + params);
+                $scope.toggleRight();
             }
-            params = params.slice(0, -1);
-            $location.url('/feeds' + params);
-            $scope.toggleRight();
         };
 
         $scope.goToCat = function(name){
