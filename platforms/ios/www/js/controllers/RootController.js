@@ -105,7 +105,6 @@ alsharq.controller('RootController', [
             if ( !$scope.$user() ) return;
             Subscription.filter().then(function(data){
                 $scope.shortcutSidebarContent = data.data;
-                console.log($scope.shortcutSidebarContent);
             }, function(e){
                 Popup.showError('حدث خطأ اثناء التحميل, حاول مرة أخرى.');
             });
