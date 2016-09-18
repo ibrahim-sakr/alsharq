@@ -41,7 +41,7 @@ alsharq.config([
                                     console.log('loged out');
                                 },
                                 "خطأ!!",
-                                ["اغلاق"]
+                                "اغلاق"
                             )
                         }
                         return $q.reject(rejection);

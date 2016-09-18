@@ -14,7 +14,7 @@ alsharq.controller('ResetPasswordController', [
                 'success': function(data){
                     $mdToast.show(
                         $mdToast.simple()
-                        .textContent('تم اعاده كلكة المرور.')
+                        .textContent('تم اعاده كلمة المرور.')
                         .hideDelay(3000)
                     );
                 },

@@ -66,13 +66,6 @@ alsharq.controller('FeedsController', [
                     .hideDelay(3000)
                 );
             });
-        } else {
-            $location.path('/home');
-                $mdToast.show(
-                    $mdToast.simple()
-                    .textContent('من فضلك اختر كلمة دلالية او اكثر.')
-                    .hideDelay(3000)
-                );
         }
 
         if ( $routeParams.category ) {

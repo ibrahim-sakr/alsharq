@@ -8,45 +8,45 @@
     },
     "installed_plugins": {
         "cordova-admob": {
-            "PACKAGE_NAME": "io.cordova.hellocordova"
+            "PACKAGE_NAME": "com.sahifaapp.www"
         },
         "cordova-plugin-device": {
-            "PACKAGE_NAME": "io.cordova.hellocordova"
-        },
-        "cordova-plugin-network-information": {
-            "PACKAGE_NAME": "io.cordova.hellocordova"
-        },
-        "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "io.cordova.hellocordova"
-        },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "io.cordova.hellocordova"
-        },
-        "cordova-plugin-x-socialsharing": {
-            "PACKAGE_NAME": "io.cordova.hellocordova"
-        },
-        "de.appplant.cordova.plugin.local-notification": {
-            "PACKAGE_NAME": "io.cordova.hellocordova"
-        },
-        "cordova-plugin-inappbrowser": {
-            "PACKAGE_NAME": "io.cordova.hellocordova"
+            "PACKAGE_NAME": "com.sahifaapp.www"
         },
         "cordova-plugin-dialogs": {
-            "PACKAGE_NAME": "com.sahifa_app.www"
+            "PACKAGE_NAME": "com.sahifaapp.www"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.sahifaapp.www"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.sahifaapp.www"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.sahifaapp.www"
         },
         "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.sahifa_app.www"
+            "PACKAGE_NAME": "com.sahifaapp.www"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.sahifaapp.www"
+        },
+        "cordova-plugin-x-socialsharing": {
+            "PACKAGE_NAME": "com.sahifaapp.www"
+        },
+        "de.appplant.cordova.plugin.local-notification": {
+            "PACKAGE_NAME": "com.sahifaapp.www"
         }
     },
     "dependent_plugins": {
         "cordova-connectivity-monitor": {
-            "PACKAGE_NAME": "io.cordova.hellocordova"
+            "PACKAGE_NAME": "com.sahifaapp.www"
         },
         "cordova-libgoogleadmobads": {
-            "PACKAGE_NAME": "io.cordova.hellocordova"
+            "PACKAGE_NAME": "com.sahifaapp.www"
         },
         "cordova-plugin-app-event": {
-            "PACKAGE_NAME": "io.cordova.hellocordova"
+            "PACKAGE_NAME": "com.sahifaapp.www"
         }
     }
 }

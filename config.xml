@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.sahifa-app.www" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.sahifaapp.www" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>شرق</name>
     <description>
         Sharq Application
@@ -27,13 +27,10 @@
         <preference name="FadeSplashScreen" value="true" />
         <preference name="ShowSplashScreenSpinner" value="false" />
     </platform>
-
     <preference name="StatusBarStyle" value="lightcontent" />
     <preference name="StatusBarBackgroundColor" value="#0f90a2" />
-
     <preference name="AutoHideSplashScreen" value="true" />
     <preference name="SplashScreenDelay" value="10000" />
-
     <plugin name="cordova-plugin-splashscreen" spec="~3.2.2" />
     <plugin name="cordova-plugin-network-information" spec="~1.2.1" />
     <plugin name="de.appplant.cordova.plugin.local-notification" spec="~0.8.4" />

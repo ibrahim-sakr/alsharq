@@ -99,7 +99,7 @@
             "PACKAGE_NAME": "com.sahifa-app.www"
         },
         "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.sahifa-app.www"
+            "PACKAGE_NAME": "com.sahifaapp.www"
         }
     },
     "dependent_plugins": {},

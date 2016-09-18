@@ -164,9 +164,9 @@ android {
     }
 
     defaultConfig {
-        multiDexEnabled true
         versionCode cdvVersionCode ?: Integer.parseInt("" + privateHelpers.extractIntFromManifest("versionCode"))
         applicationId privateHelpers.extractStringFromManifest("package")
+        multiDexEnabled true
 
         if (cdvMinSdkVersion != null) {
             minSdkVersion cdvMinSdkVersion
